@@ -4,7 +4,31 @@
   "scripts": {
     "start": "meteor run"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SuperSchek/PubQuiz.git"
+  },
   "dependencies": {
-    "meteor-node-stubs": "~0.2.0"
-  }
+    "meteor-node-stubs": "~0.2.0",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
+  },
+  "contributors": [
+    {
+      "name": "Sander Schekman",
+      "email": "aaschekman@icloud.com"
+    },
+    {
+      "name": "Jacco Schumacher",
+      "email": "jaccoschumacher@gmail.com"
+    },
+    {
+      "name": "Nico Ender",
+      "email": "nicoender@gmail.com"
+    },
+    {
+      "name": "Jorre Spijker",
+      "email": "jorre.spijker@gmail.com"
+    }
+  ]
 }
