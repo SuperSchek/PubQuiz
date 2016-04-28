@@ -1,0 +1,229 @@
+/*******  FONT SETUP  *******/
+@font-face {font-family: AmericanTypewriter;src: url("fonts/AmericanTypewriter.ttf") format("truetype");}
+@font-face {font-family: AmericanTypewriter-Bold;src: url("fonts/AmericanTypewriter-Bold.ttf") format("truetype");}
+html {width:100%;height: 100%;overflow: hidden;}
+body{background:#F6325A;margin:0;font-family: AmericanTypewriter-Bold, Arial, sans-serif;max-height: 100%;max-width: 100%;height:100%;width:100%;}
+.test{height: 100%;}
+a {text-decoration: none;}
+
+
+/*******  MOBILE CSS  *******/
+#mobile-cont{width:100%;height:100%;}
+/*  login  */
+#login-form {
+    text-align: center;
+}
+
+/*  timer  */
+#time-mob-cont{width:100%;height:5%;background:rgba(0,0,0,0.1);position:relative;text-align: left;}
+
+/*  question  */
+#question-nr-mob-cont{width:100%;height:10%;position:relative;text-align: left;font-size: 20px;float:left; color:#313131;}
+#question-nr-mob{max-width:100%;height:auto;padding: 5%;position: relative;top: 50%;transform: translateY(-50%);}
+
+/*  answers  */
+.btn-style{-webkit-appearance:none;line-height:27px;width:100%;height:20%;max-width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: #F6325A;border: 2pt solid #fff;color: white;margin:0 0 5% 0;text-align: center;text-decoration: none;display: inline-block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
+.on{background:#fff;color: #F6325A;}
+#answers-mob-cont{max-width:90%;width:100%;max-height:100%;height:77%;padding: 0 5% 0 5%;float:left;position: relative;word-wrap: break-word;}
+
+
+/*  statusbar  */
+#status-mob-cont{width:100%;height:8%;background:#fff;position:relative;float:left;text-align:left;bottom:0;}
+#points-cont{width:85%;height:100%;position:relative;float:left;text-align:left;font-size: 20px;line-height:260%; }
+#points{position: relative;top: 50%;transform: translateY(-50%);color:#F6325A;padding-left:5%;}
+#position-cont{width:15%;height:100%;background:#585858;position:relative;float:left;text-align: center;font-size: 20px;line-height:280% ;}
+#position{position: relative;top: 50%;transform: translateY(-50%);color:#fff;text-align: center;}
+
+/*******  DESKTOP CSS  *******/
+#desktop-cont{width:auto;height:100%;background:#fff!important;}
+
+/*  leaderboard  */
+#leaderboard-cont{width:30%;min-height:100%;position:relative;float:right;text-align: left;font-size: 26px;color:#fff;background:#F6325A;margin:0;}
+#leaderboard{max-width:100%;min-height:100%;padding:0 20px 0 20px;}
+#leaderboard-title{font-size: 40px;padding:20px 0 20px 0;text-align: center;}
+.leaderboard-card, #kolom1 ul li, #kolom2 ul li, #kolom3 ul li{font-family:AmericanTypewriter,sans-serif;background:#fff; height:auto;max-width:100%;position:relative;padding:20px 20px 20px 20px;box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1);color:#313131;text-align:left;margin-bottom: 20px;overflow: hidden;border-radius: 5px;}
+.leaderboard-card-score, #kolom1 ul li, #kolom2 ul li, #kolom3 ul li {font-family:AmericanTypewriter-Bold,sans-serif;text-align: right;float:right;position: relative;}
+.lobby-card, #kolom1 ul li, #kolom2 ul li, #kolom3 ul li {font-size:20px;margin:0 2% 2% 0;width:27%;font-family:AmericanTypewriter,sans-serif;background:#fff; height:auto;float:left;position:relative;box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1);color:#313131;text-align:left;margin-bottom: 20px;overflow: hidden;border-radius: 5px;}
+
+/*  quiz + roomname  */
+#room-cont{width:70%;height:auto;position:relative;font-size: 26px;float:left; color:#313131;}
+#room{max-width:70%;height:auto;padding: 70px 0 0 80px;}
+
+/*  question  */
+#question-cont{width:70%;height:auto;position:relative;text-align: left;font-size: 60px;float:left; color:#F6325A;}
+#question{max-width:100%;height:auto;padding: 70px 80px 4% 80px;line-height:normal;}
+
+#question-nr-cont{width:70%;height:auto;position:relative;text-align: left;font-size: 26px;float:left; color:#313131;}
+#question-nr{max-width:100%;height:auto;padding: 0 0 0 80px;}
+
+/*  optional image  */
+#image-cont{width:70%;height:100%;position:relative;text-align: left;font-size: 26px;float:left; color:#313131;}
+#image{height:auto;margin: 30px 80px 20px 80px;border-radius: 5px;background: lightgrey;overflow:hidden;}
+
+/*  timer  */
+#time-cont{width:100%;height:35px;background:#DADADA;position:fixed;text-align: left;bottom:0;}
+
+/*******  TIME BAR  *******/
+.progress {height: 100%;border-radius: 0;}
+.progress > svg {width:100%;height:100%!important;display: block;}
+.progressbar-text{font-size:20px;color:#313131 !important;left: 20px !important;transform: translate(0, -50%)!important;}
+
+/******** DESKTOP STYLES ********/
+#start-screen {background: url('images/bar.jpg');background-size:cover;color: #FFF;text-align: center;position:relative;width: 100%;height: 100%;margin:0 auto;}
+#start-screen button {margin-top: 25px; transition: ease-in-out 0.2s}
+#start-screen button:hover {background: #fff;color: #F6325A;}
+#start-container{width:100%;height:100%;float:left; position: relative;margin:0 auto;}
+html button:focus {outline:none;}
+
+h1{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 72px;line-height: 72px;}
+h2{font-family: AmericanTypewriter-Bold, sans-serif;color:#F6325A; font-size: 72px;padding:0 0 4% 0;line-height: 72px;}
+h5{color:#313131;font-size:16px;}
+#welkom{float:left;position: relative;margin:0 auto;transform: translate(0, -50%)!important;top:50%;text-align:center;width:100%;}
+#namen{position:fixed;bottom:0;margin:0 2% 1% 2%;right:0;}
+#namen h5 {color: #313131;}
+#namen a {color: #313131; transition: ease-in-out 0.2s;}
+#namen a:hover {color: #fff; text-decoration: none;}
+.btn-welkom{width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: rgba(0, 0, 0, 0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;line-height:28px;font-size: 28px;border-radius: 5px;padding:5%;}
+#btn-start{position:relative;float:left;width:20%;transform: translate(-50%, 0)!important;left:50%;}
+
+
+.hvr-fade {display: inline-block;vertical-align: middle;-webkit-transform: translateZ(0);transform: translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);-webkit-backface-visibility: hidden;backface-visibility: hidden;-moz-osx-font-smoothing: grayscale;overflow: hidden;-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: color, background-color;transition-property: color, background-color;}
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {background-color: #fff;color: #F6325A;}
+
+#lobby{float:left;position: relative;margin:2% 0 0 2%;text-align: left;padding:25px;}
+#playerlist{width:100%;height:100%;float:left;position:relative;padding:0 0 0 2%;margin-bottom:-100%;}
+#kolom1{width:100%;height:68%;float:left;position:relative;overflow:scroll;margin-bottom:10%;}
+
+#btn-start-game{position:fixed;right:0;width:20%; height: auto;margin:4% 4% 0 2%;}
+.btn-start-agame{line-height:80px;padding:1%;width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: #F6325A;border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
+
+#vraag-intro{z-index:100;position:absolute;margin:0 auto;text-align: center;height: 100%;width:100%;background: #F6325A;}
+#intro-text{position:relative;top: 45%;transform: translateY(-50%);margin:0 auto;text-align: center;}
+
+#vraag-intro-mob{z-index:100;position:absolute;margin:0 auto;height: 100%;width:100%;background: #F6325A;}
+#intro-text-mob{position:relative;top: 50%;transform: translateY(-50%);text-align: left;font-size: 40px; color:#fff;line-height: 50px;margin:0 0 4% 4%;}
+
+#btn-stelVraag{margin:0 auto;position:relative;width:20%;height: 90px;}
+.btn-stelVraag{line-height:80px;padding:1%;width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: #F6325A;border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
+.hidden{display: none;}
+.show{display: block;z-index: 101;}
+
+#antwoord-uitleg{z-index:100;position:absolute;margin:0 auto;height: 100%;width:70%;background: #fff;}
+#antwoord-container{float:left;position: relative;margin:2% 0 0 2%;text-align: left;padding:25px;}
+#antwoord-juist{color:#313131;font-size: 30px;padding:0 0 4% 0;}
+#antwoord-titel{position:relative;color:#F6325A!important;}
+#antwoord-text{position:relative;color:#313131;font-family: AmericanTypewriter, sans-serif;font-size: 30px;line-height: 40px;padding-right:2%;}
+#antwoord-btn{margin:0 0 0 2%;width:40%;float:left;position: relative;}
+#btn-volgendeVraag{position:relative;height: auto;padding:25px;width:100%;}
+.btn-volgendeVraag{line-height:80px;padding:0 10%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: #fff;border: 2pt solid #F6325A;color: #F6325A;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
+#btn-volgendeVraag button:hover{background: #F6325A;color:#fff;}
+
+.animate{-webkit-animation: uitFaden 0.5s;-webkit-animation-iteration-count: 1;-webkit-animation-timing-function:ease-in-out;-webkit-animation-fill-mode: forwards;}
+.animateIn{-webkit-animation: slideInLeft 1s;-webkit-animation-iteration-count: 1;-webkit-animation-timing-function:ease-in-out;}
+.animateOut{-webkit-animation: slideOutLeft 1s;-webkit-animation-iteration-count: 1;-webkit-animation-timing-function:ease-in-out;}
+
+.animpje.ng-enter {
+    animation: bounceInUp 1s;
+}
+@keyframes uitFaden {
+    from {z-index:100;transition: ease-in-out 1s;opacity: 1;}
+    to {z-index: -1;opacity: 0;}
+}
+#welkom-cont-mob{height: 100%;width:100%;background: #F6325A;z-index: 1;}
+#welkom-btn-mob{padding:0 4%;margin:0 auto !important;text-align: center;position:relative;}
+.btn-welkom-mob{padding: 7% 1%;width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: #F6325A;border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
+input.btn-welkom-mob{width:100%;}
+#welkom-btn-mob button:active{background: #fff;color: #F6325A;}
+#welkom2{font-size: 40px; color:#fff;line-height: 50px;margin:0 0 4% 4%;}
+iframe {width:100%;height: 400px;}
+#login-cont-mob{height: 100%;min-width:100%;}
+#welkom-btn-mob-text-veld {font-family:AT;font-size:30px;color:#fff;background:rgba(0, 0, 0, 0.2);border:none;box-shadow: none;width:96%;padding: 7% 0 7% 4%;border-bottom:2px solid #fff;}
+
+#login-cont-mob{height: 100%;width:100%;background: #F6325A;z-index: 2;}
+#welkom-login{font-size: 40px; color:#fff;line-height: 50px;margin:0 0 4% 4%;}
+
+.filter{background: rgba(157, 207, 78, 0.4);background-size: cover;position: fixed;left:0;right:0;height:100%;}
+#vraag-uitslag-mob{position:absolute;margin:0 auto;height: 100%;width:100%;background-size: cover !important;}
+#antwoord-cont-mob{position:relative;top: 50%;transform: translateY(-50%);text-align: left;font-size: 40px;line-height: 50px;margin:0 0 0 4%;}
+#antwoord-juist-mob{color:#fff;font-size: 40px;padding:0 4% 2% 0;text-align: center;}
+#antwoord-juist-punten-mob{color:#fff;font-size: 20px;padding:0 4% 4% 0;text-align: center;}
+
+#vraag-uitslag-fout-mob{position:absolute;margin:0 auto;height: 100%;width:100%;background-size: cover !important;}
+#antwoord-cont-fout-mob{position:relative;top: 50%;transform: translateY(-50%);text-align: left;font-size: 40px;line-height: 50px;margin:0 0 0 4%;}
+#antwoord-fout-mob{color:#fff;font-size: 40px;padding:0 4% 2% 0;text-align: center;}
+
+.filter-fout{background: rgba(216, 45, 64, 0.6);background-size: cover;position: fixed;left:0;right:0;height:100%;}
+.filter-intro{background: rgba(246, 50, 90, 0.6);background-size: cover;position: fixed;left:0;right:0;height:100%;}
+
+#security{z-index:102;position:absolute;margin:0 auto;text-align: center;height: 100%;width:100%;background: #F6325A;}
+#security-cont{position:absolute;top: 50%;transform: translateY(-50%);margin:0 auto;text-align: center;width:100%;}
+
+#input-security1 {position:relative;font-family:AT sans-serif;font-size:60px;color:#F6325A;background:#fff;border:none;box-shadow: none;width:100px;height:100px;text-align:center;margin:0 10px 0 10px;}
+#input-security2 {position:relative;font-family:AT sans-serif;font-size:60px;color:#F6325A;background:#fff;border:none;box-shadow: none;width:100px;height:100px;text-align:center;margin:0 10px 0 10px;}
+#input-security3 {position:relative;font-family:AT sans-serif;font-size:60px;color:#F6325A;background:#fff;border:none;box-shadow: none;width:100px;height:100px;text-align:center;margin:0 10px 0 10px;}
+#input-security4 {position:relative;font-family:AT sans-serif;font-size:60px;color:#F6325A;background:#fff;border:none;box-shadow: none;width:100px;height:100px;text-align:center;margin:0 10px 0 10px;}
+
+.btn-security{position:relative;width:20%;padding:1.5% 4% 1.5% 4%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: #F6325A;border: 2pt solid #fff;color: white;text-decoration: none;font-size: 28px;border-radius: 5px;}
+#security-button{float:left;width: 100%;height:70px;padding:2% 0 0 0;}
+#security-input{float:left;width:100%;}
+
+input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly] {background:#F6325A!important;color:rgba(255,255,255,0.4);border-color:rgba(255,255,255,0.4);}
+
+h4{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 100px;padding:0 0 2% 0;line-height: 72px;}
+h6{font-size: 26pt;color:#313131;padding:0 0 0 0;}
+
+#eindscherm-titel{float:left;position: absolute;margin:2% 0 0 2%;text-align: left;padding:25px;width:100%;z-index: 200;}
+#eindscherm{z-index:100;position:absolute;margin:0 auto;text-align: center;height: 100%;width:100%;background: #F6325A;}
+#intro-text{position:relative;top: 50%;transform: translateY(-50%);margin:0 auto;text-align: center;}
+#filter-eindscherm{background: rgba(157, 207, 78, 0.4);background-size: cover;position: fixed;left:0;right:0;height:100%;}
+
+#btn-eindscherm{position:absolute;width:10%;right:0;top:0;height: auto;margin:3% 4% 0 2%;z-index: 201;}
+.btn-eindscherm{line-height:80px;padding:0 1% 0 1%;width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background:rgba(0,0,0,0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;margin:10% 0 0 0;}
+#btn-eindscherm button:hover{background: #fff;color:#F6325A;}
+#end-question{margin:0 0 0 2%;width:40%;float:left;position: relative;}
+
+/**** eindscherm.html ****/
+#scoreoverzicht{z-index:100;position:relative;margin:0 auto;height: 100%;width:100%;background: #F6325A;}
+#score-titel{float:left;position: relative;margin:2% 0 0 2%;text-align: left;padding:25px;width:100%;z-index: 200;}
+#score-list{width:100%;height:100%;float:left;position: relative;}
+#kolom-score{width:50%;height:auto;position: relative;margin:0 auto;background: rgba(0,0,0,0.2);}
+#btn-score{position:absolute;width:10%;right:0;top:0;height: auto;margin:3% 4% 0 2%;z-index: 201;}
+
+/**** scoreoverzicht.html ****/
+#mijnscore-mob{z-index:300;position:absolute;margin:0 auto;height: 100%;width:100%;background-size: cover !important;}
+.score-cont-mob{position:relative;top: 50%;transform: translateY(-50%);text-align: center;font-size: 30px;line-height: 50px;margin:0 0 0 4%;color:#fff;}
+.score-text{position: absolute;margin-top:10%;color:#fff;text-align: center;width: 100%;font-size: 40px;line-height: 50px;}
+.score-mob{color:#fff;font-size: 80px;padding:0 4% 2% 0;text-align: center;}
+
+#mijnscore-eerste-mob{z-index:300;position:absolute;margin:0 auto;height: 100%;width:100%;background-size: cover !important;}
+#mijnscore-tweede-mob{z-index:300;position:absolute;margin:0 auto;height: 100%;width:100%;background-size: cover !important;}
+#mijnscore-derde-mob{z-index:300;position:absolute;margin:0 auto;height: 100%;width:100%;background-size: cover !important;}
+
+.welkom-content-cont {top: 50%;transform: translateY(-50%);position: absolute;display: inline-block;}
+
+#landscape{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background:url('https://m.popkey.co/c92db9/mzO8X.gif')no-repeat right;background-size: cover;
+
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 20000;
+    opacity: 1;
+    margin:0 auto;
+
+}
+#landscape div{
+    line-height: 35px;
+    color: #fff;
+    opacity: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    font-size: 30px;
+}
