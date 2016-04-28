@@ -2,12 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac3fee83-a307-43f8-98f7-f863bbd085a5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/pages/startscreen.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/avatar.png" afterPath="$PROJECT_DIR$/public/avatar.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/bar.jpg" afterPath="$PROJECT_DIR$/public/bar.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/basketball.png" afterPath="$PROJECT_DIR$/public/basketball.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/cinema.png" afterPath="$PROJECT_DIR$/public/cinema.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/crown.png" afterPath="$PROJECT_DIR$/public/crown.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/filosoof.png" afterPath="$PROJECT_DIR$/public/filosoof.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/cookiemonster.gif" afterPath="$PROJECT_DIR$/public/gifs/cookiemonster.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/drake.gif" afterPath="$PROJECT_DIR$/public/gifs/drake.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/loser/dumbledore.gif" afterPath="$PROJECT_DIR$/public/gifs/loser/dumbledore.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/loser/mourinho.gif" afterPath="$PROJECT_DIR$/public/gifs/loser/mourinho.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/loser/putin.gif" afterPath="$PROJECT_DIR$/public/gifs/loser/putin.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/loser/ramsay.gif" afterPath="$PROJECT_DIR$/public/gifs/loser/ramsay.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/loser/taylor.gif" afterPath="$PROJECT_DIR$/public/gifs/loser/taylor.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/loser/trump.gif" afterPath="$PROJECT_DIR$/public/gifs/loser/trump.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/success/bb-8.gif" afterPath="$PROJECT_DIR$/public/gifs/success/bb-8.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/success/claire.gif" afterPath="$PROJECT_DIR$/public/gifs/success/claire.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/success/joker.gif" afterPath="$PROJECT_DIR$/public/gifs/success/joker.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/success/kim-jung-un.gif" afterPath="$PROJECT_DIR$/public/gifs/success/kim-jung-un.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/success/leo.gif" afterPath="$PROJECT_DIR$/public/gifs/success/leo.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/success/lizz-lemon.gif" afterPath="$PROJECT_DIR$/public/gifs/success/lizz-lemon.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/success/obama.gif" afterPath="$PROJECT_DIR$/public/gifs/success/obama.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/success/pengu.gif" afterPath="$PROJECT_DIR$/public/gifs/success/pengu.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/success/pleased_king.gif" afterPath="$PROJECT_DIR$/public/gifs/success/pleased_king.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/gifs/success/psych.gif" afterPath="$PROJECT_DIR$/public/gifs/success/psych.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/groente.png" afterPath="$PROJECT_DIR$/public/groente.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/land.png" afterPath="$PROJECT_DIR$/public/land.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/logoquiz.png" afterPath="$PROJECT_DIR$/public/logoquiz.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/michael.png" afterPath="$PROJECT_DIR$/public/michael.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/stadium.png" afterPath="$PROJECT_DIR$/public/stadium.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/stars.png" afterPath="$PROJECT_DIR$/public/stars.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/willem.png" afterPath="$PROJECT_DIR$/public/willem.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/images/zonnestelsel.png" afterPath="$PROJECT_DIR$/public/zonnestelsel.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main.css" afterPath="$PROJECT_DIR$/client/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main.html" afterPath="$PROJECT_DIR$/client/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main.jsx" afterPath="$PROJECT_DIR$/client/main.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/routes.jsx" afterPath="$PROJECT_DIR$/client/routes.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/pages/startscreen.html" afterPath="$PROJECT_DIR$/client/pages/startscreen.html" />
     </list>
     <ignored path="PubQuiz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +58,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="45">
+              <caret line="3" column="94" selection-start-line="3" selection-start-column="94" selection-end-line="3" selection-end-column="94" />
               <folding />
             </state>
           </provider>
@@ -41,8 +71,8 @@
       <file leaf-file-name="startscreen.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/pages/startscreen.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+            <state relative-caret-position="165">
+              <caret line="11" column="107" selection-start-line="11" selection-start-column="107" selection-end-line="11" selection-end-column="107" />
               <folding />
             </state>
           </provider>
@@ -68,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="77" column="74" selection-start-line="77" selection-start-column="74" selection-end-line="77" selection-end-column="74" />
+            <state relative-caret-position="330">
+              <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -121,8 +151,8 @@
         <option value="$PROJECT_DIR$/client/animate.css" />
         <option value="$PROJECT_DIR$/client/main.jsx" />
         <option value="$PROJECT_DIR$/client/routes.jsx" />
-        <option value="$PROJECT_DIR$/client/main.html" />
         <option value="$PROJECT_DIR$/client/pages/startscreen.html" />
+        <option value="$PROJECT_DIR$/client/main.html" />
         <option value="$PROJECT_DIR$/client/main.css" />
       </list>
     </option>
@@ -253,24 +283,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PubQuiz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PubQuiz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value=".meteor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -289,6 +301,13 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/client" />
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -357,12 +376,12 @@
       <updated>1461851059433</updated>
       <workItem from="1461851062145" duration="1450000" />
       <workItem from="1461853355747" duration="258000" />
-      <workItem from="1461872295935" duration="1903000" />
+      <workItem from="1461872295935" duration="3598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3611000" />
+    <option name="totallyTimeSpent" value="5306000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="1027" extended-state="6" />
@@ -376,7 +395,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2764141" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20490928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -497,26 +516,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/pages/startscreen.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        <state relative-caret-position="165">
+          <caret line="11" column="107" selection-start-line="11" selection-start-column="107" selection-end-line="11" selection-end-column="107" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="77" column="74" selection-start-line="77" selection-start-column="74" selection-end-line="77" selection-end-column="74" />
+        <state relative-caret-position="330">
+          <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="94" selection-start-line="3" selection-start-column="94" selection-end-line="3" selection-end-column="94" />
           <folding />
         </state>
       </provider>
