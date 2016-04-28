@@ -1,3 +1,4 @@
 node_modules/
 
-server/npm-debug.loggit
+server/npm-debug.log
+npm-debug.log
