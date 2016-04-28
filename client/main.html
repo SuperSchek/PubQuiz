@@ -1,7 +1,34 @@
 <head>
   <title>simple</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="animate.css">
 </head>
 
 <body>
   <h1>Welcome to Meteor!</h1>
+{{> nav}}
+
 </body>
+
+<template name="nav">
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/one">Page One</a>
+        </li>
+    </ul>
+</template>
+
+<template name="home">
+    <div id="test">
+        DIT is een test
+    </div>
+</template>
+
+<template name="one">
+    <div id="test">
+       BLALAL
+    </div>
+</template>
