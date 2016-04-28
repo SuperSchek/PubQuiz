@@ -69,22 +69,23 @@ a {text-decoration: none;}
 .progressbar-text{font-size:20px;color:#313131 !important;left: 20px !important;transform: translate(0, -50%)!important;}
 
 /******** DESKTOP STYLES ********/
-#start-screen {background: url('images/bar.jpg');background-size:cover;color: #FFF;text-align: center;position:relative;width: 100%;height: 100%;margin:0 auto;}
+.screen-filter{width:100%;height:100%;background: rgba(0,0,0,0.6);position: absolute;z-index: 1;}
+#start-screen {background: url('/bar.jpg');background-size:cover;color: #FFF;text-align: center;position:relative;width: 100%;height: 100%;margin:0 auto;}
 #start-screen button {margin-top: 25px; transition: ease-in-out 0.2s}
 #start-screen button:hover {background: #fff;color: #F6325A;}
-#start-container{width:100%;height:100%;float:left; position: relative;margin:0 auto;}
+#start-container{width:100%;height:100%;float:left; position: relative;margin:0 auto;z-index: 2;}
 html button:focus {outline:none;}
 
-h1{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 72px;line-height: 72px;}
+h1{font-family: Rye, cursive;color:#fff; font-size: 90px;line-height: 72px;font-weight: normal;}
 h2{font-family: AmericanTypewriter-Bold, sans-serif;color:#F6325A; font-size: 72px;padding:0 0 4% 0;line-height: 72px;}
-h5{color:#313131;font-size:16px;}
+h5{color:#313131;font-size:20px;}
 #welkom{float:left;position: relative;margin:0 auto;transform: translate(0, -50%)!important;top:50%;text-align:center;width:100%;}
 #namen{position:fixed;bottom:0;margin:0 2% 1% 2%;right:0;}
-#namen h5 {color: #313131;}
-#namen a {color: #313131; transition: ease-in-out 0.2s;}
-#namen a:hover {color: #fff; text-decoration: none;}
+#namen h5 {color: #fff;}
+#namen a {color: #fff; transition: ease-in-out 0.2s;}
+#namen a:hover {color: #F6325A; text-decoration: none;}
 .btn-welkom{width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: rgba(0, 0, 0, 0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;line-height:28px;font-size: 28px;border-radius: 5px;padding:5%;}
-#btn-start{position:relative;float:left;width:20%;transform: translate(-50%, 0)!important;left:50%;}
+#btn-start{position:relative;float:left;width:20%;transform: translate(-50%, 0)!important;left:50%;margin: 0 0 2% 0;}
 
 
 .hvr-fade {display: inline-block;vertical-align: middle;-webkit-transform: translateZ(0);transform: translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);-webkit-backface-visibility: hidden;backface-visibility: hidden;-moz-osx-font-smoothing: grayscale;overflow: hidden;-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: color, background-color;transition-property: color, background-color;}
