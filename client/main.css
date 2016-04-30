@@ -84,7 +84,7 @@ h5{color:#313131;font-size:20px;}
 #namen h5 {color: #fff;}
 #namen a {color: #fff; transition: ease-in-out 0.2s;}
 #namen a:hover {color: #F6325A; text-decoration: none;}
-.btn-welkom{width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: rgba(0, 0, 0, 0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;line-height:28px;font-size: 28px;border-radius: 5px;padding:5%;}
+.btn-welkom{cursor: pointer;width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: rgba(0, 0, 0, 0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;line-height:28px;font-size: 28px;border-radius: 5px;padding:5%;}
 #btn-start{position:relative;float:left;width:20%;transform: translate(-50%, 0)!important;left:50%;margin: 0 0 2% 0;}
 
 
