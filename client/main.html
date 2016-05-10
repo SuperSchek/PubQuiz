@@ -1,34 +1,19 @@
-<head>
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" type="text/css" href="animate.css">
-    <link href='https://fonts.googleapis.com/css?family=Rye' rel='stylesheet' type='text/css'>
+<!--<head>-->
+    <!--<link rel="stylesheet" type="text/css" href="main.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="animate.css">-->
+    <!--<link href='https://fonts.googleapis.com/css?family=Rye' rel='stylesheet' type='text/css'>-->
 
-  <title>PubQuiz</title>
-</head>
+  <!--<title>PubQuiz</title>-->
+<!--</head>-->
 
-<body>
+<!--<body>-->
 
-</body>
+<!--</body>-->
 
-<template name="Nav">
-    <ul>
-        <li>
-            <a href="/">Home</a>
-        </li>
-        <li>
-            <a href="/one">Page One</a>
-        </li>
-        <li>
-            <a href="/two">Page Two</a>
-        </li>
-    </ul>
-</template>
+<template name="ApplicationLayout">
 
+    <body>
+        {{> yield }}
+    </body>
 
-<template name="one">
-    <h1>Dikke woemie</h1>
-</template>
-
-<template name="two">
-    <h1>Dikke lullo</h1>
 </template>

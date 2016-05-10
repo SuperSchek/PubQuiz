@@ -6,12 +6,15 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     isMobile = true;
 
 Router.route('/', function () {
+    this.layout('ApplicationLayout');
     // Send user to correct client based on the detected platform
-    if (isMobile == false) {
-        this.render('start-screen');
-    } else {
-        this.render('mobile-start');
-    }
+    // if (isMobile == false) {
+    //     this.render('start-screen');
+    // } else {
+    //     this.render('mobile-start');
+    // }
+
+    this.render('start-screen');
 });
 
 // when you navigate to "/one" automatically render the template named "One".

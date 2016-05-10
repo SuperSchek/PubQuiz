@@ -8,3 +8,8 @@ import {test} from '../db/main.js';
 
 Meteor.startup(() => {
 });
+
+
+function animatieClass() {
+    document.getElementById('start-screen').className = "animatieOut";
+}
