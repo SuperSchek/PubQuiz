@@ -228,3 +228,108 @@ h6{font-size: 26pt;color:#313131;padding:0 0 0 0;}
     width: 100%;
     font-size: 30px;
 }
+
+
+
+
+/*LOGIN BACKUP*/
+
+/*#login{*/
+    /*z-index: 2;*/
+/*}*/
+
+/*#login #login-dropdown-list{*/
+    /*padding: 80px;*/
+    /*position: absolute;*/
+    /*top: -230px;*/
+    /*left: -100px;*/
+    /*box-shadow: none;*/
+    /*-webkit-box-shadow: none;*/
+    /*border: none;*/
+    /*border-radius: 0;*/
+/*}*/
+
+/*#login #login-dropdown-list a{*/
+    /*text-decoration: none;*/
+    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+/*}*/
+
+/*.login-button .single-login-button{*/
+    /*background: none;*/
+    /*color: black;*/
+/*}*/
+
+/*.login-form input{*/
+    /*background: #E6E6E6;*/
+    /*border-color: #E6E6E6!important;*/
+    /*outline: none;*/
+    /*font-size: 12px;*/
+    /*line-height: 2!important;*/
+    /*color: dimgray;*/
+/*}*/
+
+/*.login-form label{*/
+    /*float: left;*/
+    /*color: dimgray;*/
+    /*text-transform: uppercase;*/
+    /*letter-spacing: 3px;*/
+    /*font-size: 10px;*/
+    /*margin-bottom: 4px;*/
+/*}*/
+
+/*.login-button span{*/
+    /*display: none;*/
+/*}*/
+
+/*.login-close-text {*/
+    /*font-size: 10px!important;*/
+    /*color: dimgray;*/
+    /*text-transform: uppercase;*/
+    /*letter-spacing: 3px;*/
+/*}*/
+
+/*#login-buttons .login-button{*/
+    /*background: white;*/
+    /*border: none;*/
+    /*color: dimgray;*/
+    /*text-transform: uppercase;*/
+    /*letter-spacing: 3px;*/
+    /*font-size: 10px;*/
+/*}*/
+
+/*.additional-link-container{*/
+    /*margin-top: 22px;*/
+    /*color: dimgray;*/
+    /*text-transform: uppercase;*/
+    /*letter-spacing: 1px;*/
+    /*font-size: 10px;*/
+/*}*/
+
+/*#login-buttons .login-button:hover{*/
+    /*background: white;*/
+/*}*/
+
+/*#login-buttons .login-button:active{*/
+    /*background: none;*/
+    /*box-shadow: none;*/
+    /*-webkit-box-shadow: none;*/
+/*}*/
+
+/*.or-text{*/
+    /*color: dimgray;*/
+    /*text-transform: uppercase;*/
+    /*letter-spacing: 2px;*/
+    /*margin-top: 20px;*/
+/*}*/
+/*#login-buttons .login-image{*/
+    /*position: static;*/
+/*}*/
+/*.login-text-and-button{*/
+    /*display: inline-block;*/
+/*}*/
+
+/*.message{*/
+    /*text-transform: uppercase;*/
+    /*letter-spacing: 3px;*/
+    /*font-size: 10px*/
+/*}*/
