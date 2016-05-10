@@ -1,0 +1,22 @@
+<template name="winnaar">
+    <div id="eindscherm">
+        <div id="filter-eindscherm"></div>
+        <style>#eindscherm{background:url('/gifs/drake.gif')no-repeat right;background-size: cover;}</style> 
+        <div id="btn-eindscherm"><a href="/resultaat"><button class="btn-eindscherm hvr-fade">Top 10</button></a></div>
+        <div id="eindscherm-titel" >
+            <h1>De winnaar is...</h1>
+        </div>
+        <div id="intro-text">
+            <h4 id="winnaarName"></h4>
+            <h6 id="winaarScore"></h6>
+        </div>
+    </div>
+
+    <script>
+        function renderWinnaar() {
+            angular.element(document).find('#winnaarName').html(sortedArrayClient[0].gebruikersnaam);
+            angular.element(document).find('#winaarScore').html("met " + sortedArrayClient[0].score + " punten");
+        }
+        renderWinnaar();
+    </script>
+</template>
