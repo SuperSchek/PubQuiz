@@ -1,6 +1,7 @@
 /*******  FONT SETUP  *******/
 @font-face {font-family: AmericanTypewriter;src: url("fonts/AmericanTypewriter.ttf") format("truetype");}
 @font-face {font-family: AmericanTypewriter-Bold;src: url("fonts/AmericanTypewriter-Bold.ttf") format("truetype");}
+@font-face {font-family: Happy;src: url("fonts/happy.ttf") format("truetype");}
 html {width:100%;height: 100%;overflow: hidden;}
 body{background:#F6325A;margin:0;font-family: AmericanTypewriter-Bold, Arial, sans-serif;max-height: 100%;max-width: 100%;height:100%;width:100%;}
 .test{height: 100%;}
@@ -70,14 +71,14 @@ a {text-decoration: none;}
 
 /******** DESKTOP STYLES ********/
 .screen-filter{width:100%;height:100%;background: rgba(0,0,0,0.6);position: absolute;z-index: 1;}
-#start-screen {background: url('/bar.jpg');background-size:cover;color: #FFF;text-align: center;position:relative;width: 100%;height: 100%;margin:0 auto;}
+#start-screen {background: url('/blackboard.jpg');background-size:cover;color: #FFF;text-align: center;position:relative;width: 100%;height: 100%;margin:0 auto;}
 #start-screen button {margin-top: 25px; transition: ease-in-out 0.2s}
 #start-screen button:hover {background: #fff;color: #F6325A;}
 #start-container{width:100%;height:100%;float:left; position: relative;margin:0 auto;z-index: 2;}
 html button:focus {outline:none;}
 
-h1{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 90px;line-height: 72px;font-weight: normal;}
-h2{font-family: AmericanTypewriter-Bold, sans-serif;color:#F6325A; font-size: 72px;padding:0 0 4% 0;line-height: 72px;}
+h1{font-family: Happy, sans-serif;color:#fff; font-size: 90px;line-height: 72px;font-weight: normal;}
+h2{font-family: Happy, sans-serif;color:#F6325A; font-size: 72px;padding:0 0 4% 0;line-height: 72px;}
 h5{color:#313131;font-size:20px;}
 #welkom{float:left;position: relative;margin:0 auto;transform: translate(0, -50%)!important;top:50%;text-align:center;width:100%;}
 #namen{position:fixed;bottom:0;margin:0 2% 1% 2%;right:0;}
