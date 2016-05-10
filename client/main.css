@@ -1,7 +1,7 @@
 /*******  FONT SETUP  *******/
 @font-face {font-family: AmericanTypewriter;src: url("fonts/AmericanTypewriter.ttf") format("truetype");}
 @font-face {font-family: AmericanTypewriter-Bold;src: url("fonts/AmericanTypewriter-Bold.ttf") format("truetype");}
-@font-face {font-family: Happy;src: url("fonts/happy.ttf") format("truetype");}
+@font-face {font-family: KG Life is Messy;src: url("fonts/KG Life is Messy.ttf") format("truetype");}
 html {width:100%;height: 100%;overflow: hidden;}
 body{background:#F6325A;margin:0;font-family: AmericanTypewriter-Bold, Arial, sans-serif;max-height: 100%;max-width: 100%;height:100%;width:100%;}
 .test{height: 100%;}
@@ -70,34 +70,39 @@ a {text-decoration: none;}
 .progressbar-text{font-size:20px;color:#313131 !important;left: 20px !important;transform: translate(0, -50%)!important;}
 
 /******** DESKTOP STYLES ********/
-.screen-filter{width:100%;height:100%;background: rgba(0,0,0,0.6);position: absolute;z-index: 1;}
-#start-screen {background: url('/blackboard.jpg');background-size:cover;color: #FFF;text-align: center;position:relative;width: 100%;height: 100%;margin:0 auto;}
+.screen-filter{width:100%;height:100%;background: rgba(0,0,0,0.8);position: absolute;z-index: 1;}
+#start-screen {background: url('/bar.jpg');background-size:cover;color: #FFF;text-align: center;position:relative;width: 100%;height: 100%;margin:0 auto;}
 #start-screen button {margin-top: 25px; transition: ease-in-out 0.2s}
 #start-screen button:hover {background: #fff;color: #F6325A;}
+#start-screen-mob {background: url('/blackboard.jpg');background-size:cover;color: #FFF;text-align: center;position:relative;width: 100%;height: 100%;margin:0 auto;}
+#start-screen-mob button {margin-top: 25px; transition: ease-in-out 0.2s}
+#start-screen-mob button:hover {background: #fff;color: #313131;}
 #start-container{width:100%;height:100%;float:left; position: relative;margin:0 auto;z-index: 2;}
 html button:focus {outline:none;}
 
-h1{font-family: Happy, sans-serif;color:#fff; font-size: 90px;line-height: 72px;font-weight: normal;}
-h2{font-family: Happy, sans-serif;color:#F6325A; font-size: 72px;padding:0 0 4% 0;line-height: 72px;}
-h5{color:#313131;font-size:20px;}
+h1{font-family: KG Life is Messy, sans-serif;color:#fff; font-size: 90px;line-height: 90px;font-weight: normal;margin:0;}
+h2{font-family: KG Life is Messy, sans-serif;color:rgba(255,255,255,1); font-size: 60px;padding:0 0 4% 0;line-height: 72px;font-weight:normal;}
+h5{color:#fff;font-size:20px;font-family: KG Life is Messy, sans-serif;}
 #welkom{float:left;position: relative;margin:0 auto;transform: translate(0, -50%)!important;top:50%;text-align:center;width:100%;}
 #namen{position:fixed;bottom:0;margin:0 2% 1% 2%;right:0;}
 #namen h5 {color: #fff;}
 #namen a {color: #fff; transition: ease-in-out 0.2s;}
 #namen a:hover {color: #F6325A; text-decoration: none;}
-.btn-welkom{cursor: pointer;width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: rgba(0, 0, 0, 0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;line-height:28px;font-size: 28px;border-radius: 5px;padding:5%;}
+.btn-welkom{cursor: pointer;width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: rgba(0, 0, 0, 0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;line-height:28px;font-size: 28px;border-radius: 5px;padding:10% 5%;}
 #btn-start{position:relative;float:left;width:20%;transform: translate(-50%, 0)!important;left:50%;margin: 0 0 2% 0;}
 
 
 .hvr-fade {display: inline-block;vertical-align: middle;-webkit-transform: translateZ(0);transform: translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);-webkit-backface-visibility: hidden;backface-visibility: hidden;-moz-osx-font-smoothing: grayscale;overflow: hidden;-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: color, background-color;transition-property: color, background-color;}
 .hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {background-color: #fff;color: #F6325A;}
 
-#lobby{float:left;position: relative;margin:0 0 0 2%;text-align: left;}
+#lobby{float:left;position: relative;margin:4% 0 0 4%;text-align: left;}
+#lobby-cont{background: url('/blackboard.jpg');background-size:cover;width:100%;height:100%;}
 #playerlist{width:100%;height:100%;float:left;position:relative;padding:0 0 0 2%;margin-bottom:-100%;}
 #kolom1{width:100%;height:68%;float:left;position:relative;overflow:scroll;margin-bottom:10%;}
 
 #btn-start-game{position:fixed;right:0;width:20%; height: auto;margin:4% 4% 0 2%;}
-.btn-start-agame{line-height:80px;padding:1%;width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: #F6325A;border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
+.btn-start-agame{line-height:80px;padding:1%;width:100%;font-family: AmericanTypewriter-Bold, sans-serif;background-color:rgba(0,0,0,0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
+#start-buttons-cont{margin:0 4% 0 4%;}
 
 #vraag-intro{z-index:100;position:absolute;margin:0 auto;text-align: center;height: 100%;width:100%;background: #F6325A;}
 #intro-text{position:relative;top: 45%;transform: translateY(-50%);margin:0 auto;text-align: center;}
