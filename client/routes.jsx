@@ -16,6 +16,8 @@ Router.route('/', function () {
 
 // when you navigate to "/one" automatically render the template named "One".
 Router.route('/lobby');
-
-// when you navigate to "/two" automatically render the template named "Two".
-Router.route('/two');
+Router.route('/vragen');
+Router.route('/questionbumper');
+Router.route('/answers');
+Router.route('/winnaar');
+Router.route('/resultaat');
