@@ -1,7 +1,8 @@
 /*******  FONT SETUP  *******/
 @font-face {font-family: AmericanTypewriter;src: url("fonts/AmericanTypewriter.ttf") format("truetype");}
 @font-face {font-family: AmericanTypewriter-Bold;src: url("fonts/AmericanTypewriter-Bold.ttf") format("truetype");}
-@font-face {font-family: KG Life is Messy;src: url("fonts/KGLifeisMessy.ttf") format("truetype");}
+@font-face {font-family:"Strada OT";src: url("fonts/StradaOT.otf") format("opentype");}
+@font-face {font-family:"Strada OT Bold";src: url("fonts/StradaOT-Bold.otf") format("opentype");}
 html {width:100%;height: 100%;overflow: hidden;}
 body{background:#F6325A;margin:0;font-family: AmericanTypewriter-Bold, Arial, sans-serif;max-height: 100%;max-width: 100%;height:100%;width:100%;}
 .test{height: 100%;}
@@ -75,8 +76,7 @@ a {text-decoration: none;}
 #start-screen button {margin-top: 25px; transition: ease-in-out 0.2s}
 #start-screen button:hover {background: #fff;color: #F6325A;}
 #start-screen-mob {background: url('/blackboard.jpg');background-size:cover;color: #FFF;text-align: center;position:relative;width: 100%;height: 100%;margin:0 auto;}
-#start-screen-mob button {margin-top: 25px; transition: ease-in-out 0.2s}
-#start-screen-mob button:hover {background: #fff;color: #313131;}
+#start-screen-mob button {margin-top: 30px; transition: ease-in-out 0.2s}
 #start-container{width:100%;height:100%;float:left; position: relative;margin:0 auto;z-index: 2;}
 html button:focus {outline:none;}
 
@@ -346,8 +346,21 @@ input.error{
     /*letter-spacing: 3px;*/
     /*font-size: 10px*/
 /*}*/
-#login-module{width:100%;}
-#start-buttons-cont input{background:red;width:100%;}
-#start-buttons-cont input{padding: 7% 0;width:100%;font-family: "AT-Bold",sans-serif;border-width:0;background-color: #F6325A;border-bottom: 2pt solid #fff !important;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;float:left;position:relative;outline:none;}
-#start-buttons-cont button:active{background: #fff;color: #F6325A;}
-.btn-login-mob{padding: 7% 0;width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: rgba(0,0,0,0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
+#start-buttons-cont input{padding: 7% 0;width:100%;font-family: "AT-Bold",sans-serif;border-width:0;background-color: #F6325A;border-bottom: 2pt solid #e9e9e9 !important;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;outline:none;}
+#start-buttons-cont button:active{background: #FAFAFA;color: #ff9900;}
+.btn-reg{border:none;background: none;color:#bcbcbc;font-size:20px;text-align:center;margin:20px 0 !important;font-family: "Strada OT",sans-serif;}
+
+
+#login-form {padding:2% 5%;}
+#login-module {background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #ff9900;}
+#login-module form input{background:rgba(0,0,0,0);width:100%;}
+#login-module form input{padding: 7% 5px;width:100%;font-family: "Strada OT",sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
+.btn-login-mob{height:60px;padding: 5% 0;width:100%;font-family: "Strada OT",sans-serif;font-weight:bold;background-color: #ff9900;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
+::-webkit-input-placeholder {
+    color: #d0d0d0;
+}
+
+#reg-form {padding:2% 5%;}
+#register-module {background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #ff9900;}
+#register-module form input{background:rgba(0,0,0,0);width:100%;}
+#register-module form input{padding: 7% 5px;width:100%;font-family: "Strada OT",sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}

@@ -1,9 +1,9 @@
 <template name="register">
     <div id="register-module" class="hidden">
-        <form>
-            <input type="email" name="registerEmail">
-            <input type="password" name="registerPassword" >
-            <button type="submit" value="Registreer" class="btn-welkom-mob"></button>
+        <form id="reg-form">
+            <input type="email" name="registerEmail" placeholder="e-mail">
+            <input type="password" name="registerPassword" placeholder="wachtwoord">
+            <button type="submit" class="btn-login-mob">Registreer</button>
         </form>
         {{> parentreg}}
     </div>
