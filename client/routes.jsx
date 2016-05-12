@@ -7,20 +7,41 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 Router.route('/', function () {
     this.layout('ApplicationLayout');
-    // Send user to correct client based on the detected platform
-    // if (isMobile == false) {
-    //     this.render('start-screen');
-    // } else {
-    //     this.render('mobile-start');
-    // }
 
-    this.render('start-screen');
+    // Send user to correct client based on the detected platform
+    if (isMobile == false) {
+        this.render('start-screen');
+    } else {
+        this.render('mobile-start');
+    }
 });
 
-// when you navigate to "/one" automatically render the template named "One".
-Router.route('/lobby');
-Router.route('/vragen');
-Router.route('/questionbumper');
-Router.route('/answers');
-Router.route('/winnaar');
-Router.route('/resultaat');
+Router.route('/lobby', function () {
+    this.layout('ApplicationLayout');
+    this.render('lobby');
+});
+
+Router.route('/vragen', function () {
+    this.layout('ApplicationLayout');
+    this.render('vragen');
+});
+
+Router.route('/questionbumper', function () {
+    this.layout('ApplicationLayout');
+    this.render('questionbumper');
+});
+
+Router.route('/answers', function () {
+    this.layout('ApplicationLayout');
+    this.render('answers');
+});
+
+Router.route('/winnaar', function () {
+    this.layout('ApplicationLayout');
+    this.render('winnaar');
+});
+
+Router.route('/resultaat', function () {
+    this.layout('ApplicationLayout');
+    this.render('resultaat');
+});

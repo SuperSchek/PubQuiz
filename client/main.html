@@ -13,8 +13,14 @@
 
 <template name="ApplicationLayout">
 
+    <!--<h1 style="color: black;">-->
+        <!--HEADER CHECKER-->
+    <!--</h1>-->
+
     <body>
-        {{> yield }}
+        {{#momentum plugin='right-to-left'}}
+            {{> yield}}
+        {{/momentum}}
     </body>
 
 </template>

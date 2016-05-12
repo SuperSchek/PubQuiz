@@ -31,13 +31,11 @@ Template.childreg.events({
         tpl.data.onClick(e);
     }
 });
-<<<<<<< HEAD
-
 
 function animatieClass() {
     document.getElementById('start-screen').className = "animatieOut";
 }
-=======
+
 Template.parentreg.helpers({
     doSomeAction(){
         return function(){
@@ -47,4 +45,3 @@ Template.parentreg.helpers({
         }
     }
 });
->>>>>>> master
