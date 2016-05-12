@@ -56,3 +56,8 @@ Template.dashboard.events({
 
 Meteor.startup(() => {
 });
+
+
+function animatieClass() {
+    document.getElementById('start-screen').className = "animatieOut";
+}
