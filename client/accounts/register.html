@@ -1,7 +1,10 @@
 <template name="register">
-    <form>
-        <input type="email" name="registerEmail">
-        <input type="password" name="registerPassword">
-        <input type="submit" value="Register">
-    </form>
+    <div id="register-module" class="hidden">
+        <form>
+            <input type="email" name="registerEmail">
+            <input type="password" name="registerPassword" >
+            <button type="submit" value="Registreer" class="btn-welkom-mob"></button>
+        </form>
+        {{> parentreg}}
+    </div>
 </template>

@@ -339,3 +339,8 @@ h6{font-size: 26pt;color:#313131;padding:0 0 0 0;}
     /*letter-spacing: 3px;*/
     /*font-size: 10px*/
 /*}*/
+#login-module{width:100%;}
+#start-buttons-cont input{background:red;width:100%;}
+#start-buttons-cont input{padding: 7% 0;width:100%;font-family: "AT-Bold",sans-serif;border-width:0;background-color: #F6325A;border-bottom: 2pt solid #fff !important;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;float:left;position:relative;outline:none;}
+#start-buttons-cont button:active{background: #fff;color: #F6325A;}
+.btn-login-mob{padding: 7% 0;width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: rgba(0,0,0,0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
