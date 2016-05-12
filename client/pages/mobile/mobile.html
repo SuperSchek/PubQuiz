@@ -1,12 +1,37 @@
 <template name="mobile-start">
-
     <div id="start-screen-mob">
         <div id="start-container">
             <h2>PubQuiz</h2>
             <div id="start-buttons-cont">
-                <button class="btn-welkom">Create team!</button>
-                <button class="btn-welkom">Join team!</button>
+
+                {{#if currentUser}}
+                    {{> dashboard }}
+                {{else}}
+                    {{> login}}
+                    {{> register}}
+                    {{#if errorMessage}}
+                        <div class="alert">
+                            <span>{{errorMessage}}</span>
+                        </div>
+                    {{/if}}
+                {{/if}}
             </div>
         </div>
     </div>
+</template>
+
+<template name="parent">
+    {{> child onClick=doSomeAction}}
+</template>
+
+<template name="child">
+    <button>of Registreer</button>
+</template>
+
+<template name="parentreg">
+    {{> childreg onClick=doSomeAction}}
+</template>
+
+<template name="childreg">
+    <button>of Login</button>
 </template>
