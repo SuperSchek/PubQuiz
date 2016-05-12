@@ -102,7 +102,7 @@ h5{color:#fff;font-size:20px;font-family: KG Life is Messy, sans-serif;}
 
 #btn-start-game{position:fixed;right:0;width:20%; height: auto;margin:4% 4% 0 2%;}
 .btn-start-agame{line-height:80px;padding:1%;width:100%;font-family: AmericanTypewriter-Bold, sans-serif;background-color:rgba(0,0,0,0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
-#start-buttons-cont{margin:0 4% 0 4%;}
+#start-buttons-cont{margin:0 6% 0 6%;}
 
 #vraag-intro{z-index:100;position:absolute;margin:0 auto;text-align: center;height: 100%;width:100%;background: #F6325A;}
 #intro-text{position:relative;top: 45%;transform: translateY(-50%);margin:0 auto;text-align: center;}
@@ -356,11 +356,13 @@ input.error{
 #login-module form input{background:rgba(0,0,0,0);width:100%;}
 #login-module form input{padding: 7% 5px;width:100%;font-family: "Strada OT",sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
 .btn-login-mob{height:60px;padding: 5% 0;width:100%;font-family: "Strada OT",sans-serif;font-weight:bold;background-color: #ff9900;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
+.btn-reg-mob{height:60px;padding: 5% 0;width:100%;font-family: "Strada OT",sans-serif;font-weight:bold;background-color: #3299BB;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
+
 ::-webkit-input-placeholder {
     color: #d0d0d0;
 }
 
 #reg-form {padding:2% 5%;}
-#register-module {background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #ff9900;}
+#register-module {background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #3299BB;}
 #register-module form input{background:rgba(0,0,0,0);width:100%;}
 #register-module form input{padding: 7% 5px;width:100%;font-family: "Strada OT",sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
