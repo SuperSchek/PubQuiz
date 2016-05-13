@@ -75,7 +75,7 @@ a {text-decoration: none;}
 #start-screen {background: url('/bar.jpg');background-size:cover;color: #FFF;text-align: center;position:absolute;width: 100%;height: 100%;margin:0 auto;}
 #start-screen button {margin-top: 25px; transition: ease-in-out 0.2s}
 #start-screen button:hover {background: #fff;color: #F6325A;}
-#start-screen-mob {background: url('/blackboard.jpg');background-size:cover;color: #FFF;text-align: center;position:relative;width: 100%;height: 100%;margin:0 auto;}
+#start-screen-mob {background: url('/blackboard.jpg');background-size:cover;color: #FFF;text-align: center;position:absolute;width: 100%;height: 100%;margin:0 auto;}
 #start-screen-mob button {margin-top: 30px; transition: ease-in-out 0.2s}
 #start-container{width:100%;height:100%;float:left; position: relative;margin:0 auto;z-index: 2;}
 html button:focus {outline:none;}
