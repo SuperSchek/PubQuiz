@@ -1,8 +1,8 @@
 /*******  FONT SETUP  *******/
-@font-face {font-family: AmericanTypewriter;src: url("fonts/AmericanTypewriter.ttf") format("truetype");}
-@font-face {font-family: AmericanTypewriter-Bold;src: url("fonts/AmericanTypewriter-Bold.ttf") format("truetype");}
-@font-face {font-family:"Strada OT";src: url("fonts/StradaOT.otf") format("opentype");}
-@font-face {font-family:"Strada OT Bold";src: url("fonts/StradaOT-Bold.otf") format("opentype");}
+@font-face {font-family:StradaOT;src: url("fonts/StradaOT.otf") format("opentype");}
+@font-face {font-family:StradaOTBold;src: url("fonts/StradaOT-Bold.otf") format("opentype");}
+
+@font-face {font-family:AmericanTypewriter-Bold;src: url("fonts/AmericanTypewriter-Bold.ttf") format("truetype");}
 html {width:100%;height: 100%;overflow: hidden;}
 body{margin:0;font-family: AmericanTypewriter-Bold, Arial, sans-serif;max-height: 100%;max-width: 100%;height:100%;width:100%;}
 .test{height: 100%;}
@@ -77,11 +77,11 @@ a {text-decoration: none;}
 #start-screen button:hover {background: #fff;color: #F6325A;}
 #start-screen-mob {background: url('/blackboard.jpg');background-size:cover;color: #FFF;text-align: center;position:absolute;width: 100%;height: 100%;margin:0 auto;}
 #start-screen-mob button {margin-top: 30px; transition: ease-in-out 0.2s}
-#start-container{width:100%;height:100%;float:left; position: relative;margin:0 auto;z-index: 2;}
+#start-container{width:100%;height:100%;float:left; position: absolute;margin:0 auto;z-index: 2;}
 html button:focus {outline:none;}
 
 h1{font-family: KG Life is Messy, sans-serif;color:#fff; font-size: 90px;line-height: 90px;font-weight: normal;margin:0;}
-h2{font-family: KG Life is Messy, sans-serif;color:rgba(255,255,255,1); font-size: 60px;padding:0 0 4% 0;line-height: 72px;font-weight:normal;}
+h2{font-family: AmericanTypewriter-Bold, sans-serif;color:rgba(255,255,255,1); font-size: 40px;margin:0 0 10% 0;line-height: 40px;font-weight:normal;text-align:left;}
 h5{color:#fff;font-size:20px;font-family: KG Life is Messy, sans-serif;}
 #welkom{float:left;position: relative;margin:0 auto;transform: translate(0, -50%)!important;top:50%;text-align:center;width:100%;}
 #namen{position:fixed;bottom:0;margin:0 2% 1% 2%;right:0;}
@@ -102,7 +102,7 @@ h5{color:#fff;font-size:20px;font-family: KG Life is Messy, sans-serif;}
 
 #btn-start-game{position:fixed;right:0;width:20%; height: auto;margin:4% 4% 0 2%;}
 .btn-start-agame{line-height:80px;padding:1%;width:100%;font-family: AmericanTypewriter-Bold, sans-serif;background-color:rgba(0,0,0,0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
-#start-buttons-cont{margin:0 6% 0 6%;}
+#start-buttons-cont{padding:0 6% 0 6%;top: 50%;transform: translate(0, -50%);position: absolute;}
 
 #vraag-intro{z-index:100;position:absolute;margin:0 auto;text-align: center;height: 100%;width:100%;background: #F6325A;}
 #intro-text{position:relative;top: 45%;transform: translateY(-50%);margin:0 auto;text-align: center;}
@@ -346,23 +346,25 @@ input.error{
     /*letter-spacing: 3px;*/
     /*font-size: 10px*/
 /*}*/
-#start-buttons-cont input{padding: 7% 0;width:100%;font-family: "AT-Bold",sans-serif;border-width:0;background-color: #F6325A;border-bottom: 2pt solid #e9e9e9 !important;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;outline:none;}
+#start-buttons-cont input{padding: 7% 0;width:100%;font-family:  StradaOT,sans-serif;border-width:0;background-color: #F6325A;border-bottom: 2pt solid #e9e9e9 !important;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;outline:none;}
 #start-buttons-cont button:active{background: #FAFAFA;color: #ff9900;}
-.btn-reg{border:none;background: none;color:#bcbcbc;font-size:20px;text-align:center;margin:20px 0 !important;font-family: "Strada OT",sans-serif;}
+.btn-reg{border:none;background: none;color:#bcbcbc;font-size:20px;text-align:center;margin:20px 0 !important;font-family:  StradaOT,sans-serif;}
 
 
 #login-form {padding:2% 5%;}
 #login-module {background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #ff9900;}
 #login-module form input{background:rgba(0,0,0,0);width:100%;}
-#login-module form input{padding: 7% 5px;width:100%;font-family: "Strada OT",sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
-.btn-login-mob{height:60px;padding: 5% 0;width:100%;font-family: "Strada OT",sans-serif;font-weight:bold;background-color: #ff9900;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
-.btn-reg-mob{height:60px;padding: 5% 0;width:100%;font-family: "Strada OT",sans-serif;font-weight:bold;background-color: #3299BB;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
+#login-module form input{padding: 7% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
+.btn-login-mob{height:60px;padding: 5% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:bold;background-color: #ff9900;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
+.btn-reg-mob{height:60px;padding: 5% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:bold;background-color: #3299BB;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
 
 ::-webkit-input-placeholder {
     color: #d0d0d0;
+    padding:0 0 5px 0;
 }
 
 #reg-form {padding:2% 5%;}
 #register-module {background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #3299BB;}
 #register-module form input{background:rgba(0,0,0,0);width:100%;}
-#register-module form input{padding: 7% 5px;width:100%;font-family: "Strada OT",sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
+#register-module form input{padding: 7% 0;width:100%;font-family: StradaOT,sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
+#register-module button:active{background: #FAFAFA;color: #3299BB;}

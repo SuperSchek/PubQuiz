@@ -4,10 +4,6 @@ import './main.html';
 
 import {test} from '../db/main.js';
 
-
-
-// Router.onBeforeAction(animateContentOut);
-
 Meteor.startup(() => {
 });
 
@@ -19,7 +15,6 @@ Template.child.events({
 Template.parent.helpers({
     doSomeAction(){
         return function(){
-            console.log('some action happened!');
             document.getElementById('login-module').className = "hidden";
             document.getElementById('register-module').className = "show";
         }
@@ -39,7 +34,6 @@ function animatieClass() {
 Template.parentreg.helpers({
     doSomeAction(){
         return function(){
-            console.log('some action happenedeeeeee!');
             document.getElementById('login-module').className = "show";
             document.getElementById('register-module').className = "hidden";
         }
