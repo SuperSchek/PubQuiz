@@ -20,7 +20,7 @@ Template.register.events({
             if(error){
                 console.log(error.reason); // Output error if registration fails
             } else {
-                Router.go("roomcode"); // User succeeds
+                Router.go("lobby"); // User succeeds
             }
         });
     }
@@ -35,7 +35,7 @@ Template.login.events({
             if (error) {
                 console.log(error.reason);
             } else {
-                Router.go("roomcode"); // User succeeds
+                Router.go("lobby"); // User succeeds
             }
         });
     }
@@ -67,7 +67,7 @@ Template.registerdesktop.events({
             if(error){
                 console.log(error.reason); // Output error if registration fails
             } else {
-                Router.go("roomcode"); // User succeeds
+                Router.go("lobby"); // User succeeds
             }
         });
     }
@@ -82,7 +82,7 @@ Template.logindesktop.events({
             if (error) {
                 console.log(error.reason);
             } else {
-                Router.go("roomcode"); // User succeeds
+                Router.go("lobby"); // User succeeds
             }
         });
     }
