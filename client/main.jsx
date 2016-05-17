@@ -4,6 +4,8 @@ import './main.html';
 
 import {test} from '../db/main.js';
 
+var kamerNummer = 0;
+
 Meteor.startup(() => {
 });
 
@@ -39,5 +41,9 @@ Template.parentreg.helpers({
         }
     }
 });
+
+//Rooms creating
+Channels = new Mongo.Collection("Channels");
+
 
 

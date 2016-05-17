@@ -55,6 +55,30 @@ Template.logindesktop.helpers({
     }
 });
 
+
+//Create kamerNumber
+function kamerNumber (){
+    kamerNumber = Channels.find().count() + 1;
+    return kamerNumber;
+
+};
+
+//Create kamerCode
+function kamerCode() {
+
+    var kamerGetal = kamerGetal = Math.floor(Math.random() * 9000) + 1000;
+    var getalVinden = Channels.find({code: kamerGetal}).count();
+
+     while(getalVinden >= 1) {
+         kamerGetal = Math.floor(Math.random() * 9000) + 1000;
+     };
+
+
+    kamerCode = kamerGetal;
+
+    return kamerCode;
+};
+
 Template.registerdesktop.events({
     'submit form': function(event) {
         event.preventDefault();
@@ -67,11 +91,18 @@ Template.registerdesktop.events({
             if(error){
                 console.log(error.reason); // Output error if registration fails
             } else {
+                //Create room
+                Channels.insert({
+                    name: kamerNumber(),
+                    code: kamerCode()
+                });
+
                 Router.go("lobby"); // User succeeds
             }
         });
     }
 });
+
 
 Template.logindesktop.events({
     'submit form': function(event){
@@ -82,6 +113,12 @@ Template.logindesktop.events({
             if (error) {
                 console.log(error.reason);
             } else {
+                //Create room
+                Channels.insert({
+                    name: kamerNumber(),
+                    code: kamerCode()
+                });
+
                 Router.go("lobby"); // User succeeds
             }
         });
