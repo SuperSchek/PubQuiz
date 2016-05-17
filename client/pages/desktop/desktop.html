@@ -2,13 +2,25 @@
     <div id="start-screen">
         <div id="start-container">
             <div id="welkom">
-                <h1>Welkom bij de PubQuiz!</h1>
                 <div id="btn-start">
+                    <div id="login-titel-cont">
+                        <div id="login-titel">
+                            <img src="beericon.png"/>
+                        </div>
+                        <div id="login-titel-h6">
+                            <h6>Welkom bij de PubQuiz!</h6>
+                        </div>
+                    </div>
                     {{#if currentUser}}
                         {{> dashboard }}
                     {{else}}
-                        {{> register}}
-                        {{> login}}
+                        {{> registerdesktop}}
+                        {{> logindesktop}}
+                        {{#if errorMessage}}
+                            <div class="alert">
+                                <span>{{errorMessage}}</span>
+                            </div>
+                        {{/if}}
                     {{/if}}
                 </div>
             </div>

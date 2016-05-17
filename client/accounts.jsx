@@ -20,7 +20,7 @@ Template.register.events({
             if(error){
                 console.log(error.reason); // Output error if registration fails
             } else {
-                Router.go("lobby"); // User succeeds
+                Router.go("roomcode"); // User succeeds
             }
         });
     }
@@ -35,7 +35,7 @@ Template.login.events({
             if (error) {
                 console.log(error.reason);
             } else {
-                Router.go("lobby"); // User succeeds
+                Router.go("roomcode"); // User succeeds
             }
         });
     }
@@ -45,6 +45,46 @@ Template.dashboard.events({
     'click .logout': function(event){
         event.preventDefault();
         Meteor.logout();
+    }
+});
+
+
+Template.logindesktop.helpers({
+    errorMessage: function() {
+        return Session.get('errorMessage');
+    }
+});
+
+Template.registerdesktop.events({
+    'submit form': function(event) {
+        event.preventDefault();
+        var emailVar = event.target.email.value;
+        var passwordVar = event.target.password.value;
+        Accounts.createUser({
+            email: emailVar,
+            password: passwordVar
+        }, function(error){
+            if(error){
+                console.log(error.reason); // Output error if registration fails
+            } else {
+                Router.go("roomcode"); // User succeeds
+            }
+        });
+    }
+});
+
+Template.logindesktop.events({
+    'submit form': function(event){
+        event.preventDefault();
+        var emailVar = event.target.email.value;
+        var passwordVar = event.target.password.value;
+        Meteor.loginWithPassword(emailVar, passwordVar, function(error){
+            if (error) {
+                console.log(error.reason);
+            } else {
+                Router.go("roomcode"); // User succeeds
+            }
+        });
     }
 });
 
@@ -79,5 +119,14 @@ Template.login.onRendered(function(){
 });
 
 Template.register.onRendered(function(){
+    $('.register').validate();
+});
+
+
+Template.logindesktop.onRendered(function(){
+    $('.login').validate();
+});
+
+Template.registerdesktop.onRendered(function(){
     $('.register').validate();
 });
