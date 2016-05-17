@@ -11,9 +11,6 @@ Meteor.startup(() => {
 Template.child.events({
     'click button': function(e, tpl){
         tpl.data.onClick(e);
-    },
-    'leukeFunctie': function() {
-        console.log('Hallo');
     }
 });
 Template.parent.helpers({

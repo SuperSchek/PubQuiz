@@ -8,3 +8,9 @@ Meteor.startup(() => {
 
     QuizQuestions = new Mongo.Collection("quiz");
 });
+
+Meteor.methods({
+    triggered: function () {
+        console.log('Message received!');
+    }
+});
