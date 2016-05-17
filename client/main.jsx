@@ -5,11 +5,15 @@ import './main.html';
 import {test} from '../db/main.js';
 
 Meteor.startup(() => {
+    QuizQuestions = new Mongo.Collection("quiz");
 });
 
 Template.child.events({
     'click button': function(e, tpl){
         tpl.data.onClick(e);
+    },
+    'leukeFunctie': function() {
+        console.log('Hallo');
     }
 });
 Template.parent.helpers({
@@ -27,10 +31,6 @@ Template.childreg.events({
     }
 });
 
-function animatieClass() {
-    document.getElementById('start-screen').className = "animatieOut";
-}
-
 Template.parentreg.helpers({
     doSomeAction(){
         return function(){
@@ -39,5 +39,3 @@ Template.parentreg.helpers({
         }
     }
 });
-
-

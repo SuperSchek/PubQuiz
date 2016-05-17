@@ -1,9 +1,10 @@
 import { Meteor } from 'meteor/meteor';
-import '../imports/api/tasks.jsx';
 
 Meteor.startup(() => {
-  // code to run on server at startup
+    // code to run on server at startup
     Accounts.config({
         forbidClientAccountCreation : false
     });
+
+    QuizQuestions = new Mongo.Collection("quiz");
 });
