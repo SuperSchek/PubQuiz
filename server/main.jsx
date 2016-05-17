@@ -7,3 +7,9 @@ Meteor.startup(() => {
         forbidClientAccountCreation : false
     });
 });
+
+Meteor.methods({
+    triggered: function () {
+        console.log('Message received!');
+    }
+});

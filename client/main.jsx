@@ -14,6 +14,10 @@ Meteor.startup(() => {
 Template.child.events({
     'click button': function(e, tpl){
         tpl.data.onClick(e);
+    },
+    'trigerMeteor': function() {
+        Meteor.call('triggered');
+        console.log('Check your privilege!');
     }
 });
 Template.parent.helpers({
@@ -31,10 +35,6 @@ Template.childreg.events({
         tpl.data.onClick(e);
     }
 });
-
-function animatieClass() {
-    document.getElementById('start-screen').className = "animatieOut";
-}
 
 Template.parentreg.helpers({
     doSomeAction(){
