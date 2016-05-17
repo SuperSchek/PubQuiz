@@ -6,7 +6,7 @@ import {test} from '../db/main.js';
 
 Meteor.startup(() => {
     QuizQuestions = new Mongo.Collection("quiz");
-    QuizQuestions.insert(
+    QuizQuestions.upsert(
         {
             question: "Wat is de vijfde planeet in ons zonnestelsel gemeten vanaf de zon?",
             answers: [
