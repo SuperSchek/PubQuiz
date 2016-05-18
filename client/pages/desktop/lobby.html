@@ -2,14 +2,89 @@
     <div id="lobby-cont">
         <div id="lobby" >
             <h1>Aanwezige teams:</h1>
-            <h5>pub-quiz.herokuapp.com</h5>
         </div>
-        <div id="btn-start-game"><a href="/questionbumper"><button class="btn-start-agame hvr-fade">Start Quiz!</button></a></div>
+        <div id="playerdiv">
+            <div id="playertitel">
+                Cees Timmerman
+            </div>
+            <div id="playeravatar">
+                <img src="/user.png"/>
+            </div>
+        </div>
+        <!--<div id="btn-start-game"><a href="/questionbumper"><button class="btn-start-agame hvr-fade">Start Quiz!</button></a></div>-->
 
         <div id="playerlist">
-            <div id="kolom1"></div>
+            <div class="teamcard-cont">
+                <div class="teamcard-titel">A-Team</div>
+                <div class="teamcard-subtitel">2/2 spelers</div>
+                <hr>
+                <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">Naam 1</div></div>
+                <hr>
+                <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up</div><div class="name">Naam 1</div></div>
+                <hr>
+            </div>
+            <div class="teamcard-cont">
+                <div class="teamcard-titel">A-Team</div>
+                <div class="teamcard-subtitel">2/2 spelers</div>
+                <hr>
+                <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">Naam 1</div></div>
+                <hr>
+                <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up</div><div class="name">Naam 1</div></div>
+                <hr>
+            </div>
+            <div class="teamcard-cont">
+                <div class="teamcard-titel">A-Team</div>
+                <div class="teamcard-subtitel">2/2 spelers</div>
+                <hr>
+                <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">Naam 1</div></div>
+                <hr>
+                <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up</div><div class="name">Naam 1</div></div>
+                <hr>
+            </div>
+            <div class="teamcard-cont">
+                <div class="teamcard-titel">A-Team</div>
+                <div class="teamcard-subtitel">2/2 spelers</div>
+                <hr>
+                <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">Naam 1</div></div>
+                <hr>
+                <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up</div><div class="name">Naam 1</div></div>
+                <hr>
+            </div>
+            <div class="teamcard-cont">
+                <div class="teamcard-titel">A-Team</div>
+                <div class="teamcard-subtitel">2/2 spelers</div>
+                <hr>
+                <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">Naam 1</div></div>
+                <hr>
+                <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up</div><div class="name">Naam 1</div></div>
+                <hr>
+            </div>
+            <div class="teamcard-cont">
+                <div class="teamcard-titel">A-Team</div>
+                <div class="teamcard-subtitel">2/2 spelers</div>
+                <hr>
+                <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">Naam 1</div></div>
+                <hr>
+                <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up</div><div class="name">Naam 1</div></div>
+                <hr>
+            </div>
         </div>
     </div>
+
+    <style>
+        .clip{-webkit-clip-path: circle(50% at 50% 50%);clip-path: circle(50% at 50% 50%);}
+        .questionmaster{margin-left:10px;position:relative;width:100%;height:50px;}
+        .questionmaster img{float:left;}
+        .name{margin:2px 0 0 15px;position:relative;float:left;color:#424242;font-size:20px;width:50%;}
+        .role{margin:0 0 0 15px;position:relative;float:left;color:#ff9900;font-size:18px;width:50%;}
+        .teamcard-titel{margin-left:10px;color:#424242;font-size: 26px;}
+        .teamcard-subtitel{margin-left:10px;color:#bcbcbc;font-size:20px;margin-bottom:20px;}
+        .teamcard-cont{float:left;font-family:StradaOT;background:#fff;padding:1% 1% 10px 1%;margin:10px;width:20%;height:auto;border-radius:5px;border-top:10px solid #ff9900; }
+        #playerdiv{width:auto;height:auto;position:absolute;top:0;right:4%;background: #fff;padding:10px;font-size:20px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}
+    #playeravatar{float:right;height:40px;}
+    #playeravatar img{height:40px;width:40px;}
+        #playertitel{float:left;margin:7px 20px 0 10px;color:#424242;font-family: StradaOT;}
+    </style>
 </template>
 <!--<script type="text/javascript">-->
     <!--setInterval(-->

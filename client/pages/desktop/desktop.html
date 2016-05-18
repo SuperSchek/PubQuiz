@@ -5,10 +5,7 @@
                 <div id="btn-start">
                     <div id="login-titel-cont">
                         <div id="login-titel">
-                            <img src="beericon.png"/>
-                        </div>
-                        <div id="login-titel-h6">
-                            <h6>Welkom bij de PubQuiz!</h6>
+                            <img src="logo.png"/>
                         </div>
                     </div>
                     {{#if currentUser}}
@@ -18,14 +15,11 @@
                         {{> logindesktop}}
                         {{#if errorMessage}}
                             <div class="alert">
-                                <span>{{errorMessage}}</span>
+                                {{errorMessage}}
                             </div>
                         {{/if}}
                     {{/if}}
                 </div>
-            </div>
-            <div id="namen">
-                <h5><a href="http://jaccoschumacher.nl" target="_blank">Jacco Schumacher</a> | Nico Ender | Jorre Spijker | <a href="https://nl.linkedin.com/in/sander-schekman-a7b812b8" target="_blank">Sander Schekman</a></h5>
             </div>
         </div>
         <div class="screen-filter"></div>

@@ -14,10 +14,6 @@ input:focus {
 
 /*******  MOBILE CSS  *******/
 #mobile-cont{width:100%;height:100%;}
-/*  login  */
-#login-form {
-    text-align: center;
-}
 
 /*  timer  */
 #time-mob-cont{width:100%;height:5%;background:rgba(0,0,0,0.1);position:relative;text-align: left;}
@@ -74,8 +70,7 @@ input:focus {
 .progressbar-text{font-size:20px;color:#313131 !important;left: 20px !important;transform: translate(0, -50%)!important;}
 
 /******** DESKTOP STYLES ********/
-.screen-filter{background: rgba(0,0,0,0.7);position: absolute;z-index: 1;top:50%;left:50%;transform: translate(-50%, -50%)!important;width:410px;height:540px;border-radius: 5px;}
-#start-screen {background: url('/bar2.jpeg');background-size:cover;color: #FFF;text-align: center;position:absolute;width: 100%;height: 100%;margin:0 auto;}
+#start-screen {background: url('/bar3.jpg');background-size:cover;color: #fff;position:absolute;width: 100%;height: 100%;margin:0 auto;}
 #start-screen button {margin-top: 25px; transition: ease-in-out 0.2s}
 #start-screen button:hover {cursor: hand;}
 #start-screen-mob {background: url('/blackboard.jpg');background-size:cover;color: #FFF;text-align: center;position:absolute;width: 100%;height: 100%;margin:0 auto;}
@@ -83,7 +78,7 @@ input:focus {
 #start-container{width:100%;height:100%;float:left; position: absolute;margin:0 auto;z-index: 2;}
 html button:focus {outline:none;}
 
-h1{font-family: "Strada OT", sans-serif;color:#fff; font-size: 90px;line-height: 90px;font-weight: normal;margin:0;}
+h1{font-family: "Cubano", sans-serif;color:#e9e9e9; font-size: 70px;line-height: 70px;font-weight: normal;margin:0;}
 h2{font-family: AmericanTypewriter-Bold, sans-serif;color:rgba(255,255,255,1); font-size: 40px;margin:0 0 10% 0;line-height: 40px;font-weight:normal;text-align:left;}
 h5{color:#fff;font-size:20px;font-family: "Strada OT", sans-serif;font-weight:normal ;}
 h6{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 40px;line-height: 40px;font-weight: normal;margin:0;text-align:left;float:left;}
@@ -94,13 +89,13 @@ h6{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 40px;
 #namen a:hover {color: #F6325A; text-decoration: none;}
 .btn-welkom{cursor: pointer;width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: rgba(0, 0, 0, 0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;line-height:28px;font-size: 28px;border-radius: 5px;padding:10% 5%;}
 #btn-start{position:relative;float:left;width:350px;transform: translate(-50%, 0)!important;left:50%;margin: 0 0 2% 0;}
-
+hr{border:0;border-top:1px solid #e9e9e9;box-shadow: none;margin:10px 0;}
 
 .hvr-fade {display: inline-block;vertical-align: middle;-webkit-transform: translateZ(0);transform: translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);-webkit-backface-visibility: hidden;backface-visibility: hidden;-moz-osx-font-smoothing: grayscale;overflow: hidden;-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: color, background-color;transition-property: color, background-color;}
 .hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {background-color: #fff;color: #F6325A;}
 
-#lobby{float:left;position: relative;margin:4% 0 0 4%;text-align: left;}
-#lobby-cont{background: url('/blackboard.jpg');background-size:cover;width:100%;height:100%;position: absolute;border-top:10px solid #ff9900;}
+#lobby{float:left;position: relative;margin:3% 0 3% 3%;text-align: left;}
+#lobby-cont{background: #0C2B3A;background-size:cover;width:100%;height:100%;position: absolute;border-top:10px solid #;}
 #playerlist{width:100%;height:100%;float:left;position:relative;padding:0 0 0 2%;margin-bottom:-100%;}
 #kolom1{width:100%;height:68%;float:left;position:relative;overflow:scroll;margin-bottom:10%;}
 
@@ -238,141 +233,41 @@ h4{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 100px
     font-size: 30px;
 }
 
+/* PubQuiz CSS */
 
-input.error{
-    background: red;
-    color: white;
-    border: 4px solid red !important;
-}
-
-
-
-
-/*LOGIN BACKUP*/
-
-/*#login{*/
-    /*z-index: 2;*/
-/*}*/
-
-/*#login #login-dropdown-list{*/
-    /*padding: 80px;*/
-    /*position: absolute;*/
-    /*top: -230px;*/
-    /*left: -100px;*/
-    /*box-shadow: none;*/
-    /*-webkit-box-shadow: none;*/
-    /*border: none;*/
-    /*border-radius: 0;*/
-/*}*/
-
-/*#login #login-dropdown-list a{*/
-    /*text-decoration: none;*/
-    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
-/*}*/
-
-/*.login-button .single-login-button{*/
-    /*background: none;*/
-    /*color: black;*/
-/*}*/
-
-/*.login-form input{*/
-    /*background: #E6E6E6;*/
-    /*border-color: #E6E6E6!important;*/
-    /*outline: none;*/
-    /*font-size: 12px;*/
-    /*line-height: 2!important;*/
-    /*color: dimgray;*/
-/*}*/
-
-/*.login-form label{*/
-    /*float: left;*/
-    /*color: dimgray;*/
-    /*text-transform: uppercase;*/
-    /*letter-spacing: 3px;*/
-    /*font-size: 10px;*/
-    /*margin-bottom: 4px;*/
-/*}*/
-
-/*.login-button span{*/
-    /*display: none;*/
-/*}*/
-
-/*.login-close-text {*/
-    /*font-size: 10px!important;*/
-    /*color: dimgray;*/
-    /*text-transform: uppercase;*/
-    /*letter-spacing: 3px;*/
-/*}*/
-
-/*#login-buttons .login-button{*/
-    /*background: white;*/
-    /*border: none;*/
-    /*color: dimgray;*/
-    /*text-transform: uppercase;*/
-    /*letter-spacing: 3px;*/
-    /*font-size: 10px;*/
-/*}*/
-
-/*.additional-link-container{*/
-    /*margin-top: 22px;*/
-    /*color: dimgray;*/
-    /*text-transform: uppercase;*/
-    /*letter-spacing: 1px;*/
-    /*font-size: 10px;*/
-/*}*/
-
-/*#login-buttons .login-button:hover{*/
-    /*background: white;*/
-/*}*/
-
-/*#login-buttons .login-button:active{*/
-    /*background: none;*/
-    /*box-shadow: none;*/
-    /*-webkit-box-shadow: none;*/
-/*}*/
-
-/*.or-text{*/
-    /*color: dimgray;*/
-    /*text-transform: uppercase;*/
-    /*letter-spacing: 2px;*/
-    /*margin-top: 20px;*/
-/*}*/
-/*#login-buttons .login-image{*/
-    /*position: static;*/
-/*}*/
-/*.login-text-and-button{*/
-    /*display: inline-block;*/
-/*}*/
-
-/*.message{*/
-    /*text-transform: uppercase;*/
-    /*letter-spacing: 3px;*/
-    /*font-size: 10px*/
-/*}*/
 #start-buttons-cont input{padding: 7% 0;width:100%;font-family:  StradaOT,sans-serif;border-width:0;background-color: #F6325A;border-bottom: 2pt solid #e9e9e9 !important;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;outline:none;}
 #start-buttons-cont button:active{background: #FAFAFA;color: #ff9900;}
-.btn-reg{border:none;background: none;color:#bcbcbc;font-size:20px;text-align:center;margin:20px 0 !important;font-family:  StradaOT,sans-serif;}
+.btn-reg{width:100%;border:none;background: none;color:#bcbcbc;font-size:20px;text-align:center;margin:20px 0 !important;font-family:  StradaOT,sans-serif;float:left;text-align: center;}
 
 
 #login-form {padding:2% 5%;}
-#login-module {background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #ff9900;}
+#login-module {box-shadow: 0 5px 20px 0 rgba(0,0,0,0.5);background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #C09C6A;position:relative;float:left;}
 #login-module form input{background:rgba(0,0,0,0);width:100%;border-style: none;}
 #login-module form input{padding: 7% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
-#login-module button:active{background: #FAFAFA;color: #ff9900;}
-.btn-login-mob{height:60px;padding: 5% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:bold;background-color: #ff9900;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
+#login-module button:active{background: #FAFAFA;color: #C09C6A;}
+.btn-login-mob{height:60px;padding: 5% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:bold;background-color: #C09C6A;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
 .btn-reg-mob{height:60px;padding: 5% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:bold;background-color: #3299BB;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
 
 ::-webkit-input-placeholder {color: #d0d0d0;padding:0 0 5px 0;}
 
 #reg-form {padding:2% 5%;}
-#register-module {background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #3299BB;}
+#register-module {background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #3299BB;position:relative;float:left;}
 #register-module form input{background:rgba(0,0,0,0);width:100%;border-style: none;}
 #register-module form input{padding: 7% 0;width:100%;font-family: StradaOT,sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
 #register-module button:active{background: #FAFAFA;color: #3299BB;}
-#login-titel-cont{width:100%;height:100px;text-align: left;display:block;margin-bottom:20px;}
-#login-titel{width:70px;height:100px;text-align: left;display:block;position:relative;margin:0 18px 0 12px;float:left;}
+#login-titel-cont{width:100%;text-align: left;display:block;margin:0 0 50px 0;}
+#login-titel{width:auto;height:auto;text-align: center;}
 #login-titel-h6{width:250px;height:100px;text-align: left;display:block;position:relative;float:left;}
 
 #login-module-desktop {background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #ff9900;}
 #login-module-desktop form input{background:rgba(0,0,0,0);width:100%;border-style: none;}
 #login-module-desktop form input{padding: 7% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
+.screen-filter{box-shadow: 0 0 20px 0 rgba(0,0,0,1);background: #0C2B3A;position: absolute;z-index: 1;top:50%;left:50%;transform: translate(-50%, -50%)!important;width:410px;height:100%;}
+
+.error {text-align: left;color:#EC5A48;position: relative;float:left;margin:0 0 10px 0;font-family:StradaOT, sans-serif;}
+input.error{border-bottom: 2px solid #EC5A48 !important;}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+    -webkit-text-fill-color: #424242 !important;
+}
