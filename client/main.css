@@ -1,7 +1,7 @@
 /*******  FONT SETUP  *******/
 @font-face {font-family:StradaOT;src: url("./fonts/StradaOT.otf") format("opentype");}
 @font-face {font-family:StradaOTBold;src: url("./fonts/StradaOT-Bold.otf") format("opentype");}
-
+@font-face {font-family:Cubano;src: url("./fonts/Cubano-Regular.otf") format("opentype");}
 @font-face {font-family:AmericanTypewriter-Bold;src: url("fonts/AmericanTypewriter-Bold.ttf") format("truetype");}
 html {width:100%;height: 100%;overflow: hidden;}
 body{margin:0;font-family: AmericanTypewriter-Bold, Arial, sans-serif;max-height: 100%;max-width: 100%;height:100%;width:100%;}
@@ -78,7 +78,7 @@ input:focus {
 #start-container{width:100%;height:100%;float:left; position: absolute;margin:0 auto;z-index: 2;}
 html button:focus {outline:none;}
 
-h1{font-family: "Cubano", sans-serif;color:#e9e9e9; font-size: 70px;line-height: 70px;font-weight: normal;margin:0;}
+h1{font-family: Cubano, sans-serif;color:#e9e9e9; font-size: 70px;line-height: 70px;font-weight: normal;margin:0;}
 h2{font-family: AmericanTypewriter-Bold, sans-serif;color:rgba(255,255,255,1); font-size: 40px;margin:0 0 10% 0;line-height: 40px;font-weight:normal;text-align:left;}
 h5{color:#fff;font-size:20px;font-family: "Strada OT", sans-serif;font-weight:normal ;}
 h6{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 40px;line-height: 40px;font-weight: normal;margin:0;text-align:left;float:left;}
