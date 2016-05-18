@@ -104,12 +104,12 @@ $.validator.setDefaults({
     },
     messages: {
         email: {
-            required: "You must enter an email address.",
-            email: "You've entered an invalid email address."
+            required: "Voer je email adres in",
+            email: "Voer een juist email adres in"
         },
         password: {
-            required: "You must enter a password.",
-            minlength: "Your password must be at least {0} characters."
+            required: "Voer je wachtwoord in",
+            minlength: "Wachtwoord moet minstens {0} karakters bevatten."
         }
     }
 });
