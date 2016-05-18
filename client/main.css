@@ -244,7 +244,7 @@ h4{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 100px
 #login-module {box-shadow: 0 5px 20px 0 rgba(0,0,0,0.5);background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #C09C6A;position:relative;float:left;}
 #login-module form input{background:rgba(0,0,0,0);width:100%;border-style: none;}
 #login-module form input{padding: 7% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
-#login-module button:active{background: #FAFAFA;color: #ff9900;}
+#login-module button:active{background: #FAFAFA;color: #C09C6A;}
 .btn-login-mob{height:60px;padding: 5% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:bold;background-color: #C09C6A;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
 .btn-reg-mob{height:60px;padding: 5% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:bold;background-color: #3299BB;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
 
