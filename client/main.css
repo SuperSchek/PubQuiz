@@ -1,7 +1,7 @@
 /*******  FONT SETUP  *******/
-@font-face {font-family:StradaOT;src: url("./fonts/StradaOT.otf") format("opentype");}
-@font-face {font-family:StradaOTBold;src: url("./fonts/StradaOT-Bold.otf") format("opentype");}
-@font-face {font-family:Cubano;src: url("./fonts/Cubano-Regular.otf") format("opentype");}
+@font-face {font-family:StradaOT;src: url("fonts/StradaOT.otf") format("opentype");}
+@font-face {font-family:StradaOTBold;src: url("fonts/StradaOT-Bold.otf") format("opentype");}
+@font-face {font-family:Cubano;src: url("fonts/Cubano-Regular.otf") format("opentype");}
 @font-face {font-family:AmericanTypewriter-Bold;src: url("fonts/AmericanTypewriter-Bold.ttf") format("truetype");}
 html {width:100%;height: 100%;overflow: hidden;}
 body{margin:0;font-family: AmericanTypewriter-Bold, Arial, sans-serif;max-height: 100%;max-width: 100%;height:100%;width:100%;}
