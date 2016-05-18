@@ -78,7 +78,7 @@ input:focus {
 #start-container{width:100%;height:100%;float:left; position: absolute;margin:0 auto;z-index: 2;}
 html button:focus {outline:none;}
 
-h1{font-family: "AmericanTypewriter-Bold", sans-serif;color:#fff; font-size: 70px;line-height: 70px;font-weight: normal;margin:0;}
+h1{font-family: "Cubano", sans-serif;color:#e9e9e9; font-size: 70px;line-height: 70px;font-weight: normal;margin:0;}
 h2{font-family: AmericanTypewriter-Bold, sans-serif;color:rgba(255,255,255,1); font-size: 40px;margin:0 0 10% 0;line-height: 40px;font-weight:normal;text-align:left;}
 h5{color:#fff;font-size:20px;font-family: "Strada OT", sans-serif;font-weight:normal ;}
 h6{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 40px;line-height: 40px;font-weight: normal;margin:0;text-align:left;float:left;}
@@ -95,7 +95,7 @@ hr{border:0;border-top:1px solid #e9e9e9;box-shadow: none;margin:10px 0;}
 .hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {background-color: #fff;color: #F6325A;}
 
 #lobby{float:left;position: relative;margin:3% 0 3% 3%;text-align: left;}
-#lobby-cont{background: url('/blackboard.jpg');background-size:cover;width:100%;height:100%;position: absolute;border-top:10px solid #ff9900;}
+#lobby-cont{background: #0C2B3A;background-size:cover;width:100%;height:100%;position: absolute;border-top:10px solid #;}
 #playerlist{width:100%;height:100%;float:left;position:relative;padding:0 0 0 2%;margin-bottom:-100%;}
 #kolom1{width:100%;height:68%;float:left;position:relative;overflow:scroll;margin-bottom:10%;}
 
