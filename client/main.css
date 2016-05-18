@@ -267,6 +267,7 @@ h4{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 100px
 .error {text-align: left;color:#EC5A48;position: relative;float:left;margin:0 0 10px 0;font-family:StradaOT, sans-serif;}
 input.error{border-bottom: 2px solid #EC5A48 !important;}
 
-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+    -webkit-text-fill-color: #424242 !important;
 }
