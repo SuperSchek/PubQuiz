@@ -112,7 +112,7 @@ hr{border:0;border-top:1px solid #e9e9e9;box-shadow: none;margin:10px 0;}
 #btn-stelVraag{margin:0 auto;position:relative;width:20%;height: 90px;}
 .btn-stelVraag{line-height:80px;padding:1%;width:100%;font-family: AmericanTypewriter-Bold,sans-serif;background-color: #F6325A;border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
 .hidden{display: none;}
-.show{display: block;z-index: 101;}
+.show{display: block;z-index: 1;}
 
 #antwoord-uitleg{z-index:100;position:absolute;margin:0 auto;height: 100%;width:70%;background: #fff;}
 #antwoord-container{float:left;position: relative;margin:2% 0 0 2%;text-align: left;padding:25px;}
