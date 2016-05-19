@@ -4,8 +4,6 @@ import './main.html';
 
 import {test} from '../db/main.js';
 
-var kamerNummer = 0;
-
 Meteor.startup(() => {
     QuizQuestions = new Mongo.Collection("quiz");
 });
@@ -51,6 +49,4 @@ Template.roomcode.onRendered = function() {
     });
 };
 
-
-//Rooms creating
 Channels = new Mongo.Collection("Channels");

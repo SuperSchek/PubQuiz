@@ -1,7 +1,7 @@
 /**
  * Created by Sander on 17/05/16.
  */
-
+Channels = new Mongo.Collection("Channels");
 // Create new Collection for Quiz Questions
 QuizQuestions = new Mongo.Collection("quiz");
 
