@@ -4,6 +4,8 @@ import './main.html';
 
 import {test} from '../db/main.js';
 
+var kamerNummer = 0;
+
 Meteor.startup(() => {
     QuizQuestions = new Mongo.Collection("quiz");
 });
@@ -17,7 +19,7 @@ Template.parent.helpers({
     doSomeAction(){
         return function(){
             document.getElementById('login-module').className = "hidden";
-            document.getElementById('register-module').className = "show";
+            document.getElementById('register-module').className = "show"
         }
     }
 });
@@ -32,7 +34,7 @@ Template.parentreg.helpers({
     doSomeAction(){
         return function(){
             document.getElementById('login-module').className = "show";
-            document.getElementById('register-module').className = "hidden";
+            document.getElementById('register-module').className = "hidden"
         }
     }
 });
@@ -48,3 +50,7 @@ Template.roomcode.onRendered = function() {
         }
     });
 };
+
+
+//Rooms creating
+Channels = new Mongo.Collection("Channels");

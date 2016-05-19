@@ -6,6 +6,8 @@ Meteor.startup(() => {
     Accounts.config({
         forbidClientAccountCreation : false
     });
+    // create rooms collection
+    new Mongo.Collection('Channels');
 });
 
 Meteor.methods({

@@ -1,6 +1,27 @@
-/**
- * Created by jorrespijker on 10-05-16.
- */
+pppp = 0;
+//Create kamerNumber
+
+function kamerNumber (){
+    kamerNumber = Channels.find().count() + 1;
+    pppp = kamerNumber;
+    return kamerNumber;
+
+}
+//Create kamerCode
+function kamerCode() {
+
+    var kamerGetal = kamerGetal = Math.floor(Math.random() * 9000) + 1000;
+    var getalVinden = Channels.find({code: kamerGetal}).count();
+
+    while(getalVinden >= 1) {
+        kamerGetal = Math.floor(Math.random() * 9000) + 1000;
+    }
+
+
+    kamerCode = kamerGetal;
+
+    return kamerCode;
+}
 
 Template.login.helpers({
     errorMessage: function() {
@@ -26,8 +47,6 @@ Template.register.events({
     }
 });
 
-Template.login.events({
-});
 
 Template.login.events({
     'submit form': function(event){
@@ -38,7 +57,6 @@ Template.login.events({
             if (error) {
                 console.log(error.reason);
             } else {
-                Router.go("lobby"); // User succeeds
             }
         });
     },
@@ -92,6 +110,11 @@ Template.registerdesktop.events({
             if(error){
                 console.log(error.reason); // Output error if registration fails
             } else {
+                //Create room
+                Channels.insert({
+                    name: kamerNumber(),
+                    code: kamerCode()
+                });
                 Router.go("lobby"); // User succeeds
             }
         });
@@ -107,6 +130,11 @@ Template.logindesktop.events({
             if (error) {
                 console.log(error.reason);
             } else {
+                //Create room
+                Channels.insert({
+                    name: kamerNumber(),
+                    code: kamerCode()
+                });
                 Router.go("lobby"); // User succeeds
             }
         });

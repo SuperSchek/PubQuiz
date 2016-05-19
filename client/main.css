@@ -101,7 +101,7 @@ hr{border:0;border-top:1px solid #e9e9e9;box-shadow: none;margin:10px 0;}
 
 #btn-start-game{position:fixed;right:0;width:20%; height: auto;margin:4% 4% 0 2%;}
 .btn-start-agame{line-height:80px;padding:1%;width:100%;font-family: AmericanTypewriter-Bold, sans-serif;background-color:rgba(0,0,0,0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
-#start-buttons-cont{padding:0 6% 0 6%;top: 55%;transform: translate(0, -50%);position: absolute;}
+#start-buttons-cont{padding:0 6% 0 6%;top: 55%;transform: translate(0, -50%);position: absolute;width:88%;}
 
 #vraag-intro{z-index:100;position:absolute;margin:0 auto;text-align: center;height: 100%;width:100%;background: #F6325A;}
 #intro-text{position:relative;top: 45%;transform: translateY(-50%);margin:0 auto;text-align: center;}
@@ -238,7 +238,7 @@ h4{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 100px
 #start-buttons-cont input{padding: 7% 0;width:100%;font-family:  StradaOT,sans-serif;border-width:0;background-color: #F6325A;border-bottom: 2pt solid #e9e9e9 !important;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;outline:none;}
 #start-buttons-cont button:active{background: #FAFAFA;color: #ff9900;}
 
-.btn-reg{width:100%;border:none;background: none;color:#bcbcbc;font-size:20px;text-align:center;margin:20px 0 !important;font-family:  StradaOT,sans-serif;float:left;text-align: center;}
+/*.btn-reg{width:100%;border:none;background: none;color:#bcbcbc;font-size:20px;text-align:center;margin:20px 0 !important;font-family:  StradaOT,sans-serif;float:left;text-align: center;}*/
 
 
 
@@ -246,7 +246,7 @@ h4{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 100px
 #login-module {box-shadow: 0 5px 20px 0 rgba(0,0,0,0.5);background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #C09C6A;position:relative;float:left;}
 #login-module form input{background:rgba(0,0,0,0);width:100%;border-style: none;}
 #login-module form input{padding: 7% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
-#login-module button:active{background: #FAFAFA;color: #C09C6A;}
+#login-module button:active{background: #fff;color: #C09C6A;}
 .btn-login-mob{height:60px;padding: 5% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:bold;background-color: #C09C6A;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
 .btn-reg-mob{height:60px;padding: 5% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:bold;background-color: #3299BB;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
 
@@ -256,7 +256,7 @@ h4{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 100px
 #register-module {background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #3299BB;position:relative;float:left;}
 #register-module form input{background:rgba(0,0,0,0);width:100%;border-style: none;}
 #register-module form input{padding: 7% 0;width:100%;font-family: StradaOT,sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
-#register-module button:active{background: #FAFAFA;color: #3299BB;}
+#register-module button:active{background: #fff;color: #3299BB;}
 #login-titel-cont{width:100%;text-align: left;display:block;margin:0 0 50px 0;}
 #login-titel{width:auto;height:auto;text-align: center;}
 #login-titel-h6{width:250px;height:100px;text-align: left;display:block;position:relative;float:left;}
@@ -270,27 +270,26 @@ h4{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 100px
 .error {text-align: left;color:#EC5A48;position: relative;float:left;margin:0 0 10px 0;font-family:StradaOT, sans-serif;}
 input.error{border-bottom: 2px solid #EC5A48 !important;}
 
-input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px white inset;
-    -webkit-text-fill-color: #424242 !important;
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {-webkit-box-shadow: 0 0 0 1000px white inset;-webkit-text-fill-color: #424242 !important;}
+.facebookAndRegister{display: inline-block;}
+.facebookAndRegister span{color: #bcbcbc;}
+.btn-reg{position:relative;border:none;background: none;color:#424242;font-size:20px;text-align:center;font-family:  StradaOT,sans-serif;}
+
+#facebook-login{border: none;
+    background: none;
+    color: #424242;
+    font-size: 20px;
+    font-family: StradaOT,sans-serif;
+    padding-right:3px;
 }
-
-
-#facebookAndRegister{
-    display: inline-block;
-}
-
-#facebookAndRegister span{
-    color: #bcbcbc;
-}
-
-#facebookAndRegister, #facebook-login{
+.facebookAndRegister{
+    width:100%;
     border: none;
     background: none;
     color: #424242;
     font-size: 20px;
     text-align: center;
-    margin: 20px 0 !important;
+    margin: 0 0 20px 0 !important;
     font-family: StradaOT,sans-serif;
 }
 
@@ -364,7 +363,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     display: block;
 }
 
-#roomcode {background:#fff;width:100%;height:200px;border-radius:5px;border-top:10px solid #ff9900;}
+#roomcode {background:#fff;width:100%;height:200px;border-radius:5px;border-top:10px solid #C09C6A;}
 
 #roomcode form {
     padding:30px 5%;

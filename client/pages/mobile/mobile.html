@@ -25,13 +25,17 @@
 </template>
 
 <template name="parent">
-    {{> child onClick=doSomeAction}}
+    {{> facebooklogin}}{{> child onClick=doSomeAction}}
+</template>
+
+<template name="facebooklogin">
+    <div class="facebookAndRegister">
+        <a href="#" id="facebook-login"><img src="/fb-login.png" /> login </a> <span> of</span>
+    </div>
 </template>
 
 <template name="child">
-    <div id="facebookAndRegister">
-        <a href="#" id="facebook-login"><img src="/fb-login.png" /> login</a> <span>of</span><button class="btn-reg">registreer</button>
-    </div>
+    <div class="facebookAndRegister"><button class="btn-reg">registreer</button></div>
 </template>
 
 <template name="parentreg">
