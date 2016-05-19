@@ -1,10 +1,12 @@
-pppp = 0;
+var kamernummertje = 0;
+var kamercijfer = 0;
+var gebruiker;
 //Create kamerNumber
 
 function kamerNumber (){
-    kamerNumber = Channels.find().count() + 1;
-    pppp = kamerNumber;
-    return kamerNumber;
+    var nummertje = Channels.find().count() + 1;
+    kamernummertje = nummertje;
+    return nummertje;
 
 }
 //Create kamerCode
@@ -17,10 +19,9 @@ function kamerCode() {
         kamerGetal = Math.floor(Math.random() * 9000) + 1000;
     }
 
+    kamercijfer = kamerGetal;
 
-    kamerCode = kamerGetal;
-
-    return kamerCode;
+    return kamerGetal;
 }
 
 Template.login.helpers({
@@ -111,10 +112,15 @@ Template.registerdesktop.events({
                 console.log(error.reason); // Output error if registration fails
             } else {
                 //Create room
+                kamerNumber();
+                kamerCode();
                 Channels.insert({
-                    name: kamerNumber(),
-                    code: kamerCode()
+                    name: kamernummertje,
+                    code: kamercijfer
                 });
+                gebruiker = Meteor.userId();
+                Meteor.users.update(gebruiker, {$set: {"profile.kamernummer": kamernummertje}});
+                Meteor.users.update(gebruiker, {$set: {"profile.kamercode": kamercijfer}});
                 Router.go("lobby"); // User succeeds
             }
         });
@@ -131,10 +137,15 @@ Template.logindesktop.events({
                 console.log(error.reason);
             } else {
                 //Create room
+                kamerNumber();
+                kamerCode();
                 Channels.insert({
-                    name: kamerNumber(),
-                    code: kamerCode()
+                    name: kamernummertje,
+                    code: kamercijfer
                 });
+                gebruiker = Meteor.userId();
+                Meteor.users.update(gebruiker, {$set: {"profile.kamernummer": kamernummertje}});
+                Meteor.users.update(gebruiker, {$set: {"profile.kamercode": kamercijfer}});
                 Router.go("lobby"); // User succeeds
             }
         });
