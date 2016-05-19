@@ -27,6 +27,9 @@ Template.register.events({
 });
 
 Template.login.events({
+});
+
+Template.login.events({
     'submit form': function(event){
         event.preventDefault();
         var emailVar = event.target.email.value;
@@ -38,16 +41,31 @@ Template.login.events({
                 Router.go("lobby"); // User succeeds
             }
         });
+    },
+    'click #facebook-login': function (event) {
+        Meteor.loginWithFacebook({}, function (err) {
+            if (err) {
+                throw new Meteor.Error("Facebook login failed");
+            }
+        });
     }
 });
 
-Template.dashboard.events({
+Template.topbar.helpers({
+    passwordEmail: function(){
+        var user = Meteor.user();
+        if (user && user.emails) {
+            return user.emails[0].address
+        }
+    }
+});
+
+Template.topbar.events({
     'click .logout': function(event){
         event.preventDefault();
         Meteor.logout();
     }
 });
-
 
 Template.logindesktop.helpers({
     errorMessage: function() {

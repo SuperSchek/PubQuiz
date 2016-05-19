@@ -1,0 +1,17 @@
+<template name="topbar">
+<div id="topbar">
+    <div id="icon"></div>
+    <h1>PubQuiz!</h1>
+    <div id="spacer"></div>
+    {{#if currentUser}}
+        <div class="dropdown">
+            <img src="http://graph.facebook.com/{{currentUser.services.facebook.id}}/picture" id="facebook-photo">
+            <div class="dropdown-content">
+                <p>{{currentUser.services.facebook.name}} {{passwordEmail}}</p>
+                <p><a href="#" class="logout">Logout</a></p>
+            </div>
+        </div>
+    {{else}}
+    {{/if}}
+</div>
+</template>

@@ -4,7 +4,7 @@
 
 @font-face {font-family:AmericanTypewriter-Bold;src: url("fonts/AmericanTypewriter-Bold.ttf") format("truetype");}
 html {width:100%;height: 100%;overflow: hidden;}
-body{margin:0;font-family: AmericanTypewriter-Bold, Arial, sans-serif;max-height: 100%;max-width: 100%;height:100%;width:100%;}
+body{margin:0;font-family: StradaOT, sans-serif, Arial, sans-serif;max-height: 100%;max-width: 100%;height:100%;width:100%;}
 .test{height: 100%;}
 a {text-decoration: none;}
 input:focus {
@@ -106,7 +106,7 @@ h6{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 40px;
 
 #btn-start-game{position:fixed;right:0;width:20%; height: auto;margin:4% 4% 0 2%;}
 .btn-start-agame{line-height:80px;padding:1%;width:100%;font-family: AmericanTypewriter-Bold, sans-serif;background-color:rgba(0,0,0,0);border: 2pt solid #fff;color: white;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
-#start-buttons-cont{padding:0 6% 0 6%;top: 50%;transform: translate(0, -50%);position: absolute;}
+#start-buttons-cont{padding:0 6% 0 6%;top: 55%;transform: translate(0, -50%);position: absolute;}
 
 #vraag-intro{z-index:100;position:absolute;margin:0 auto;text-align: center;height: 100%;width:100%;background: #F6325A;}
 #intro-text{position:relative;top: 45%;transform: translateY(-50%);margin:0 auto;text-align: center;}
@@ -351,7 +351,7 @@ input.error{
 /*}*/
 #start-buttons-cont input{padding: 7% 0;width:100%;font-family:  StradaOT,sans-serif;border-width:0;background-color: #F6325A;border-bottom: 2pt solid #e9e9e9 !important;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;outline:none;}
 #start-buttons-cont button:active{background: #FAFAFA;color: #ff9900;}
-.btn-reg{border:none;background: none;color:#bcbcbc;font-size:20px;text-align:center;margin:20px 0 !important;font-family:  StradaOT,sans-serif;}
+.btn-reg{border:none;background: none;color:#424242;font-size:20px;text-align:center;margin:20px 0 !important;font-family:  StradaOT,sans-serif;}
 
 
 #login-form {padding:2% 5%;}
@@ -376,3 +376,118 @@ input.error{
 #login-module-desktop {background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #ff9900;}
 #login-module-desktop form input{background:rgba(0,0,0,0);width:100%;border-style: none;}
 #login-module-desktop form input{padding: 7% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
+
+
+#facebookAndRegister{
+    display: inline-block;
+}
+
+#facebookAndRegister span{
+    color: #bcbcbc;
+}
+
+#facebookAndRegister, #facebook-login{
+    border: none;
+    background: none;
+    color: #424242;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px 0 !important;
+    font-family: StradaOT,sans-serif;
+}
+
+#topbar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row nowrap;
+    background: white;
+    width: 100%;
+    height: 60px;
+    color: #424242;
+}
+
+#spacer {
+    visibility: hidden;
+    flex-grow: 1;
+}
+
+#topbar #icon{
+    background: #424242 url('/beericon.png') center no-repeat;
+    background-size: 30px;
+    height: 60px;
+    width: 60px;
+}
+
+#facebook-photo{
+    height: 40px;
+    margin-right: 10px;
+    width: auto;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+}
+
+#topbar h1{
+    margin-left: 10px;
+    font-size: 16px;
+    font-family: "StradaOT", sans-serif;
+    color: #424242;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    right: 0;
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown-content p{
+    margin: 0;
+    text-align: left;
+}
+
+.dropdown-content p a{
+    color: #424242;
+}
+.dropdown-content p:nth-child(1){
+    font-weight: bold;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#roomcode {background:#fff;width:100%;height:200px;border-radius:5px;border-top:10px solid #ff9900;}
+
+#roomcode form {
+    padding:30px 5%;
+}
+
+#roomcode #inputrow{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+#roomcode input{
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: white;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#roomcode input:last-of-type{
+    margin-right:0px;
+}

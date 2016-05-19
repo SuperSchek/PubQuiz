@@ -12,7 +12,7 @@ Router.route('/', function () {
     if (isMobile == false) {
         this.render('start-screen');
     } else {
-        this.render('mobile-start');
+        this.render('mobilestart');
     }
 });
 

@@ -1,18 +1,15 @@
-<template name="mobile-start">
+<template name="mobilestart">
     <div id="start-screen-mob">
         <div id="start-container">
-
+            {{> topbar}}
             <div id="start-buttons-cont">
                 <div id="login-titel-cont">
-                    <div id="login-titel">
-                        <img src="beericon.png"/>
-                    </div>
                     <div id="login-titel-h6">
                         <h6>Welkom bij de PubQuiz!</h6>
                     </div>
                 </div>
                 {{#if currentUser}}
-                    {{> dashboard }}
+                    {{> roomcode }}
                 {{else}}
                     {{> login}}
                     {{> register}}
@@ -32,7 +29,9 @@
 </template>
 
 <template name="child">
-    <button class="btn-reg">of registreer</button>
+    <div id="facebookAndRegister">
+        <a href="#" id="facebook-login"><img src="/fb-login.png" /> login</a> <span>of</span><button class="btn-reg">registreer</button>
+    </div>
 </template>
 
 <template name="parentreg">
@@ -40,5 +39,5 @@
 </template>
 
 <template name="childreg">
-    <button class="btn-reg">of Login</button>
+    <button class="btn-reg">of login</button>
 </template>
