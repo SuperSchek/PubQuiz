@@ -1,14 +1,15 @@
-<template name="mobile-start">
+<template name="mobilestart">
     <div id="start-screen-mob">
         <div id="start-container">
             <div id="start-buttons-cont">
                 <div id="login-titel-cont">
                     <div id="login-titel">
                         <img src="logomob.png"/>
+                        {{> topbar}}
                     </div>
                 </div>
                 {{#if currentUser}}
-                    {{> dashboard }}
+                    {{> roomcode }}
                 {{else}}
                     {{> login}}
                     {{> register}}
@@ -28,7 +29,9 @@
 </template>
 
 <template name="child">
-    <button class="btn-reg">of registreer</button>
+    <div id="facebookAndRegister">
+        <a href="#" id="facebook-login"><img src="/fb-login.png" /> login</a> <span>of</span><button class="btn-reg">registreer</button>
+    </div>
 </template>
 
 <template name="parentreg">
