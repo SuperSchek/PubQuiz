@@ -67,6 +67,13 @@ Template.topbar.events({
     }
 });
 
+Template.dashboard.events({
+    'click .logout': function(event){
+        event.preventDefault();
+        Meteor.logout();
+    }
+});
+
 Template.logindesktop.helpers({
     errorMessage: function() {
         return Session.get('errorMessage');
