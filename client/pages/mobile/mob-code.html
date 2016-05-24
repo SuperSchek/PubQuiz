@@ -4,9 +4,15 @@
         <div id="start-container">
             <h2>PubQuiz</h2>
             <div id="start-buttons-cont">
-                <button class="btn-welkom">Create team!</button>
+                <button onclick="meteorclick()" id="meteortest" class="btn-welkom">TEST</button>
                 <button class="btn-welkom">Join team!</button>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+    function meteorclick(){
+        document.getElementById("lobby").innerHTML = "<h1>Het werkt!</h1>"
+    }
+</script>
