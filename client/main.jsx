@@ -83,14 +83,7 @@ Template.roomcode.events({
 });
 
 Template.mobcode.events({
-    'click button': function(e){
-        document.getElementById('meteortest').onClick(e);
-    }
-});
-Template.mobcode.helpers({
-    meteorclick(){
-        return function(){
-            document.getElementById('').innerHTML = "<h1>Het werkt!</h1>"
-        }
+    'click .meteortest': function(){
+        console.log("You clicked a #player element");
     }
 });
