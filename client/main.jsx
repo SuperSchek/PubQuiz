@@ -80,4 +80,4 @@ Template.roomcode.events({
             console.log("hey")
         );
     }
-    });
+});
