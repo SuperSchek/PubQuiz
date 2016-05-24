@@ -1,9 +1,9 @@
-Channels = new Mongo.Collection("Channels");
+// Channels = new Mongo.Collection("Channels");
 // Create new Collection for Quiz Questions
-QuizQuestions = new Mongo.Collection("quiz");
+// QuizQuestions = new Mongo.Collection("quiz");
 
 // Empty the Collection to remove old stuff
-QuizQuestions.remove({});
+// QuizQuestions.remove({});
 
 
 // Insert all Questions into a document in the QuizQuesions Collection.

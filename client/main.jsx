@@ -6,6 +6,7 @@ import {test} from '../db/main.js';
 
 Meteor.startup(() => {
     QuizQuestions = new Mongo.Collection("quiz");
+    Channels = new Mongo.Collection("Channels");
 });
 
 Template.child.events({
@@ -56,12 +57,7 @@ var code3;
 var code4;
 var codeX;
 
-
-if (this.value.length == 0) {
-    $(this).prev().select();
-}
-
-Channels = new Mongo.Collection("Channels");
+// Channels = new Mongo.Collection("Channels");
 
 Template.roomcode.events({
     'submit form': function(event){
@@ -72,12 +68,21 @@ Template.roomcode.events({
         code4 = document.getElementById('code4').value;
         codeX = code1 + code2 + code3 + code4;
         console.log(codeX);
+
+        roomCodeDB = Channels.find();
+        if( codeX == roomCodeDB){
+            console.log("Room exist.");
+        } else{
+            console.log("Room doesn't exist.");
+        }
+
+
         Meteor.users.update(
             { _id: this._id },
             {$set:
                 { room: codeX }
             },
-            console.log("hey")
+            // Meteor.users.update(gebruiker, {$set: {"profile.kamercode": kamercijfer}});
         );
     }
     });
