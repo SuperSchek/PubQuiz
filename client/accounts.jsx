@@ -2,12 +2,6 @@
  * Created by jorrespijker on 10-05-16.
  */
 
-Template.login.helpers({
-    errorMessage: function() {
-        return Session.get('errorMessage');
-    }
-});
-
 Template.register.events({
     'submit form': function(event) {
         event.preventDefault();
@@ -24,9 +18,6 @@ Template.register.events({
             }
         });
     }
-});
-
-Template.login.events({
 });
 
 Template.login.events({
@@ -51,7 +42,7 @@ Template.login.events({
     }
 });
 
-Template.topbar.helpers({
+Template.username.helpers({
     passwordEmail: function(){
         var user = Meteor.user();
         if (user && user.emails) {
@@ -60,19 +51,67 @@ Template.topbar.helpers({
     }
 });
 
-Template.topbar.events({
+Template.profiel.helpers({
+    passwordEmail: function(){
+        var user = Meteor.user();
+        if (user && user.emails) {
+            return user.emails[0].address
+        }
+    }
+});
+
+Template.profiel.events({
+    'submit form': function(event, template) {
+        var currentPassword,
+            newPassword,
+            newPasswordRepeated;
+
+        currentPassword = template.find('#current-password');
+        newPassword = template.find('#new-password');
+        newPasswordRepeated = template.find('#new-password-repeated');
+
+        // You will want to validate your passwords better than this
+        if (newPassword !== newPasswordRepeated) {
+            template.find('#form-messages').html("The new passwords don't match!");
+
+            return false;
+        }
+
+        Accounts.changePassword(currentPassword, newPassword, function(error) {
+            if (error) {
+                message = 'There was an issue: ' + error.reason;
+            } else {
+                message = 'You reset your password!'
+            }
+        });
+
+        // Inform the user.
+        template.find('#form-messages').html(message);
+
+        return false;
+    }
+});
+
+Template.logout.events({
     'click .logout': function(event){
+        console.log("hello");
         event.preventDefault();
         Meteor.logout();
     }
 });
 
-Template.dashboard.events({
-    'click .logout': function(event){
-        event.preventDefault();
-        Meteor.logout();
+Template.topbarMobile.events({
+    "click .dropdown-toggle":function(event){
+        $(".dropdown").toggle();
     }
 });
+
+Template.topbarDesktop.events({
+    "click .dropdown-toggle":function(event){
+        $(".dropdown").toggle();
+    }
+});
+
 
 Template.logindesktop.helpers({
     errorMessage: function() {

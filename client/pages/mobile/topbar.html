@@ -1,16 +1,19 @@
-<template name="topbar">
+<template name="topbarMobile">
 <div id="topbar">
     <div id="icon"></div>
     <h1>PubQuiz!</h1>
     <div id="spacer"></div>
     {{#if currentUser}}
-        <div class="dropdown">
-            <img src="http://graph.facebook.com/{{currentUser.services.facebook.id}}/picture" id="facebook-photo">
-            <div class="dropdown-content">
-                <p>{{currentUser.services.facebook.name}} {{passwordEmail}}</p>
-                <p><a href="#" class="logout">Logout</a></p>
-            </div>
-        </div>
+        <nav>
+            <a class="dropdown-toggle" href="#" title="Menu">
+                <span>{{> username}}</span>
+                <img src="http://graph.facebook.com/{{currentUser.services.facebook.id}}/picture" id="facebook-photo">
+            </a>
+            <ul class="dropdown">
+                <li><a href="#">Mijn profiel</a></li>
+                <li>{{> logout}}</li>
+            </ul>
+        </nav>
     {{else}}
     {{/if}}
 </div>

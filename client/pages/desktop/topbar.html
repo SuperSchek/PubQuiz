@@ -1,0 +1,21 @@
+<template name="topbarDesktop">
+    {{#if currentUser}}
+    <div id="playerdiv">
+        <nav>
+            <a class="dropdown-toggle" href="#" title="Menu">
+                <div id="playertitel">
+                    {{> username}}
+                </div>
+                <div id="playeravatar">
+                    <img src="http://graph.facebook.com/{{currentUser.services.facebook.id}}/picture" id="facebook-photo">
+                </div>
+            </a>
+            <ul class="dropdown desktop">
+                <li><a href="/profiel">Mijn profiel</a></li>
+                <li>{{> logout}}</li>
+            </ul>
+        </nav>
+    </div>
+{{else}}
+{{/if}}
+</template>
