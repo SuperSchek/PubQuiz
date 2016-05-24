@@ -1,6 +1,6 @@
 {
   "name": "PubQuiz",
-  "version": "0.0.1",
+  "version": "0.1",
   "description": "PubQuiz is a new take on the classic pub quiz principle. Participants use their smartphones to answer questions and sabotage the opposing teams.",
   "private": true,
   "scripts": {
