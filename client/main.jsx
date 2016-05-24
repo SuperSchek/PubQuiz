@@ -36,17 +36,48 @@ Template.parentreg.helpers({
         }
     }
 });
+Template.roomcode.onRendered(function() {
+    // console.log("LALA");
+    // $('input').bind('this', function() {
+    //     if ('input'.value.length >= $(this).attr('maxlength')) {
+    //         console.log("first");
+    //         $('input').next().select();
+    //     }
+    //     if ('input'.value.length == 0) {
+    //         console.log("second");
+    //         $('input').prev().select();
+    //     }
+    // });
+});
 
-Template.roomcode.onRendered = function() {
-    $('input').bind('input', function() {
-        if (this.value.length >= $(this).attr('maxlength')) {
-            $(this).next().select();
-        }
+var code1;
+var code2;
+var code3;
+var code4;
+var codeX;
 
-        if (this.value.length == 0) {
-            $(this).prev().select();
-        }
-    });
-};
+
+if (this.value.length == 0) {
+    $(this).prev().select();
+}
 
 Channels = new Mongo.Collection("Channels");
+
+Template.roomcode.events({
+    'submit form': function(event){
+        event.preventDefault();
+        code1 = document.getElementById('code1').value;
+        code2 = document.getElementById('code2').value;
+        code3 = document.getElementById('code3').value;
+        code4 = document.getElementById('code4').value;
+        codeX = code1 + code2 + code3 + code4;
+        console.log(codeX);
+        Meteor.users.update(
+            { _id: this._id },
+            {$set:
+                { room: codeX }
+            },
+            console.log("hey")
+        );
+    }
+    });

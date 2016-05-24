@@ -1,0 +1,22 @@
+<template name="profiel">
+    <div id="lobby-cont">
+        <div id="lobby" >
+            <h1>Mijn profiel</h1>
+            <h2>Ga <a href="/lobby">terug</a>.</h2>
+        </div>
+        {{> topbarDesktop}}
+        <!--<div id="btn-start-game"><a href="/questionbumper"><button class="btn-start-agame hvr-fade">Start Quiz!</button></a></div>-->
+        <div id="profile-cont">
+                <form class="change" id="change-form">
+                    <!--<input type="email" name="emailchange" placeholder="{{passwordEmail}}">-->
+
+                    <h3>Wachtwoord veranderen</h3>
+                    <input type="password" id="current-password" placeholder="oude wachtwoord">
+                    <input type="password" id="new-password" placeholder="nieuwe wachtwoord">
+                    <input type="password" id="new-password-repeated" placeholder="herhaal wachtwoord">
+                    <button type="submit" class="btn-login-mob">Save</button>
+                    <p id="form-messages"></p>
+                </form>
+        </div>
+    </div>
+</template>

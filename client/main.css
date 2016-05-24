@@ -318,8 +318,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {back
 }
 
 #facebook-photo{
-    height: 40px;
-    margin-right: 10px;
+    height: 20px;
     width: auto;
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
@@ -337,32 +336,6 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {back
     display: inline-block;
 }
 
-.dropdown-content {
-    right: 0;
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-}
-
-.dropdown-content p{
-    margin: 0;
-    text-align: left;
-}
-
-.dropdown-content p a{
-    color: #424242;
-}
-.dropdown-content p:nth-child(1){
-    font-weight: bold;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 
 #roomcode {background:#fff;width:100%;height:200px;border-radius:5px;border-top:10px solid #C09C6A;}
 
@@ -391,3 +364,77 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {back
 }
 
 #start-screen span{color:#bcbcbc;font-size: 20px;}
+
+nav {
+    position: relative;
+}
+.dropdown-toggle {
+    padding: .5em 1em;
+    background: white;
+    border-radius: .2em .2em 0 0;
+    color: #424242;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-toggle span{
+    font-size: 12px;
+    margin-right: 10px;
+}
+ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0;
+    background: white;
+    min-width: 12em;
+    padding: 0;
+    border-radius: 0 0 .2em .2em;
+    z-index: 20;
+}
+
+ul.dropdown.desktop{
+    right: 80px;
+    min-width: auto;
+    border-radius: 0 0 5px 5px;
+}
+ul.dropdown li {
+    list-style-type: none;
+}
+
+ul.dropdown li a {
+    text-decoration: none;
+    padding: .5em 1em;
+    display: block;
+    color: #424242;
+}
+
+.clip{-webkit-clip-path: circle(50% at 50% 50%);clip-path: circle(50% at 50% 50%);}
+.questionmaster{margin-left:10px;position:relative;width:100%;height:50px;}
+.questionmaster img{float:left;}
+.name{margin:2px 0 0 15px;position:relative;float:left;color:#424242;font-size:20px;width:50%;}
+.role{margin:0 0 0 15px;position:relative;float:left;color:#C09C6A;font-size:18px;width:50%;}
+.teamcard-titel{margin-left:10px;color:#424242;font-size: 26px;}
+.teamcard-subtitel{margin-left:10px;color:#bcbcbc;font-size:20px;margin-bottom:20px;}
+.teamcard-cont{float:left;font-family:StradaOT;background:#fff;padding:1% 1% 10px 1%;margin:1%;width:20%;height:auto;border-radius:5px;border-top:10px solid #C09C6A; }
+#playerdiv{float:right;margin-right:3%;width:auto;height:auto;background: #fff;padding:10px;font-size:20px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}
+#playeravatar{float:right;height:40px;}
+#playeravatar img{height:40px;width:40px;}
+#playertitel{float:left;margin:7px 20px 0 10px;color:#424242;font-family: StradaOT;}
+
+#profile-cont{
+    float: left;
+    background: #fff;
+    padding: 1% 1% 10px 1%;
+    margin: 1%;
+    width: 60%;
+    height: auto;
+    border-radius: 5px;
+    border-top: 10px solid #C09C6A;
+}
+
+#profile-cont form input{background:rgba(0,0,0,0);width:100%;border-style: none;}
+#profile-cont form input{padding: 7% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
+#profile-cont button:active{background: #FAFAFA;color: #C09C6A;}

@@ -1,6 +1,9 @@
 <template name="mobilestart">
     <div id="start-screen-mob">
-        {{> topbar}}
+        {{#if currentUser}}
+            {{> topbarMobile}}
+            {{else}}
+        {{/if}}
         <div id="start-container">
             <div id="start-buttons-cont">
                 <div id="login-titel-cont">

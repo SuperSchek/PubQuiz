@@ -45,3 +45,13 @@ Router.route('/resultaat', function () {
     this.layout('ApplicationLayout');
     this.render('resultaat');
 });
+
+Router.route('/profiel', function () {
+    this.layout('ApplicationLayout');
+    this.render('profiel');
+});
+
+Router.route('/roomresult', function () {
+    this.layout('ApplicationLayout');
+    this.render('roomResult');
+});

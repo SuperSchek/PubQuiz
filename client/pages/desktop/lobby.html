@@ -3,14 +3,7 @@
         <div id="lobby" >
             <h1>Aanwezige teams:</h1>
         </div>
-        <div id="playerdiv">
-            <div id="playertitel">
-                Cees Timmerman
-            </div>
-            <div id="playeravatar">
-                <img src="/user.png"/>
-            </div>
-        </div>
+        {{> topbarDesktop}}
         <!--<div id="btn-start-game"><a href="/questionbumper"><button class="btn-start-agame hvr-fade">Start Quiz!</button></a></div>-->
 
         <div id="playerlist">
@@ -70,21 +63,6 @@
             </div>
         </div>
     </div>
-
-    <style>
-        .clip{-webkit-clip-path: circle(50% at 50% 50%);clip-path: circle(50% at 50% 50%);}
-        .questionmaster{margin-left:10px;position:relative;width:100%;height:50px;}
-        .questionmaster img{float:left;}
-        .name{margin:2px 0 0 15px;position:relative;float:left;color:#424242;font-size:20px;width:50%;}
-        .role{margin:0 0 0 15px;position:relative;float:left;color:#C09C6A;font-size:18px;width:50%;}
-        .teamcard-titel{margin-left:10px;color:#424242;font-size: 26px;}
-        .teamcard-subtitel{margin-left:10px;color:#bcbcbc;font-size:20px;margin-bottom:20px;}
-        .teamcard-cont{float:left;font-family:StradaOT;background:#fff;padding:1% 1% 10px 1%;margin:1%;width:20%;height:auto;border-radius:5px;border-top:10px solid #C09C6A; }
-        #playerdiv{width:auto;height:auto;position:absolute;top:0;right:3%;background: #fff;padding:10px;font-size:20px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}
-    #playeravatar{float:right;height:40px;}
-    #playeravatar img{height:40px;width:40px;}
-        #playertitel{float:left;margin:7px 20px 0 10px;color:#424242;font-family: StradaOT;}
-    </style>
 </template>
 <!--<script type="text/javascript">-->
     <!--setInterval(-->
