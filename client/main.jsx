@@ -8,16 +8,26 @@ Meteor.startup(() => {
     QuizQuestions = new Mongo.Collection("quiz");
 });
 
+Template.mobcode.events({
+    'click #meteortest': function test(event){
+        event.preventDefault();
+        console.log("You clicked a #player element");
+        Meteor.call('hallo');
+        // document.getElementById('start-container').innerHTML = "<h2>TEST</h2>"
+    }
+});
+
 Template.child.events({
     'click button': function(e, tpl){
         tpl.data.onClick(e);
     }
 });
+
 Template.parent.helpers({
     doSomeAction(){
         return function(){
             document.getElementById('login-module').className = "hidden";
-            document.getElementById('register-module').className = "show"
+            document.getElementById('register-module').className = "show";
         }
     }
 });
@@ -36,6 +46,7 @@ Template.parentreg.helpers({
         }
     }
 });
+
 Template.roomcode.onRendered(function() {
     // console.log("LALA");
     // $('input').bind('this', function() {
@@ -56,11 +67,6 @@ var code3;
 var code4;
 var codeX;
 
-
-if (this.value.length == 0) {
-    $(this).prev().select();
-}
-
 Channels = new Mongo.Collection("Channels");
 
 Template.roomcode.events({
@@ -79,11 +85,5 @@ Template.roomcode.events({
             },
             console.log("hey")
         );
-    }
-});
-
-Template.mobcode.events({
-    'click .meteortest': function(){
-        console.log("You clicked a #player element");
     }
 });

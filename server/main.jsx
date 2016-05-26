@@ -12,5 +12,8 @@ Meteor.startup(() => {
 Meteor.methods({
     triggered: function () {
         console.log('Message received!');
+    },
+    hallo: function () {
+        console.log('dikke woemie');
     }
 });
