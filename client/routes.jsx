@@ -10,7 +10,7 @@ Router.route('/', function () {
 
     // Send user to correct client based on the detected platform
     if (isMobile == false) {
-        this.render('start-screen');
+        this.render('startscreen');
     } else {
         this.render('mobilestart');
     }

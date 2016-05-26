@@ -1,14 +1,13 @@
-var kamernummertje = 0;
+kamernummertje = 0;
 var kamercijfer = 0;
 var gebruiker;
 //Create kamerNumber
 
 function kamerNumber (){
-    var nummertje = Channels.find().count() + 1;
-    kamernummertje = nummertje;
-    return nummertje;
-
+    kamernummertje = Channels.find().count() + 1;
+    return kamernummertje;
 }
+
 //Create kamerCode
 function kamerCode() {
 
@@ -43,6 +42,27 @@ Template.register.events({
 });
 
 Template.login.events({
+    'submit form': function(event){
+        event.preventDefault();
+        var emailVar = event.target.email.value;
+        var passwordVar = event.target.password.value;
+        Meteor.loginWithPassword(emailVar, passwordVar, function(error){
+            if (error) {
+                console.log(error.reason);
+            } else {
+            }
+        });
+    },
+    'click #facebook-login': function (event) {
+        Meteor.loginWithFacebook({}, function (err) {
+            if (err) {
+                throw new Meteor.Error("Facebook login failed");
+            }
+        });
+    }
+});
+
+Template.startscreen.events({
     'submit form': function(event){
         event.preventDefault();
         var emailVar = event.target.email.value;
@@ -115,7 +135,7 @@ Template.profiel.events({
 
 Template.logout.events({
     'click .logout': function(event){
-        console.log("hello");
+        Channels.remove({_id: kamernummertje});
         event.preventDefault();
         Meteor.logout();
     }
@@ -181,9 +201,18 @@ Template.logindesktop.events({
                 kamerNumber();
                 kamerCode();
                 Channels.insert({
+                    _id: "1234567890",
                     name: kamernummertje,
                     code: kamercijfer
                 });
+                // Channels.update({id: this._id}, {$set: {name: kamernummertje}});
+                // Channels.update({_id: "1234567890"}, {$set: {_id: kamercijfer});
+                // store the document in a variable
+                var kamernummerInt = Number(kamernummertje);
+                doc = Channels.findOne({_id: "1234567890"});
+                doc._id = kamernummerInt;
+                Channels.insert(doc);
+                Channels.remove({_id: "1234567890"});
                 gebruiker = Meteor.userId();
                 Meteor.users.update(gebruiker, {$set: {"profile.kamernummer": kamernummertje}});
                 Meteor.users.update(gebruiker, {$set: {"profile.kamercode": kamercijfer}});
