@@ -1,13 +1,6 @@
-// Create new Collection for Quiz Questions
-QuizQuestions = new Mongo.Collection("quiz");
-
-// Empty the Collection to remove old stuff
-QuizQuestions.remove({});
-
-
 // Insert all Questions into a document in the QuizQuesions Collection.
 // Questions can be retrieved with QuizQuestions.fetchOne()[Number_in_array];
-QuizQuestions.insert([
+var quizArray = [
     {
         question: "Wie wordt koning/koningin op het moment dat Willem-Alexander komt te overlijden?",
         answers: [
@@ -288,4 +281,14 @@ QuizQuestions.insert([
         picture: "<img src='../images/groente.png' width='100%'/>",
         enabled:true
     }
-]);
+];
+
+// Create new Collection for Quiz Questions
+QuizQuestions = new Mongo.Collection("quiz");
+
+// Empty the Collection to remove old stuff
+QuizQuestions.remove({});
+
+for (var q = 0; q < quizArray.length; q++) {
+    QuizQuestions.insert(quizArray[q]);
+}
