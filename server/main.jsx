@@ -5,22 +5,16 @@ Meteor.startup(() => {
     Accounts.config({
         forbidClientAccountCreation : false
     });
-    new Mongo.Collection("Channels");
+    Channels = new Mongo.Collection("Channels");
 });
 
 Meteor.methods({
-    triggered: function () {
-        console.log('Message received!');
-    },
-    hallo: function () {
-        console.log('dikke woemie');
-    }
+
 });
 
+// Collections
 Meteor.publish('users', function() {
-
     return Meteor.users.find();
-
 });
 Meteor.publish('questions', function() {
     return QuizQuestions.find();
