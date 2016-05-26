@@ -5,7 +5,7 @@ Meteor.startup(() => {
     Accounts.config({
         forbidClientAccountCreation : false
     });
-    // new Mongo.Collection("Channels");
+    new Mongo.Collection("Channels");
 });
 
 Meteor.methods({

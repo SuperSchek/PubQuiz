@@ -20,6 +20,44 @@ Template.mobcode.events({
     }
 });
 
+Template.vragen.events({
+    'click #leaderboard-title': function(event){
+        event.preventDefault();
+        var quizLength = QuizQuestions.find().count();
+        var arr = [];
+        while(arr.length < quizLength ) {
+            var randomNumber = Math.floor(Math.random() * quizLength);
+            var found = false;
+            for (var i = 0; i < arr.length; i++) {
+                if(arr[i] == randomNumber) {
+                    found = true;
+                    break
+                }
+            }
+            if (!found) {
+                arr[arr.length] = randomNumber;
+            }
+            document.getElementById('question').innerHTML = QuizQuestions.find().fetch()[randomNumber].question;
+        }
+    }
+});
+
+//
+// var arr = [];
+//
+// while(arr.length < 4){
+//     var randomnumber = Math.floor(Math.random() * 4);
+//     var found = false;
+//     for(var i = 0; i < arr.length; i++) {
+//         if(arr[i] == randomnumber) {
+//             found=true;break
+//         }
+//     }
+//     if(!found) {
+//         arr[arr.length] = randomnumber;
+//     }
+// }
+
 Template.child.events({
     'click button': function(e, tpl){
         tpl.data.onClick(e);
@@ -87,9 +125,6 @@ Template.roomcode.events({
         codeX = code1 + code2 + code3 + code4;
         codeX = parseInt(codeX);
         console.log(codeX);
-        name = intValue(Channels.find({}, {"name" : 1, "_id" : 0, "code": 0}),
-        {"code": codeX});
-        
         findCodeX = Channels.find({code: codeX}).count();
 
         if (findCodeX => 1){
@@ -98,6 +133,7 @@ Template.roomcode.events({
             gebruiker = Meteor.userId(); //het id van de gebruiker die is ingelogd
             kfcx = Channels.findOne({code: codeX}, {fields: {name: 1, code: 1, _id: 0}}); //find statement met als resultaat een object uit de Channels
             Meteor.users.update(gebruiker, {$set: {"profile": kfcx}});  //importeren van de gevonden channelgegevens
+            // Route.go("/lobby");
             
         } else {
             console.log("Room doesn't exist.");
