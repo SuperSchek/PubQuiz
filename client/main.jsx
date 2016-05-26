@@ -69,12 +69,20 @@ Template.roomcode.events({
         codeX = code1 + code2 + code3 + code4;
         console.log(codeX);
 
-        roomCodeDB = Channels.find();
-        if( codeX == roomCodeDB){
+        findCodeX = Channels.find({code: codeX}).count();
+
+        if (findCodeX => 1){
             console.log("Room exist.");
-        } else{
+
+            gebruiker = Meteor.userId(); //het id van de gebruiker die is ingelogd
+            kfcx = Channels.findOne({code: codeX}, {fields: {name: 1, code: 1, _id: 0}}); //find statement met als resultaat een object uit de Channels
+            Meteor.users.update(gebruiker, {$set: {"profile": kfcx}});  //importeren van de gevonden channelgegevens
+            
+        } else {
             console.log("Room doesn't exist.");
         }
+
+
 
 
         Meteor.users.update(
