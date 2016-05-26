@@ -1,0 +1,13 @@
+<template name="waitscreen">
+    <div id="vraag-intro-mob">
+        {{#if currentUser}}
+            {{> topbarMobile}}
+        {{else}}
+        {{/if}}
+        <div class="filter-intro" ></div>
+        <style>#vraag-intro-mob{background:url('/gifs/cookiemonster.gif')no-repeat right;background-size: cover;background-position-x:-420px;}</style> 
+        <div id="intro-text-mob">
+            Wacht tot de quizmaster het spel start...
+        </div>
+    </div>
+</template>

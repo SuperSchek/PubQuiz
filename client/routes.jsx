@@ -59,3 +59,12 @@ Router.route('/mobcode', function () {
     this.layout('ApplicationLayout');
     this.render('mobcode');
 });
+Router.route('/antwoord', function () {
+    this.layout('ApplicationLayout');
+    this.render('antwoord');
+});
+
+Router.route('/waitscreen', function () {
+    this.layout('ApplicationLayout');
+    this.render('waitscreen');
+});
