@@ -7,16 +7,32 @@
         <!--<div id="btn-start-game"><a href="/questionbumper"><button class="btn-start-agame hvr-fade">Start Quiz!</button></a></div>-->
 
         <div id="playerlist">
-            <a href="#">Create new team</a>
+            <form id="createTeam" style="color: white">
+                <input id="name" value="Name">
+                <input type="radio" id="questionmaster" value="Questionmaster"> Questionmaster<br>
+                <input type="radio" id="powerupmaster" value="Powerupmaster"> Powerupmaster<br>
+                <input type="radio" id="playerthree" value="Player Three"> Player Three <br>
+                <input type="radio" id="playerfour" value="other"> Player Four
+                <input type="submit" value="Create">
+            </form>
             {{#each team}}
                 <div class="teamcard-cont">
-                    <div class="teamcard-titel">A-Team</div>
-                    <div class="teamcard-subtitel">2/2 spelers</div>
-                    <hr>
-                    <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">Naam 1</div></div>
-                    <hr>
-                    <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up</div><div class="name">Naam 1</div></div>
-                    <hr>
+                    <div class="teamcard-titel">{{name}}</div>
+                    <div class="teamcard-subtitel">{{players}} spelers</div>
+                    <div>QM: {{questionmaster}}</div>
+                    <div>PM: {{powerupmaster}}</div>
+                    <div>P3: {{playerthree}}</div>
+                    <div>P4: {{playerfour}}</div>
+                    <div>Score: {{score}}</div>
+                    <div>Number: {{roomnumber}}</div>
+                    <div>Visible: {{visible}}</div>
+                    <div>Position: {{position}}</div>
+                    <a id="joinTeam" href="#">Join Team {{name}}</a>
+                    <!--<hr>-->
+                    <!--<div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">Naam 1</div></div>-->
+                    <!--<hr>-->
+                    <!--<div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up</div><div class="name">Naam 1</div></div>-->
+                    <!--<hr>-->
                 </div>
             {{/each}}
         </div>

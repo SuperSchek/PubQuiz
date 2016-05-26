@@ -6,11 +6,13 @@ import {test} from '../db/main.js';
 
 Meteor.subscribe('questions');
 Meteor.subscribe('channels');
-Meteor.subscribe('users');  
+Meteor.subscribe('users');
+Meteor.subscribe('teams');
 
 Meteor.startup(() => {
     QuizQuestions = new Mongo.Collection("quiz");
     Channels = new Mongo.Collection("Channels");
+    Teams = new Mongo.Collection("Teams");
 });
 
 Template.mobcode.events({
@@ -156,8 +158,38 @@ Template.roomcode.events({
 
 
 Template.lobby.helpers({
-    team: function(){
-        // return Teams.find();
-        console.log("each Team");
+    team: function() {
+        return Teams.find();
     }
 });
+
+
+Template.lobby.events({
+    'submit #createTeam': function(event) {
+        event.preventDefault();
+        var name = document.getElementById('name').value;
+        var gebruiker = Meteor.user().emails[0].address;
+        if (document.getElementById('questionmaster').checked) {
+            Teams.insert({
+                name: name,
+                questionmaster: gebruiker
+            });
+        } else if (document.getElementById('playerthree').checked) {
+            Teams.insert({
+                name: name,
+                playerthree: gebruiker
+            });
+        } else if (document.getElementById('playerfour').checked) {
+            Teams.insert({
+                name: name,
+                playerfour: gebruiker
+            });
+        }
+    },
+    'click #joinTeam': function() {
+        console.log("YEEHAA");
+        // var name = document.getElementById('joinTeam').innerHTML;
+        var kut = $("#name").val();
+        console.log(kut);
+    }
+    });
