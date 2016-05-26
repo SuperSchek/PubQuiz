@@ -151,3 +151,12 @@ Template.roomcode.events({
         );
     }
 });
+
+
+
+Template.lobby.helpers({
+    team: function(){
+        // return Teams.find();
+        console.log("each Team");
+    }
+});
