@@ -4,6 +4,9 @@ import './main.html';
 
 import {test} from '../db/main.js';
 
+Meteor.subscribe('questions');
+Meteor.subscribe('channels');
+
 Meteor.startup(() => {
     QuizQuestions = new Mongo.Collection("quiz");
     Channels = new Mongo.Collection("Channels");
@@ -17,6 +20,44 @@ Template.mobcode.events({
         // document.getElementById('start-container').innerHTML = "<h2>TEST</h2>"
     }
 });
+
+Template.vragen.events({
+    'click #leaderboard-title': function(event){
+        event.preventDefault();
+        var quizLength = QuizQuestions.find().count();
+        var arr = [];
+        while(arr.length < quizLength ) {
+            var randomNumber = Math.floor(Math.random() * quizLength);
+            var found = false;
+            for (var i = 0; i < arr.length; i++) {
+                if(arr[i] == randomNumber) {
+                    found = true;
+                    break
+                }
+            }
+            if (!found) {
+                arr[arr.length] = randomNumber;
+            }
+            document.getElementById('question').innerHTML = QuizQuestions.find().fetch()[randomNumber].question;
+        }
+    }
+});
+
+//
+// var arr = [];
+//
+// while(arr.length < 4){
+//     var randomnumber = Math.floor(Math.random() * 4);
+//     var found = false;
+//     for(var i = 0; i < arr.length; i++) {
+//         if(arr[i] == randomnumber) {
+//             found=true;break
+//         }
+//     }
+//     if(!found) {
+//         arr[arr.length] = randomnumber;
+//     }
+// }
 
 Template.child.events({
     'click button': function(e, tpl){
