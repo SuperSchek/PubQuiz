@@ -55,8 +55,9 @@ var code1;
 var code2;
 var code3;
 var code4;
-var codeX;
-
+codeX = Number;
+name = Number;
+get_placement_id = function(doc) { return doc.name; };
 // Channels = new Mongo.Collection("Channels");
 
 Template.roomcode.events({
@@ -67,14 +68,16 @@ Template.roomcode.events({
         code3 = document.getElementById('code3').value;
         code4 = document.getElementById('code4').value;
         codeX = code1 + code2 + code3 + code4;
+        codeX = parseInt(codeX);
         console.log(codeX);
+        name = intValue(Channels.find({}, {"name" : 1, "_id" : 0, "code": 0}),
+        {"code": codeX});
 
-        roomCodeDB = Channels.find();
-        if( codeX == roomCodeDB){
-            console.log("Room exist.");
-        } else{
-            console.log("Room doesn't exist.");
-        }
+        // if(){
+        //     console.log("Room exist.");
+        // } else{
+        //     console.log("Room doesn't exist.");
+        // }
 
 
         Meteor.users.update(
