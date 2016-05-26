@@ -421,7 +421,7 @@ ul.dropdown li a {
 .role{margin:0 0 0 15px;position:relative;float:left;color:#C09C6A;font-size:18px;width:50%;}
 .teamcard-titel{margin-left:10px;color:#424242;font-size: 26px;}
 .teamcard-subtitel{margin-left:10px;color:#bcbcbc;font-size:20px;margin-bottom:20px;}
-.teamcard-cont{float:left;font-family:StradaOT;background:#fff;padding:1% 1% 10px 1%;margin:1%;width:20%;height:auto;border-radius:5px;border-top:10px solid #C09C6A; }
+.teamcard-cont{float:left;font-family:StradaOT;background:#fff;padding:1% 1% 10px 1%;margin:1%;width:auto;height:auto;border-radius:5px;border-top:10px solid #C09C6A; }
 .teamcard-cont-mobile{float:left;font-family:StradaOT;background:#fff;padding:1% 1% 10px 1%;width:100%;height:auto;border-radius:5px;border-top:10px solid #C09C6A; }
 
 #playerdiv{float:right;position:absolute;right:3%;width:auto;height:auto;background: #fff;padding:10px;font-size:20px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}
