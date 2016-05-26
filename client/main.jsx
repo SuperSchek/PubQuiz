@@ -9,16 +9,26 @@ Meteor.startup(() => {
     Channels = new Mongo.Collection("Channels");
 });
 
+Template.mobcode.events({
+    'click #meteortest': function test(event){
+        event.preventDefault();
+        console.log("You clicked a #player element");
+        Meteor.call('hallo');
+        // document.getElementById('start-container').innerHTML = "<h2>TEST</h2>"
+    }
+});
+
 Template.child.events({
     'click button': function(e, tpl){
         tpl.data.onClick(e);
     }
 });
+
 Template.parent.helpers({
     doSomeAction(){
         return function(){
             document.getElementById('login-module').className = "hidden";
-            document.getElementById('register-module').className = "show"
+            document.getElementById('register-module').className = "show";
         }
     }
 });
@@ -37,6 +47,7 @@ Template.parentreg.helpers({
         }
     }
 });
+
 Template.roomcode.onRendered(function() {
     // console.log("LALA");
     // $('input').bind('this', function() {
@@ -55,7 +66,12 @@ var code1;
 var code2;
 var code3;
 var code4;
+
 var codeX;
+
+codeX = Number;
+name = Number;
+get_placement_id = function(doc) { return doc.name; };
 
 // Channels = new Mongo.Collection("Channels");
 
@@ -67,8 +83,11 @@ Template.roomcode.events({
         code3 = document.getElementById('code3').value;
         code4 = document.getElementById('code4').value;
         codeX = code1 + code2 + code3 + code4;
+        codeX = parseInt(codeX);
         console.log(codeX);
-
+        name = intValue(Channels.find({}, {"name" : 1, "_id" : 0, "code": 0}),
+        {"code": codeX});
+        
         findCodeX = Channels.find({code: codeX}).count();
 
         if (findCodeX => 1){
@@ -84,7 +103,6 @@ Template.roomcode.events({
 
 
 
-
         Meteor.users.update(
             { _id: this._id },
             {$set:
@@ -92,11 +110,5 @@ Template.roomcode.events({
             },
             // Meteor.users.update(gebruiker, {$set: {"profile.kamercode": kamercijfer}});
         );
-    }
-});
-
-Template.mobcode.events({
-    'click .meteortest': function(){
-        console.log("You clicked a #player element");
     }
 });

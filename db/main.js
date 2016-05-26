@@ -3,5 +3,6 @@
  */
 
 //gChannels = new Mongo.Collection("Channels");
+// Channels = new Mongo.Collection("Channels");
 
 test = new Mongo.Collection("PubQuiz");

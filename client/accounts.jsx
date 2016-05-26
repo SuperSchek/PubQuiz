@@ -61,6 +61,27 @@ Template.login.events({
     }
 });
 
+Template.startscreen.events({
+    'submit form': function(event){
+        event.preventDefault();
+        var emailVar = event.target.email.value;
+        var passwordVar = event.target.password.value;
+        Meteor.loginWithPassword(emailVar, passwordVar, function(error){
+            if (error) {
+                console.log(error.reason);
+            } else {
+            }
+        });
+    },
+    'click #facebook-login': function (event) {
+        Meteor.loginWithFacebook({}, function (err) {
+            if (err) {
+                throw new Meteor.Error("Facebook login failed");
+            }
+        });
+    }
+});
+
 Template.username.helpers({
     passwordEmail: function(){
         var user = Meteor.user();
