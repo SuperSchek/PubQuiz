@@ -6,6 +6,7 @@ Meteor.startup(() => {
         forbidClientAccountCreation : false
     });
     Channels = new Mongo.Collection("Channels");
+    Teams = new Mongo.Collection("Teams");
 });
 
 var arr = [];
@@ -65,4 +66,7 @@ Meteor.publish('questions', function() {
 });
 Meteor.publish('channels', function() {
     return Channels.find();
+});
+Meteor.publish('teams', function() {
+    return Teams.find();
 });
