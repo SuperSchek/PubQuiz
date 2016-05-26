@@ -16,3 +16,12 @@ Meteor.methods({
         console.log('dikke woemie');
     }
 });
+
+Meteor.publish('users', function() {
+
+    return Meteor.users.find();
+
+});
+Meteor.publish('questions', function() {
+    return QuizQuestions.find();
+});

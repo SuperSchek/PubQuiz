@@ -4,7 +4,6 @@ accounts-google@1.0.9
 accounts-oauth@1.1.12
 accounts-password@1.1.8
 allow-deny@1.0.4
-autopublish@1.0.7
 autoupdate@1.2.9
 babel-compiler@6.6.4
 babel-runtime@0.1.8
