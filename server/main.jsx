@@ -25,3 +25,6 @@ Meteor.publish('users', function() {
 Meteor.publish('questions', function() {
     return QuizQuestions.find();
 });
+Meteor.publish('channels', function() {
+    return Channels.find();
+});

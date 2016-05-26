@@ -5,6 +5,7 @@ import './main.html';
 import {test} from '../db/main.js';
 
 Meteor.subscribe('questions');
+Meteor.subscribe('channels');
 
 Meteor.startup(() => {
     QuizQuestions = new Mongo.Collection("quiz");
