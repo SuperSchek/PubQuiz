@@ -22,25 +22,16 @@ Template.mobcode.events({
     }
 });
 
+Template.vragen.helpers({
+    'quizSize': function () {
+        return QuizQuestions.find().count();
+    }
+});
+
 Template.vragen.events({
     'click #leaderboard-title': function(event){
         event.preventDefault();
-        var quizLength = QuizQuestions.find().count();
-        var arr = [];
-        while(arr.length < quizLength ) {
-            var randomNumber = Math.floor(Math.random() * quizLength);
-            var found = false;
-            for (var i = 0; i < arr.length; i++) {
-                if(arr[i] == randomNumber) {
-                    found = true;
-                    break
-                }
-            }
-            if (!found) {
-                arr[arr.length] = randomNumber;
-            }
-            document.getElementById('question').innerHTML = QuizQuestions.find().fetch()[randomNumber].question;
-        }
+        Meteor.call('get question');
     }
 });
 
