@@ -7,16 +7,16 @@ Meteor.startup(() => {
     });
     Channels = new Mongo.Collection("Channels");
     Teams = new Mongo.Collection("Teams");
+    QuestionsMeta = new Mongo.Collection("currentQuestion");
 });
 
-var arr = [];
-var numEnabled = 0;
+var currentQuestion;
 
 Meteor.methods({
     'get question': function() {
-        console.log('question get');
-
         var quizLength = QuizQuestions.find().count();
+        var randomNum = Math.floor(Math.random() * quizLength);
+        var numEnabled = 0;
 
         for (var i = 0; i < quizLength; i++) {
             if (QuizQuestions.find().fetch()[i].enabled == true) {
@@ -24,37 +24,26 @@ Meteor.methods({
             }
         }
 
-        for (var j = 0; j < numEnabled; j++) {
-            do { var randomNum = Math.floor(Math.random() * quizLength); }
-            while (QuizQuestions.find().fetch()[randomNum].enabled == false);
-            console.log('render vraag: ' + randomNum)
+        if (numEnabled >= 1) {
+            for (var j = 0; j < numEnabled; j++) {
+                do { randomNum = Math.floor(Math.random() * quizLength); }
+                while (QuizQuestions.find().fetch()[randomNum].enabled == false);
+            }
+
+            console.log('Render question ' + randomNum + ' and set it to disabled.');
+
+            currentQuestion = QuizQuestions.find().fetch()[randomNum]._id;
+            QuestionsMeta.remove({});
+            QuestionsMeta.insert({"current": currentQuestion});
+
+            QuizQuestions.update(currentQuestion, {$set: {"enabled": false}});
+        } else {
+            console.log('Quiz end!');
+
+            QuestionsMeta.remove({});
+            QuestionsMeta.insert({"current": "Quiz end"});
         }
-        QuizQuestions.find().fetch()[randomNum].enabled = false;
-
-        console.log(numEnabled);
     }
-
-//     socket.on('question request', function(quiz) {
-//     // Empty the serverQuiz array so we're ready to receive the next round and Initialize numEnabled to 0..
-//     serverQuiz = [];
-//     serverQuiz = quiz;
-//
-//     // Set numEnabled to the total amount of questions left.
-//     // (questions with enabled set to true)
-//     for (var i = 0; i < serverQuiz.length; i++) {
-//         if (serverQuiz[i].enabled == true) {
-//             numEnabled++;
-//         }
-//     }
-//
-//     for (var j = 0; j < numEnabled; j++) {
-//         do { var randomNum = Math.floor(Math.random() * serverQuiz.length); }
-//         while (serverQuiz[randomNum].enabled == false);
-//         io.sockets.emit('render question', randomNum);
-//     }
-//     serverQuiz[randomNum].enabled = false;
-//     io.sockets.emit('update quiz', serverQuiz);
-// });
 });
 
 // Collections
@@ -69,4 +58,7 @@ Meteor.publish('channels', function() {
 });
 Meteor.publish('teams', function() {
     return Teams.find();
+});
+Meteor.publish('currentQuestion', function() {
+    return QuestionsMeta.find();
 });

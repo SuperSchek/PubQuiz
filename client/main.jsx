@@ -8,11 +8,13 @@ Meteor.subscribe('questions');
 Meteor.subscribe('channels');
 Meteor.subscribe('users');
 Meteor.subscribe('teams');
+Meteor.subscribe('currentQuestion');
 
 Meteor.startup(() => {
     QuizQuestions = new Mongo.Collection("quiz");
     Channels = new Mongo.Collection("Channels");
     Teams = new Mongo.Collection("Teams");
+    QuestionsMeta = new Mongo.Collection("currentQuestion");
 });
 
 Template.mobcode.events({
@@ -27,6 +29,10 @@ Template.mobcode.events({
 Template.vragen.helpers({
     'quizSize': function () {
         return QuizQuestions.find().count();
+    },
+    'vraag': function () {
+        var currentQuestionId = QuestionsMeta.findOne().current;
+        return QuizQuestions.find({"_id": currentQuestionId}).fetch()[0].question;
     }
 });
 
@@ -36,22 +42,6 @@ Template.vragen.events({
         Meteor.call('get question');
     }
 });
-
-//
-// var arr = [];
-//
-// while(arr.length < 4){
-//     var randomnumber = Math.floor(Math.random() * 4);
-//     var found = false;
-//     for(var i = 0; i < arr.length; i++) {
-//         if(arr[i] == randomnumber) {
-//             found=true;break
-//         }
-//     }
-//     if(!found) {
-//         arr[arr.length] = randomnumber;
-//     }
-// }
 
 Template.child.events({
     'click button': function(e, tpl){
