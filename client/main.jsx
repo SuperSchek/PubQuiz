@@ -40,6 +40,9 @@ Template.vragen.events({
     'click #leaderboard-title': function(event){
         event.preventDefault();
         Meteor.call('get question');
+    },
+    'click #reload': function () {
+        Meteor.call('restart quiz');
     }
 });
 

@@ -43,6 +43,13 @@ Meteor.methods({
             QuestionsMeta.remove({});
             QuestionsMeta.insert({"current": "Quiz end"});
         }
+    },
+    'restart quiz': function () {
+        QuizQuestions.remove({});
+
+        for (var q = 0; q < quizArray.length; q++) {
+            QuizQuestions.insert(quizArray[q]);
+        }
     }
 });
 
