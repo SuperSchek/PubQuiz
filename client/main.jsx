@@ -157,39 +157,140 @@ Template.roomcode.events({
 
 
 
+function counter() {
+    return Teams.find().count() + 1;
+}
+
 Template.lobby.helpers({
     team: function() {
         return Teams.find();
+    },
+    TeamsCount: function () {
+        return Teams.find().count();
     }
 });
-
 
 Template.lobby.events({
     'submit #createTeam': function(event) {
         event.preventDefault();
         var name = document.getElementById('name').value;
-        var gebruiker = Meteor.user().emails[0].address;
-        if (document.getElementById('questionmaster').checked) {
+        var user = Meteor.user().emails[0].address;
+        var visibility = document.getElementById('visible').checked;
+        var el = document.getElementById("role");
+        var selectedValue = el.options[el.selectedIndex].value;
+        if (selectedValue == "Questionmaster") {
             Teams.insert({
                 name: name,
-                questionmaster: gebruiker
+                questionmaster: user,
+                number: counter(),
+                visible: visibility,
+                score: 0,
+                position: 0
             });
-        } else if (document.getElementById('playerthree').checked) {
+        } else if (selectedValue == "Powerupmaster") {
             Teams.insert({
                 name: name,
-                playerthree: gebruiker
+                powerupmaster: user,
+                number: counter(),
+                visible: visibility,
+                score: 0,
+                position: 0
             });
-        } else if (document.getElementById('playerfour').checked) {
+        } else if (selectedValue == "Player Three") {
             Teams.insert({
                 name: name,
-                playerfour: gebruiker
+                playerthree: user,
+                number: counter(),
+                visible: visibility,
+                score: 0,
+                position: 0
+            });
+        } else if (selectedValue == "Player Four") {
+            Teams.insert({
+                name: name,
+                playerfour: user,
+                number: counter(),
+                visible: visibility,
+                score: 0,
+                position: 0
             });
         }
     },
-    'click #joinTeam': function() {
-        console.log("YEEHAA");
-        // var name = document.getElementById('joinTeam').innerHTML;
-        var kut = $("#name").val();
-        console.log(kut);
+    'click #joinQM': function() {
+        event.preventDefault();
+        var user = Meteor.user().emails[0].address; // Gets user data
+        var teamName = JSON.stringify(Teams.findOne({_id: this._id}, {fields: {name: 1, _id: 0}})).slice(9,-2); // Gets teamname
+        Meteor.users.update(Meteor.userId(), {$set: {"profile.team": teamName }}); // add teamname to user data
+        var teamNaam = Meteor.users.findOne(Meteor.userId()).profile.team;
+        var i = Teams.find({name: teamNaam},{fields: {number: 1}}).fetch()[0].number;
+        if (Teams.find({}).fetch()[i].powerupmaster == user){
+            Teams.update({_id: this._id}, {$set: {powerupmaster: ""}});
+        } else{};
+
+        if (Teams.find({}).fetch()[i].playerthree == user){
+            Teams.update({_id: this._id}, {$set: {playerthree: ""}});
+        } else{};
+
+        if (Teams.find({}).fetch()[i].playerfour == user){
+            Teams.update({_id: this._id}, {$set: {playerfour: ""}});
+        } else{};
+
+        Teams.update({_id: this._id}, {$set: {questionmaster: user}}); // add user to the team
+    },
+    'click #joinPM': function() {
+        event.preventDefault();
+        var user = Meteor.user().emails[0].address; // Gets user data
+        var teamName = JSON.stringify(Teams.findOne({_id: this._id}, {fields: {name: 1, _id: 0}})).slice(9,-2); // Gets teamname
+        Meteor.users.update(Meteor.userId(), {$set: {"profile.team": teamName }}); // add teamname to user data
+        var teamNaam = Meteor.users.findOne(Meteor.userId()).profile.team;
+        var i = Teams.find({name: teamNaam},{fields: {number: 1}}).fetch()[0].number;
+        console.log("Teamnumber:", i);
+        if (Teams.find({}).fetch()[i].questionmaster == user){
+            Teams.update({_id: this._id}, {$set: {questionmaster: ""}});
+        }
+        if (Teams.find({}).fetch()[i].playerthree == user){
+            Teams.update({_id: this._id}, {$set: {playerthree: ""}});
+        }
+        if (Teams.find({}).fetch()[i].playerfour == user){
+            Teams.update({_id: this._id}, {$set: {playerfour: ""}});
+        }
+        Teams.update({_id: this._id}, {$set: {powerupmaster: user}}) // add user to the team
+    },
+    'click #joinP3': function() {
+        event.preventDefault();
+        var user = Meteor.user().emails[0].address; // Gets user data
+        var teamName = JSON.stringify(Teams.findOne({_id: this._id}, {fields: {name: 1, _id: 0}})).slice(9,-2); // Gets teamname
+        Meteor.users.update(Meteor.userId(), {$set: {"profile.team": teamName }}); // add teamname to user data
+        var teamNaam = Meteor.users.findOne(Meteor.userId()).profile.team;
+        var i = Teams.find({name: teamNaam},{fields: {number: 1}}).fetch()[0].number;
+        if (Teams.find({}).fetch()[i].questionmaster == user){
+            Teams.update({_id: this._id}, {$set: {questionmaster: ""}});
+        }
+        if (Teams.find({}).fetch()[i].powerupmaster == user){
+            Teams.update({_id: this._id}, {$set: {powerupmaster: ""}});
+        }
+        if (Teams.find({}).fetch()[i].playerfour == user){
+            Teams.update({_id: this._id}, {$set: {playerfour: ""}});
+        }
+        Teams.update({_id: this._id}, {$set: {playerthree: user}}) // add user to the team
+    },
+    'click #joinP4': function() {
+        event.preventDefault();
+        var user = Meteor.user().emails[0].address; // Gets user data
+        var teamName = JSON.stringify(Teams.findOne({_id: this._id}, {fields: {name: 1, _id: 0}})).slice(9,-2); // Gets teamname
+        Meteor.users.update(Meteor.userId(), {$set: {"profile.team": teamName }}); // add teamname to user data
+        var teamNaam = Meteor.users.findOne(Meteor.userId()).profile.team;
+        var i = Teams.find({name: teamNaam},{fields: {number: 1}}).fetch()[0].number;
+        if (Teams.find({}).fetch()[i].questionmaster == user){
+            Teams.update({_id: this._id}, {$set: {questionmaster: ""}});
+        }
+        if (Teams.find({}).fetch()[i].powerupmaster == user){
+            Teams.update({_id: this._id}, {$set: {powerupmaster: ""}});
+        }
+        if (Teams.find({}).fetch()[i].playerthree == user){
+            Teams.update({_id: this._id}, {$set: {playerthree: ""}});
+        }
+        Teams.update({_id: this._id}, {$set: {playerfour: user}}) // add user to the team
     }
+
     });

@@ -29,7 +29,8 @@ Template.register.events({
         var passwordVar = event.target.password.value;
         Accounts.createUser({
             email: emailVar,
-            password: passwordVar
+            password: passwordVar,
+            team: ""
         }, function(error){
             if(error){
                 console.log(error.reason); // Output error if registration fails
