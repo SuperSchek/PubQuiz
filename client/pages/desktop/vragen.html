@@ -1,5 +1,8 @@
 <template name="vragen">
     <div id="desktop-cont">
+        <div id="reload">
+            VRAGEN HERLADEN
+        </div>
         <!--Leaderboard-->
         <div id="leaderboard-cont">
             <div id="leaderboard-title"><img src="images/crown.png" width="auto" height="40" style="margin-top: -10px"/><span style="margin-left: 15px">Top 10</span></div>
@@ -8,8 +11,8 @@
         </div>
 
         <!--Vraag-->
-        <div id="question-cont"><a href="/winnaar"><div id="question">Test</div></a></div>
-        <div id="question-nr-cont"><div id="question-nr">vraag 1/21</div></div>
+        <div id="question-cont"><a href="/winnaar"><div id="question">{{vraag}}</div></a></div>
+        <div id="question-nr-cont"><div id="question-nr">vraag 1/{{quizSize}}</div></div>
         <!--Images-->
         <div id="image-cont"><div id="image"></div></div>
 

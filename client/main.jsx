@@ -8,11 +8,13 @@ Meteor.subscribe('questions');
 Meteor.subscribe('channels');
 Meteor.subscribe('users');
 Meteor.subscribe('teams');
+Meteor.subscribe('currentQuestion');
 
 Meteor.startup(() => {
     QuizQuestions = new Mongo.Collection("quiz");
     Channels = new Mongo.Collection("Channels");
     Teams = new Mongo.Collection("Teams");
+    QuestionsMeta = new Mongo.Collection("currentQuestion");
 });
 
 Template.mobcode.events({
@@ -24,43 +26,25 @@ Template.mobcode.events({
     }
 });
 
-Template.vragen.events({
-    'click #leaderboard-title': function(event){
-        event.preventDefault();
-        var quizLength = QuizQuestions.find().count();
-        var arr = [];
-        while(arr.length < quizLength ) {
-            var randomNumber = Math.floor(Math.random() * quizLength);
-            var found = false;
-            for (var i = 0; i < arr.length; i++) {
-                if(arr[i] == randomNumber) {
-                    found = true;
-                    break
-                }
-            }
-            if (!found) {
-                arr[arr.length] = randomNumber;
-            }
-            document.getElementById('question').innerHTML = QuizQuestions.find().fetch()[randomNumber].question;
-        }
+Template.vragen.helpers({
+    'quizSize': function () {
+        return QuizQuestions.find().count();
+    },
+    'vraag': function () {
+        var currentQuestionId = QuestionsMeta.findOne().current;
+        return QuizQuestions.find({"_id": currentQuestionId}).fetch()[0].question;
     }
 });
 
-//
-// var arr = [];
-//
-// while(arr.length < 4){
-//     var randomnumber = Math.floor(Math.random() * 4);
-//     var found = false;
-//     for(var i = 0; i < arr.length; i++) {
-//         if(arr[i] == randomnumber) {
-//             found=true;break
-//         }
-//     }
-//     if(!found) {
-//         arr[arr.length] = randomnumber;
-//     }
-// }
+Template.vragen.events({
+    'click #leaderboard-title': function(event){
+        event.preventDefault();
+        Meteor.call('get question');
+    },
+    'click #reload': function () {
+        Meteor.call('restart quiz');
+    }
+});
 
 Template.child.events({
     'click button': function(e, tpl){
