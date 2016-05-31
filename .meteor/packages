@@ -22,7 +22,6 @@ iron:router
 accounts-password
 accounts-facebook
 accounts-google
-session
 percolate:momentum
 themeteorchef:jquery-validation
 meteorhacks:kadira

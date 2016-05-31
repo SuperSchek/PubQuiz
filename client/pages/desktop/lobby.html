@@ -1,9 +1,44 @@
-<template name="lobby">
+<template name="lobbydesktop">
+    <div id="lobby-cont">
+        <div id="lobby" >
+            <h1>Aanwezige teams: ({{TeamsCount}})</h1>
+            <h2 style="color: white;">Toegangscode: {{roomcode}}</h2>
+        </div>
+        {{> topbarDesktop}}
+        <!--<div id="btn-start-game"><a href="/questionbumper"><button class="btn-start-agame hvr-fade">Start Quiz!</button></a></div>-->
+
+        <div id="playerlist">
+            <a href="#" id="startquiz">Start Quiz</a>
+            {{#each team}}
+                <div class="teamcard-cont">
+                    <div class="teamcard-titel">{{name}}</div>
+                    <div class="teamcard-subtitel">{{players}} spelers</div>
+                    <div>QM: {{questionmaster}} </div>
+                    <div>PM: {{powerupmaster}} </div>
+                    <div>P3: {{playerthree}} </div>
+                    <div>P4: {{playerfour}}  </div>
+                    <div>Score: {{score}}</div>
+                    <div>Number: {{number}}</div>
+                    <div>Visible: {{visible}}</div>
+                    <div>Position: {{position}}</div>
+                    <div>Roomcode: {{room}}</div>
+                    <!--<hr>-->
+                    <!--<div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">Naam 1</div></div>-->
+                    <!--<hr>-->
+                    <!--<div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up</div><div class="name">Naam 1</div></div>-->
+                    <!--<hr>-->
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</template>
+
+<template name="lobbymobile">
     <div id="lobby-cont">
         <div id="lobby" >
             <h1>Aanwezige teams: ({{TeamsCount}})</h1>
         </div>
-        {{> topbarDesktop}}
+        {{> topbarMobile}}
         <!--<div id="btn-start-game"><a href="/questionbumper"><button class="btn-start-agame hvr-fade">Start Quiz!</button></a></div>-->
 
         <div id="playerlist">
@@ -26,14 +61,15 @@
                 <div class="teamcard-cont">
                     <div class="teamcard-titel">{{name}}</div>
                     <div class="teamcard-subtitel">{{players}} spelers</div>
-                    <div>QM: {{questionmaster}} <a id="joinQM" href="#">Join as QM</a></div>
-                    <div>PM: {{powerupmaster}} <a id="joinPM" href="#">Join as PM</a></div>
-                    <div>P3: {{playerthree}} <a id="joinP3" href="#">Join as P3</a></div>
-                    <div>P4: {{playerfour}}  <a id="joinP4" href="#">Join as P4</a></div>
+                    <div>QM: {{questionmaster}} <a class="join" id="joinQM" href="#">Join as QM</a></div>
+                    <div>PM: {{powerupmaster}} <a class="join" id="joinPM" href="#">Join as PM</a></div>
+                    <div>P3: {{playerthree}} <a class="join" id="joinP3" href="#">Join as P3</a></div>
+                    <div>P4: {{playerfour}}  <a class="join" id="joinP4" href="#">Join as P4</a></div>
                     <div>Score: {{score}}</div>
                     <div>Number: {{number}}</div>
                     <div>Visible: {{visible}}</div>
                     <div>Position: {{position}}</div>
+                    <div>Roomcode: {{room}}</div>
                     <!--<hr>-->
                     <!--<div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">Naam 1</div></div>-->
                     <!--<hr>-->
@@ -44,25 +80,3 @@
         </div>
     </div>
 </template>
-<!--<script type="text/javascript">-->
-    <!--setInterval(-->
-            <!--function updatePlayers() {-->
-                <!--var actualPlayers = [];-->
-                <!--for (var ap = 0; ap < playersArray.length; ap++) {-->
-                    <!--if (playersArray[ap].host != true) {-->
-                        <!--actualPlayers.push(playersArray[ap]);-->
-                    <!--}-->
-                <!--}-->
-                <!--var p = actualPlayers.length;-->
-                <!--var codeRij1 = "";-->
-
-                <!--for (i = 0; i < p; i++) {-->
-                    <!--if (i == 0) {codeRij1 += "<ul>"}-->
-
-                    <!--if (i >= 0) {codeRij1 += "<li>" + actualPlayers[i].gebruikersnaam + "</li>"}-->
-
-                    <!--if (i == p) {codeRij1 += "</ul>"}-->
-                <!--}-->
-                <!--angular.element(document).find('#kolom1').html(codeRij1);-->
-            <!--}, 1000);-->
-<!--</script>-->
