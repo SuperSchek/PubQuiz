@@ -24,31 +24,21 @@ Meteor.methods({
             }
         }
 
+        var currentQuestionNumber = quizLength - numEnabled + 1;
+
         if (numEnabled >= 1) {
             for (var j = 0; j < numEnabled; j++) {
                 do { randomNum = Math.floor(Math.random() * quizLength); }
                 while (QuizQuestions.find().fetch()[randomNum].enabled == false);
             }
-
-            console.log('Render question ' + randomNum + ' and set it to disabled.');
-
             currentQuestion = QuizQuestions.find().fetch()[randomNum]._id;
             QuestionsMeta.remove({});
-            QuestionsMeta.insert({"current": currentQuestion});
+            QuestionsMeta.insert({"current": currentQuestion, "currentNumber": currentQuestionNumber});
 
             QuizQuestions.update(currentQuestion, {$set: {"enabled": false}});
         } else {
-            console.log('Quiz end!');
-
             QuestionsMeta.remove({});
             QuestionsMeta.insert({"current": "Quiz end"});
-        }
-    },
-    'restart quiz': function () {
-        QuizQuestions.remove({});
-
-        for (var q = 0; q < quizArray.length; q++) {
-            QuizQuestions.insert(quizArray[q]);
         }
     }
 });
