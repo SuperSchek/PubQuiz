@@ -159,13 +159,13 @@ Template.roomcode.events({
         codeX = code1 + code2 + code3 + code4;
         codeX = parseInt(codeX);
         console.log(codeX);
-        findCodeX = Channels.find({code: codeX}).count();
+        findCodeX = Channels.find({kamercode: codeX}).count();
 
-        if (findCodeX => 1){
+        if (findCodeX >= 1){
             console.log("Room exist.");
 
             gebruiker = Meteor.userId(); //het id van de gebruiker die is ingelogd
-            kfcx = Channels.findOne({code: codeX}, {fields: {name: 1, code: 1, _id: 0}}); //find statement met als resultaat een object uit de Channels
+            kfcx = Channels.findOne({kamercode: codeX}, {fields: {name: 1, kamercode: 1, _id: 0}}); //find statement met als resultaat een object uit de Channels
             Meteor.users.update(gebruiker, {$set: {"profile": kfcx}});  //importeren van de gevonden channelgegevens
             Router.go("lobby");
             
@@ -190,24 +190,30 @@ Template.roomcode.events({
 function counter() {
     return Teams.find().count() + 1;
 }
+ppp = parseInt;
 
-Template.lobby.helpers({
+Template.lobbymobile.helpers({
     team: function () {
-        return Teams.find();
+        if(Meteor.user() != undefined) {
+            ppp = Meteor.user().profile.kamercode;
+            return Teams.find({room: ppp});
+
+        }
     },
     TeamsCount: function () {
-        return Teams.find().count();
-    },
-    function(){
-        if (isMobile = true) {
-            document.getElementById('createTeam').style.display = "none";
-        } else {
-            document.getElementById('createTeam').style.display = "block";
+        if(Meteor.user() != undefined) {
+            ppp = Meteor.user().profile.kamercode;
+            return Teams.find({room: ppp}).count();
         }
     }
 });
 
-Template.lobby.events({
+Template.lobbymobile.events({
+    'click #startquiz': function(event){
+        event.preventDefault();
+        console.log("start quiz");
+        Router.go("vragen");
+    },
     'submit #createTeam': function(event) {
         event.preventDefault();
         var name = document.getElementById('name').value;
@@ -215,6 +221,8 @@ Template.lobby.events({
         var visibility = document.getElementById('visible').checked;
         var el = document.getElementById("role");
         var selectedValue = el.options[el.selectedIndex].value;
+        var teamCode = Meteor.user().profile.kamercode; // Gets teamname
+        console.log(teamCode);
         if (selectedValue == "Questionmaster") {
             Teams.insert({
                 name: name,
@@ -222,7 +230,8 @@ Template.lobby.events({
                 number: counter(),
                 visible: visibility,
                 score: 0,
-                position: 0
+                position: 0,
+                room: teamCode
             });
         } else if (selectedValue == "Powerupmaster") {
             Teams.insert({
@@ -231,7 +240,8 @@ Template.lobby.events({
                 number: counter(),
                 visible: visibility,
                 score: 0,
-                position: 0
+                position: 0,
+                room: teamCode
             });
         } else if (selectedValue == "Player Three") {
             Teams.insert({
@@ -240,7 +250,8 @@ Template.lobby.events({
                 number: counter(),
                 visible: visibility,
                 score: 0,
-                position: 0
+                position: 0,
+                room: teamCode
             });
         } else if (selectedValue == "Player Four") {
             Teams.insert({
@@ -249,7 +260,8 @@ Template.lobby.events({
                 number: counter(),
                 visible: visibility,
                 score: 0,
-                position: 0
+                position: 0,
+                room: teamCode
             });
         }
     },
@@ -331,10 +343,41 @@ Template.lobby.events({
 
     });
 
-// /*
-// Code to change*/
-//
-//
+
+
+Template.lobbydesktop.helpers({
+    roomcode: function() {
+        if(Meteor.user() != undefined) {
+            return Meteor.user().profile.kamercode;
+        }
+    },
+    team: function () {
+        if(Meteor.user() != undefined) {
+            ppp = Meteor.user().profile.kamercode;
+            return Teams.find({room: ppp});
+
+        }
+    },
+    TeamsCount: function () {
+        if(Meteor.user() != undefined) {
+            ppp = Meteor.user().profile.kamercode;
+            return Teams.find({room: ppp}).count();
+        }
+    }
+});
+
+Template.lobbydesktop.events({
+    'click #startquiz': function(event){
+        event.preventDefault();
+        console.log("start quiz");
+        Router.go("vragen");
+    }
+});
+
+// // /*
+// // Code to change*/
+// //
+// //
 // var emptyslots = 0;
 // var currentPlayers;
 //
@@ -354,4 +397,4 @@ Template.lobby.events({
 //     emptyslots += 1
 // }
 //
-// currentPlayers = 4 - emptyslots
+// currentPlayers = 4 - emptyslots;
