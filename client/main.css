@@ -3,7 +3,7 @@
 @font-face {font-family:StradaOTBold;src: url("fonts/StradaOT-Bold.otf") format("opentype");}
 @font-face {font-family:Cubano;src: url("fonts/Cubano-Regular.otf") format("opentype");}
 @font-face {font-family:AmericanTypewriter-Bold;src: url("fonts/AmericanTypewriter-Bold.ttf") format("truetype");}
-html {width:100%;height: 100%;overflow: hidden;}
+html {width:100%;height: 100%;}
 body{margin:0;font-family: StradaOT, sans-serif, Arial, sans-serif;max-height: 100%;max-width: 100%;height:100%;width:100%;}
 .test{height: 100%;}
 a {text-decoration: none;}
@@ -94,9 +94,9 @@ hr{border:0;border-top:1px solid #e9e9e9;box-shadow: none;margin:10px 0;}
 .hvr-fade {display: inline-block;vertical-align: middle;-webkit-transform: translateZ(0);transform: translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);-webkit-backface-visibility: hidden;backface-visibility: hidden;-moz-osx-font-smoothing: grayscale;overflow: hidden;-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: color, background-color;transition-property: color, background-color;}
 .hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {background-color: #fff;color: #F6325A;}
 
-#lobby{float:left;position: relative;margin:3% 0 3% 3%;text-align: left;}
-#lobby-cont{background: #0C2B3A;background-size:cover;width:100%;height:100%;position: absolute;border-top:10px solid #C09C6A;}
-#playerlist{width:100%;height:100%;float:left;position:relative;padding:0 0 0 2%;margin-bottom:-100%;}
+#lobby{float:left;position: relative;margin:3% 0 3% 3%;text-align: left;background: #0C2B3A !important;}
+#lobby-cont{background: #0C2B3A !important;width:100%;position: absolute;border-top:10px solid #C09C6A;overflow-y:visible!important;}
+#playerlist{width:100%;height:100%;float:left;position:relative;padding:0 0 0 2%;margin-bottom:-100%;background: #0C2B3A !important;}
 #kolom1{width:100%;height:68%;float:left;position:relative;overflow:scroll;margin-bottom:10%;}
 
 #btn-start-game{position:fixed;right:0;width:20%; height: auto;margin:4% 4% 0 2%;}
