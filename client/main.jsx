@@ -22,7 +22,38 @@ Template.mobcode.events({
         event.preventDefault();
         console.log("You clicked a #player element");
         Meteor.call('hallo');
-        // document.getElementById('start-container').innerHTML = "<h2>TEST</h2>"
+    }
+});
+
+var arr = [];
+
+Template.antwoord.helpers({
+    'quizSize': function () {
+        return QuizQuestions.find().count();
+    },
+    'questionCount': function () {
+        if (QuestionsMeta.findOne() != undefined) {
+            return QuestionsMeta.findOne().currentNumber;
+        }
+    },
+    'answer1': function () {
+        console.log(arr);
+        var array = arr;
+        var currentQuestionId = QuestionsMeta.findOne().current;
+        // return QuizQuestions.find({"_id": currentQuestionId}).fetch()[0].answers[arr[0]].answer;
+        return array[0]
+    },
+    'answer2': function () {
+        var currentQuestionId = QuestionsMeta.findOne().current;
+        return QuizQuestions.findOne({"_id": currentQuestionId}).answers[1].answer;
+    },
+    'answer3': function () {
+        var currentQuestionId = QuestionsMeta.findOne().current;
+        return QuizQuestions.findOne({"_id": currentQuestionId}).answers[arr[2]].answer;
+    },
+    'answer4': function () {
+        var currentQuestionId = QuestionsMeta.findOne().current;
+        return QuizQuestions.findOne({"_id": currentQuestionId}).answers[arr[3]].answer;
     }
 });
 
@@ -30,9 +61,18 @@ Template.vragen.helpers({
     'quizSize': function () {
         return QuizQuestions.find().count();
     },
+    'questionCount': function () {
+        if (QuestionsMeta.findOne() != undefined) {
+            return QuestionsMeta.findOne().currentNumber;
+        }
+    },
     'vraag': function () {
-        var currentQuestionId = QuestionsMeta.findOne().current;
-        return QuizQuestions.find({"_id": currentQuestionId}).fetch()[0].question;
+        if (QuestionsMeta.findOne() != undefined) {
+            var currentQuestionId = QuestionsMeta.findOne().current;
+            if (currentQuestionId != null) {
+                return QuizQuestions.findOne({'_id': currentQuestionId}).question;
+            }
+        }
     }
 });
 
@@ -40,9 +80,7 @@ Template.vragen.events({
     'click #leaderboard-title': function(event){
         event.preventDefault();
         Meteor.call('get question');
-    },
-    'click #reload': function () {
-        Meteor.call('restart quiz');
+        // arrayMaker();
     }
 });
 

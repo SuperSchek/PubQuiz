@@ -2,7 +2,7 @@
     <div id="mobile-cont">
         <!--Timebar-->
         <div id="time-mob-cont"><div class="progress" id="progress"></div></div>
-        <div id="question-nr-mob-cont"><div id="question-nr-mob">Vraag 1/21</div></div>
+        <div id="question-nr-mob-cont"><div id="question-nr-mob">Vraag {{questionCount}}/{{quizSize}}</div></div>
         <script language="javascript">
             $("#mobile-cont #answers-mob-cont[role='group'] button").on('click', function(){
                 $(this).siblings().removeClass('on');
@@ -11,10 +11,10 @@
         </script>
         <!--Antwoorden-->
         <div id="answers-mob-cont" role="group">
-            <button class="btn-style" value="0" id="qstn1" onclick="onoff('qstn1');">Test</button>
-            <button class="btn-style" value="1" id="qstn2" onclick="onoff('qstn2');">Test</button>
-            <button class="btn-style" value="2" id="qstn3" onclick="onoff('qstn3');">Test</button>
-            <button class="btn-style" value="3" id="qstn4" onclick="onoff('qstn4');">Test</button>
+            <button class="btn-style" value="0" id="qstn1" onclick="onoff('qstn1');">{{answer1}}</button>
+            <button class="btn-style" value="1" id="qstn2" onclick="onoff('qstn2');">{{answer2}}</button>
+            <button class="btn-style" value="2" id="qstn3" onclick="onoff('qstn3');">{{answer3}}</button>
+            <button class="btn-style" value="3" id="qstn4" onclick="onoff('qstn4');">{{answer4}}</button>
         </div>
 
         <!--Status-->
