@@ -25,8 +25,6 @@ Template.mobcode.events({
     }
 });
 
-var arr = [];
-
 Template.antwoord.helpers({
     'quizSize': function () {
         return QuizQuestions.find().count();
@@ -37,23 +35,32 @@ Template.antwoord.helpers({
         }
     },
     'answer1': function () {
-        console.log(arr);
-        var array = arr;
-        var currentQuestionId = QuestionsMeta.findOne().current;
-        // return QuizQuestions.find({"_id": currentQuestionId}).fetch()[0].answers[arr[0]].answer;
-        return array[0]
+        if (QuestionsMeta.findOne() != undefined) {
+            var currentQuestionId = QuestionsMeta.findOne().current;
+            var antwoordNummer = QuestionsMeta.findOne().orderArray[0];
+            return QuizQuestions.findOne({"_id": currentQuestionId}).answers[antwoordNummer].answer;
+        }
     },
     'answer2': function () {
-        var currentQuestionId = QuestionsMeta.findOne().current;
-        return QuizQuestions.findOne({"_id": currentQuestionId}).answers[1].answer;
+        if (QuestionsMeta.findOne() != undefined) {
+            var currentQuestionId = QuestionsMeta.findOne().current;
+            var antwoordNummer = QuestionsMeta.findOne().orderArray[1];
+            return QuizQuestions.findOne({"_id": currentQuestionId}).answers[antwoordNummer].answer;
+        }
     },
     'answer3': function () {
-        var currentQuestionId = QuestionsMeta.findOne().current;
-        return QuizQuestions.findOne({"_id": currentQuestionId}).answers[arr[2]].answer;
+        if (QuestionsMeta.findOne() != undefined) {
+            var currentQuestionId = QuestionsMeta.findOne().current;
+            var antwoordNummer = QuestionsMeta.findOne().orderArray[2];
+            return QuizQuestions.findOne({"_id": currentQuestionId}).answers[antwoordNummer].answer;
+        }
     },
     'answer4': function () {
-        var currentQuestionId = QuestionsMeta.findOne().current;
-        return QuizQuestions.findOne({"_id": currentQuestionId}).answers[arr[3]].answer;
+        if (QuestionsMeta.findOne() != undefined) {
+            var currentQuestionId = QuestionsMeta.findOne().current;
+            var antwoordNummer = QuestionsMeta.findOne().orderArray[3];
+            return QuizQuestions.findOne({"_id": currentQuestionId}).answers[antwoordNummer].answer;
+        }
     }
 });
 
@@ -76,11 +83,12 @@ Template.vragen.helpers({
     }
 });
 
+
+
 Template.vragen.events({
     'click #leaderboard-title': function(event){
         event.preventDefault();
         Meteor.call('get question');
-        // arrayMaker();
     }
 });
 

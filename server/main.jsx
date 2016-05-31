@@ -32,8 +32,27 @@ Meteor.methods({
                 while (QuizQuestions.find().fetch()[randomNum].enabled == false);
             }
             currentQuestion = QuizQuestions.find().fetch()[randomNum]._id;
+
+
+            var arr = [];
+
+            while(arr.length < 4){
+                var randomnumber = Math.floor(Math.random() * 4);
+                var found = false;
+                for(var i = 0; i < arr.length; i++) {
+                    if(arr[i] == randomnumber) {
+                        found=true;break
+                    }
+                }
+                if(!found) {
+                    arr[arr.length] = randomnumber;
+                }
+            }
+
+            console.log(arr);
+
             QuestionsMeta.remove({});
-            QuestionsMeta.insert({"current": currentQuestion, "currentNumber": currentQuestionNumber});
+            QuestionsMeta.insert({"current": currentQuestion, "currentNumber": currentQuestionNumber, "orderArray": arr});
 
             QuizQuestions.update(currentQuestion, {$set: {"enabled": false}});
         } else {
