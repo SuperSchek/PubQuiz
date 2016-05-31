@@ -121,7 +121,7 @@ Template.roomcode.events({
             gebruiker = Meteor.userId(); //het id van de gebruiker die is ingelogd
             kfcx = Channels.findOne({code: codeX}, {fields: {name: 1, code: 1, _id: 0}}); //find statement met als resultaat een object uit de Channels
             Meteor.users.update(gebruiker, {$set: {"profile": kfcx}});  //importeren van de gevonden channelgegevens
-            // Route.go("/lobby");
+            Router.go("lobby");
             
         } else {
             console.log("Room doesn't exist.");
@@ -146,11 +146,18 @@ function counter() {
 }
 
 Template.lobby.helpers({
-    team: function() {
+    team: function () {
         return Teams.find();
     },
     TeamsCount: function () {
         return Teams.find().count();
+    },
+    function(){
+        if (isMobile = true) {
+            document.getElementById('createTeam').style.display = "none";
+        } else {
+            document.getElementById('createTeam').style.display = "block";
+        }
     }
 });
 
@@ -206,16 +213,16 @@ Template.lobby.events({
         var teamName = JSON.stringify(Teams.findOne({_id: this._id}, {fields: {name: 1, _id: 0}})).slice(9,-2); // Gets teamname
         Meteor.users.update(Meteor.userId(), {$set: {"profile.team": teamName }}); // add teamname to user data
         var teamNaam = Meteor.users.findOne(Meteor.userId()).profile.team;
-        var i = Teams.find({name: teamNaam},{fields: {number: 1}}).fetch()[0].number;
-        if (Teams.find({}).fetch()[i].powerupmaster == user){
+        var i = Teams.find({name: teamNaam}).fetch()[0].number;
+        if (Teams.find({}).fetch()[i-1].powerupmaster == user){
             Teams.update({_id: this._id}, {$set: {powerupmaster: ""}});
         } else{};
 
-        if (Teams.find({}).fetch()[i].playerthree == user){
+        if (Teams.find({}).fetch()[i-1].playerthree == user){
             Teams.update({_id: this._id}, {$set: {playerthree: ""}});
         } else{};
 
-        if (Teams.find({}).fetch()[i].playerfour == user){
+        if (Teams.find({}).fetch()[i-1].playerfour == user){
             Teams.update({_id: this._id}, {$set: {playerfour: ""}});
         } else{};
 
@@ -227,15 +234,14 @@ Template.lobby.events({
         var teamName = JSON.stringify(Teams.findOne({_id: this._id}, {fields: {name: 1, _id: 0}})).slice(9,-2); // Gets teamname
         Meteor.users.update(Meteor.userId(), {$set: {"profile.team": teamName }}); // add teamname to user data
         var teamNaam = Meteor.users.findOne(Meteor.userId()).profile.team;
-        var i = Teams.find({name: teamNaam},{fields: {number: 1}}).fetch()[0].number;
-        console.log("Teamnumber:", i);
-        if (Teams.find({}).fetch()[i].questionmaster == user){
+        var i = Teams.find({name: teamNaam}).fetch()[0].number;
+        if (Teams.find({}).fetch()[i-1].questionmaster == user){
             Teams.update({_id: this._id}, {$set: {questionmaster: ""}});
         }
-        if (Teams.find({}).fetch()[i].playerthree == user){
+        if (Teams.find({}).fetch()[i-1].playerthree == user){
             Teams.update({_id: this._id}, {$set: {playerthree: ""}});
         }
-        if (Teams.find({}).fetch()[i].playerfour == user){
+        if (Teams.find({}).fetch()[i-1].playerfour == user){
             Teams.update({_id: this._id}, {$set: {playerfour: ""}});
         }
         Teams.update({_id: this._id}, {$set: {powerupmaster: user}}) // add user to the team
@@ -246,14 +252,14 @@ Template.lobby.events({
         var teamName = JSON.stringify(Teams.findOne({_id: this._id}, {fields: {name: 1, _id: 0}})).slice(9,-2); // Gets teamname
         Meteor.users.update(Meteor.userId(), {$set: {"profile.team": teamName }}); // add teamname to user data
         var teamNaam = Meteor.users.findOne(Meteor.userId()).profile.team;
-        var i = Teams.find({name: teamNaam},{fields: {number: 1}}).fetch()[0].number;
-        if (Teams.find({}).fetch()[i].questionmaster == user){
+        var i = Teams.find({name: teamNaam}).fetch()[0].number;
+        if (Teams.find({}).fetch()[i-1].questionmaster == user){
             Teams.update({_id: this._id}, {$set: {questionmaster: ""}});
         }
-        if (Teams.find({}).fetch()[i].powerupmaster == user){
+        if (Teams.find({}).fetch()[i-1].powerupmaster == user){
             Teams.update({_id: this._id}, {$set: {powerupmaster: ""}});
         }
-        if (Teams.find({}).fetch()[i].playerfour == user){
+        if (Teams.find({}).fetch()[i-1].playerfour == user){
             Teams.update({_id: this._id}, {$set: {playerfour: ""}});
         }
         Teams.update({_id: this._id}, {$set: {playerthree: user}}) // add user to the team
@@ -264,17 +270,42 @@ Template.lobby.events({
         var teamName = JSON.stringify(Teams.findOne({_id: this._id}, {fields: {name: 1, _id: 0}})).slice(9,-2); // Gets teamname
         Meteor.users.update(Meteor.userId(), {$set: {"profile.team": teamName }}); // add teamname to user data
         var teamNaam = Meteor.users.findOne(Meteor.userId()).profile.team;
-        var i = Teams.find({name: teamNaam},{fields: {number: 1}}).fetch()[0].number;
-        if (Teams.find({}).fetch()[i].questionmaster == user){
+        var i = Teams.find({name: teamNaam}).fetch()[0].number;
+        if (Teams.find({}).fetch()[i-1].questionmaster == user){
             Teams.update({_id: this._id}, {$set: {questionmaster: ""}});
         }
-        if (Teams.find({}).fetch()[i].powerupmaster == user){
+        if (Teams.find({}).fetch()[i-1].powerupmaster == user){
             Teams.update({_id: this._id}, {$set: {powerupmaster: ""}});
         }
-        if (Teams.find({}).fetch()[i].playerthree == user){
+        if (Teams.find({}).fetch()[i-1].playerthree == user){
             Teams.update({_id: this._id}, {$set: {playerthree: ""}});
         }
         Teams.update({_id: this._id}, {$set: {playerfour: user}}) // add user to the team
     }
 
     });
+
+// /*
+// Code to change*/
+//
+//
+// var emptyslots = 0;
+// var currentPlayers;
+//
+// if(powerupmaster == ""){
+//     emptyslots += 1
+// }
+//
+// if(questionmaster == ""){
+//     emptyslots += 1
+// }
+//
+// if(playerthree == ""){
+//     emptyslots += 1
+// }
+//
+// if(playerfour == ""){
+//     emptyslots += 1
+// }
+//
+// currentPlayers = 4 - emptyslots
