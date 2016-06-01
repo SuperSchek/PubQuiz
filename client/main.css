@@ -436,8 +436,8 @@ ul.dropdown li a {
 .role{margin:0 0 0 15px;position:relative;float:left;color:#C09C6A;font-size:18px;width:50%;}
 .teamcard-titel{color:#424242;font-size: 26px;}
 .teamcard-subtitel{color:#bcbcbc;font-size:20px;margin-bottom:20px;}
-.teamcard-cont{box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);float:left;font-family:StradaOT;background:#fff;padding:1% 1% 1% 1%;margin:0 2% 0 0;width:20%;height:auto;border-radius:5px;border-top:10px solid #C09C6A; }
-.teamcard-cont-mobile{float:left;font-family:StradaOT;background:#fff;min-width:84%;padding:1% 4% 10px 4%;height:auto;border-radius:5px;border-top:10px solid #C09C6A; }
+.teamcard-cont{box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);float:left;font-family:StradaOT;background:#fff;padding:1%;margin:0 2% 0 0;width:20%;height:auto;border-radius:5px;border-top:10px solid #C09C6A; }
+.teamcard-cont-mobile{box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);float:left;font-family:StradaOT;background:#fff;padding:4% 4% 2% 4%;margin:0 0 2% 0;width:84%;height:auto;border-radius:5px;border-top:10px solid #C09C6A; }
 
 #topbar-cont{position:absolute;right:3%;}
 #starten{color:#fff;padding:28px;position:relative;float:left;margin-right:20px;background: #C09C6A;font-size:20px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}
@@ -456,7 +456,7 @@ ul.dropdown li a {
 #lobby{float:left;position: relative;margin:3% 0 3% 3%;text-align: left;background: #0C2B3A !important;}
 #lobby-cont{background: #0C2B3A !important;width:100%;height:100%;position: absolute;border-top:10px solid #C09C6A;overflow-y:visible!important;overflow-x:hidden!important;}
 
-#lobby-cont-mob{background: #0C2B3A !important;height:100%;width:100%;position: absolute;overflow-y:visible!important;}
+#lobby-cont-mob{background: #0C2B3A !important;height:100%;width:100%;position: absolute;overflow-y:visible!important;overflow-x:hidden!important;}
 
 #profile-cont{
     float: left;
@@ -468,7 +468,11 @@ ul.dropdown li a {
     border-radius: 5px;
     border-top: 10px solid #C09C6A;
 }
-
+.crop{overflow:hidden;width: 70%;}
 #profile-cont form input{background:rgba(0,0,0,0);width:100%;border-style: none;}
 #profile-cont form input{padding: 7% 0;width:100%;font-family:  StradaOT,sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
 #profile-cont button:active{background: #FAFAFA;color: #C09C6A;}
+
+.btn-create-mob{margin:4% 0;height:60px;padding: 4% 0;width:92%;font-family:  StradaOT,sans-serif;font-weight:bold;background-color: #C09C6A;border:none;color: white;text-align: center;text-decoration: none;display: block;font-size: 24px;border-radius: 5px;float:left;position:relative;}
+#playerlist-mobile form input{background:rgba(255,255,255,1);width:88%;border-style: none;border-radius: 5px;}
+#playerlist-mobile form input{padding: 4% 0 4% 4%;font-family:  StradaOT,sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}

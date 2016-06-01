@@ -23,9 +23,9 @@
                     <!--<div>Position: {{position}}</div>-->
                     <!--<div>Roomcode: {{room}}</div>-->
                     <hr>
-                    <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Question Master</div><div class="name">{{questionmaster}}</div></div>
+                    <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Question Master</div><div class="name crop">{{questionmaster}}</div></div>
                     <hr>
-                    <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up Master</div><div class="name">{{powerupmaster}}</div></div>
+                    <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up Master</div><div class="name crop">{{powerupmaster}}</div></div>
                     <hr>
                 </div>
             {{/each}}
@@ -40,33 +40,25 @@
 
         <div id="playerlist-mobile">
             <form id="createTeam" style="color: white">
-                <input id="name" value="Name">
+                <input id="name" placeholder="Name">
                 <select id="role">
                     <option id="questionmaster" value="Questionmaster"> Questionmaster</option>
                     <option id="powerupmaster" value="Powerupmaster"> Powerupmaster</option>
                     <option id="playerthree" value="Player Three"> Player Three </option>
                     <option id="playerfour" value="Player Four"> Player Four</option>
                 </select>
-                <input name="visible" id="visible" type="checkbox" checked="false"> Visible
-                <!--<input type="radio" id="questionmaster" value="Questionmaster"> Questionmaster<br>-->
-                <!--<input type="radio" id="powerupmaster" value="Powerupmaster"> Powerupmaster<br>-->
-                <!--<input type="radio" id="playerthree" value="Player Three"> Player Three <br>-->
-                <!--<input type="radio" id="playerfour" value="other"> Player Four-->
-                <input type="submit" value="Create">
+                <!--<input name="visible" id="visible" type="checkbox" checked="false"> Visible-->
+                <button class="btn-create-mob" type="submit">Voeg toe</button>
             </form>
             {{#each team}}
                 <div class="teamcard-cont-mobile">
                     <div class="teamcard-titel">{{name}}</div>
-                    <div class="teamcard-subtitel">{{players}} spelers</div>
-                    <div>QM: {{questionmaster}} <a class="join" id="joinQM" href="#">Join as QM</a></div>
-                    <div>PM: {{powerupmaster}} <a class="join" id="joinPM" href="#">Join as PM</a></div>
-                    <div>P3: {{playerthree}} <a class="join" id="joinP3" href="#">Join as P3</a></div>
-                    <div>P4: {{playerfour}}  <a class="join" id="joinP4" href="#">Join as P4</a></div>
-                    <!--<hr>-->
-                    <!--<div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">Naam 1</div></div>-->
-                    <!--<hr>-->
-                    <!--<div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up</div><div class="name">Naam 1</div></div>-->
-                    <!--<hr>-->
+                    <div class="teamcard-subtitel">{{players}}# spelers</div>
+                    <hr>
+                    <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Question Master</div><div class="name crop">{{questionmaster}}</div></div>
+                    <hr>
+                    <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up Master</div><div class="name crop">{{powerupmaster}}</div></div>
+                    <hr>
                 </div>
             {{/each}}
         </div>
