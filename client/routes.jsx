@@ -59,10 +59,6 @@ Router.route('/roomresult', function () {
     this.layout('ApplicationLayout');
     this.render('roomResult');
 });
-Router.route('/mobcode', function () {
-    this.layout('ApplicationLayout');
-    this.render('mobcode');
-});
 Router.route('/antwoord', function () {
     this.layout('ApplicationLayout');
     this.render('antwoord');

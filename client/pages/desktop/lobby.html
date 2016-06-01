@@ -1,32 +1,32 @@
 <template name="lobbydesktop">
     <div id="lobby-cont">
         <div id="lobby" >
-            <h1>Aanwezige teams: ({{TeamsCount}})</h1>
-            <h2 style="color: white;">Toegangscode: {{roomcode}}</h2>
+            <h1>Aanwezige teams ({{TeamsCount}})</h1>
+            <h2 style="color: #e9e9e9;">Toegangscode: {{roomcode}}</h2>
         </div>
+
         {{> topbarDesktop}}
         <!--<div id="btn-start-game"><a href="/questionbumper"><button class="btn-start-agame hvr-fade">Start Quiz!</button></a></div>-->
-
+        <a href="#" id="startquiz">Start Quiz</a>
         <div id="playerlist">
-            <a href="#" id="startquiz">Start Quiz</a>
             {{#each team}}
                 <div class="teamcard-cont">
                     <div class="teamcard-titel">{{name}}</div>
-                    <div class="teamcard-subtitel">{{players}} spelers</div>
-                    <div>QM: {{questionmaster}} </div>
-                    <div>PM: {{powerupmaster}} </div>
-                    <div>P3: {{playerthree}} </div>
-                    <div>P4: {{playerfour}}  </div>
-                    <div>Score: {{score}}</div>
-                    <div>Number: {{number}}</div>
-                    <div>Visible: {{visible}}</div>
-                    <div>Position: {{position}}</div>
-                    <div>Roomcode: {{room}}</div>
-                    <!--<hr>-->
-                    <!--<div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">Naam 1</div></div>-->
-                    <!--<hr>-->
-                    <!--<div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up</div><div class="name">Naam 1</div></div>-->
-                    <!--<hr>-->
+                    <div class="teamcard-subtitel">{{players}}# spelers</div>
+                    <!--<div>QM: {{questionmaster}} </div>-->
+                    <!--<div>PM: {{powerupmaster}} </div>-->
+                    <!--<div>P3: {{playerthree}} </div>-->
+                    <!--<div>P4: {{playerfour}}  </div>-->
+                    <!--<div>Score: {{score}}</div>-->
+                    <!--<div>Number: {{number}}</div>-->
+                    <!--<div>Visible: {{visible}}</div>-->
+                    <!--<div>Position: {{position}}</div>-->
+                    <!--<div>Roomcode: {{room}}</div>-->
+                    <hr>
+                    <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">{{questionmaster}}</div></div>
+                    <hr>
+                    <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up</div><div class="name">{{powerupmaster}}</div></div>
+                    <hr>
                 </div>
             {{/each}}
         </div>
@@ -34,14 +34,11 @@
 </template>
 
 <template name="lobbymobile">
-    <div id="lobby-cont">
-        <div id="lobby" >
-            <h1>Aanwezige teams: ({{TeamsCount}})</h1>
-        </div>
-        {{> topbarMobile}}
+    <div id="lobby-cont-mob">
+        {{> topbarLobby}}
         <!--<div id="btn-start-game"><a href="/questionbumper"><button class="btn-start-agame hvr-fade">Start Quiz!</button></a></div>-->
 
-        <div id="playerlist">
+        <div id="playerlist-mobile">
             <form id="createTeam" style="color: white">
                 <input id="name" value="Name">
                 <select id="role">
@@ -58,18 +55,13 @@
                 <input type="submit" value="Create">
             </form>
             {{#each team}}
-                <div class="teamcard-cont">
+                <div class="teamcard-cont-mobile">
                     <div class="teamcard-titel">{{name}}</div>
                     <div class="teamcard-subtitel">{{players}} spelers</div>
                     <div>QM: {{questionmaster}} <a class="join" id="joinQM" href="#">Join as QM</a></div>
                     <div>PM: {{powerupmaster}} <a class="join" id="joinPM" href="#">Join as PM</a></div>
                     <div>P3: {{playerthree}} <a class="join" id="joinP3" href="#">Join as P3</a></div>
                     <div>P4: {{playerfour}}  <a class="join" id="joinP4" href="#">Join as P4</a></div>
-                    <div>Score: {{score}}</div>
-                    <div>Number: {{number}}</div>
-                    <div>Visible: {{visible}}</div>
-                    <div>Position: {{position}}</div>
-                    <div>Roomcode: {{room}}</div>
                     <!--<hr>-->
                     <!--<div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Questions</div><div class="name">Naam 1</div></div>-->
                     <!--<hr>-->

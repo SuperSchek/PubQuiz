@@ -17,14 +17,6 @@ Meteor.startup(() => {
     QuestionsMeta = new Mongo.Collection("currentQuestion");
 });
 
-Template.mobcode.events({
-    'click #meteortest': function test(event){
-        event.preventDefault();
-        console.log("You clicked a #player element");
-        Meteor.call('hallo');
-    }
-});
-
 Template.antwoord.helpers({
     'quizSize': function () {
         return QuizQuestions.find().count();

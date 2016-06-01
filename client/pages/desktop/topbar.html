@@ -10,12 +10,14 @@
                     <img src="http://graph.facebook.com/{{currentUser.services.facebook.id}}/picture" id="facebook-photo">
                 </div>
             </a>
-            <ul class="dropdown desktop">
-                <li><a href="/profiel">Mijn profiel</a></li>
-                <li>{{> logout}}</li>
-            </ul>
+
         </nav>
+
     </div>
+    <ul class="dropdown desktop">
+        <li><a href="/profiel">Mijn profiel</a></li>
+        <li>{{> logout}}</li>
+    </ul>
 {{else}}
 {{/if}}
 </template>

@@ -1,6 +1,6 @@
 <template name="topbarMobile">
 <div id="topbar">
-    <h2>Welkom, {{>username}}</h2>
+    <h2>{{>username}}</h2>
     <div id="spacer"></div>
     {{#if currentUser}}
         <nav>
@@ -15,4 +15,23 @@
     {{else}}
     {{/if}}
 </div>
+</template>
+
+<template name="topbarLobby">
+    <div id="topbar">
+        <h2>Kies een team</h2>
+        <div id="spacer"></div>
+        {{#if currentUser}}
+            <nav>
+                <a class="dropdown-toggle" href="#" title="Menu">
+                    <img src="http://graph.facebook.com/{{currentUser.services.facebook.id}}/picture" id="facebook-photo">
+                    <ul class="dropdown">
+                        <li><a href="#">Mijn profiel</a></li>
+                        <li>{{> logout}}</li>
+                    </ul>
+                </a>
+            </nav>
+        {{else}}
+        {{/if}}
+    </div>
 </template>

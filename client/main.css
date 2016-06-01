@@ -79,7 +79,7 @@ input:focus {
 html button:focus {outline:none;}
 
 h1{font-family: Cubano, sans-serif;color:#e9e9e9; font-size: 70px;line-height: 70px;font-weight: normal;margin:0;}
-h2{font-family: Cubano, sans-serif;color:#0C2B3A; font-size: 20px;margin:0 0 10% 0;line-height: 40px;font-weight:normal;text-align:left;}
+h2{font-family: Cubano, sans-serif;color:#0C2B3A; font-size: 20px;margin:0 0 0 0;line-height: 40px;font-weight:normal;text-align:left;}
 h5{color:#fff;font-size:20px;font-family: "Strada OT", sans-serif;font-weight:normal ;}
 h6{font-family: AmericanTypewriter-Bold, sans-serif;color:#fff; font-size: 40px;line-height: 40px;font-weight: normal;margin:0;text-align:left;float:left;}
 #welkom{float:left;position: relative;transform: translate(0, -50%)!important;top:50%;text-align:center;width:100%;}
@@ -94,9 +94,6 @@ hr{border:0;border-top:1px solid #e9e9e9;box-shadow: none;margin:10px 0;}
 .hvr-fade {display: inline-block;vertical-align: middle;-webkit-transform: translateZ(0);transform: translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);-webkit-backface-visibility: hidden;backface-visibility: hidden;-moz-osx-font-smoothing: grayscale;overflow: hidden;-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: color, background-color;transition-property: color, background-color;}
 .hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {background-color: #fff;color: #F6325A;}
 
-#lobby{float:left;position: relative;margin:3% 0 3% 3%;text-align: left;background: #0C2B3A !important;}
-#lobby-cont{background: #0C2B3A !important;width:100%;position: absolute;border-top:10px solid #C09C6A;overflow-y:visible!important;}
-#playerlist{width:100%;height:100%;float:left;position:relative;padding:0 0 0 2%;margin-bottom:-100%;background: #0C2B3A !important;}
 #kolom1{width:100%;height:68%;float:left;position:relative;overflow:scroll;margin-bottom:10%;}
 
 #btn-start-game{position:fixed;right:0;width:20%; height: auto;margin:4% 4% 0 2%;}
@@ -297,13 +294,12 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {back
 #topbar{
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+
     flex-flow: row nowrap;
     background: white;
     width: 100%;
     height: 60px;
     color: #424242;
-    position: fixed;
     border-top:10px solid #C09C6A;
     z-index:20;
 }
@@ -332,6 +328,18 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {back
     font-size: 24px;
     font-family: "Cubano", sans-serif;
     color: #0C2B3A;
+}
+
+#topbar h2{
+    margin-left: 20px;
+    margin-top:7px;
+    font-size: 24px;
+    font-family: "Cubano", sans-serif;
+    color: #0C2B3A;
+    position:relative;
+    top: 50%;
+    transform: translateY(-50%);
+    float:left;
 }
 
 .dropdown {
@@ -371,9 +379,11 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {back
 
 nav {
     position: relative;
+    z-index: 0;
+
 }
 .dropdown-toggle {
-    padding: .5em 1em;
+    padding: 3%;
     background: white;
     border-radius: .2em .2em 0 0;
     color: #424242;
@@ -389,30 +399,34 @@ nav {
 ul.dropdown {
     display: none;
     position: absolute;
-    top: 100%;
-    right: 0;
     margin-top: 0;
-    background: white;
+    background: #C09C6A;
     min-width: 12em;
     padding: 0;
     border-radius: 0 0 .2em .2em;
-    z-index: 20;
+    z-index: 1 !important;
 }
 
 ul.dropdown.desktop{
-    right: 80px;
-    min-width: auto;
+    right: 3%;
     border-radius: 0 0 5px 5px;
+    top:85px;
+    position: fixed;
+    padding:0 1%;
 }
 ul.dropdown li {
     list-style-type: none;
+    border-bottom: 1px solid #e9e9e9;
 }
-
+ul.dropdown li:last-child {
+    border-bottom: 0;
+}
 ul.dropdown li a {
     text-decoration: none;
-    padding: .5em 1em;
+    padding: 1em 3em 1em 0.5em;
     display: block;
-    color: #424242;
+    color: #e9e9e9;
+    font-size: 20px;
 }
 
 .clip{-webkit-clip-path: circle(50% at 50% 50%);clip-path: circle(50% at 50% 50%);}
@@ -420,17 +434,25 @@ ul.dropdown li a {
 .questionmaster img{float:left;}
 .name{margin:2px 0 0 15px;position:relative;float:left;color:#424242;font-size:20px;width:50%;}
 .role{margin:0 0 0 15px;position:relative;float:left;color:#C09C6A;font-size:18px;width:50%;}
-.teamcard-titel{margin-left:10px;color:#424242;font-size: 26px;}
-.teamcard-subtitel{margin-left:10px;color:#bcbcbc;font-size:20px;margin-bottom:20px;}
-.teamcard-cont{float:left;font-family:StradaOT;background:#fff;padding:1% 1% 10px 1%;margin:1%;width:auto;height:auto;border-radius:5px;border-top:10px solid #C09C6A; }
-.teamcard-cont-mobile{float:left;font-family:StradaOT;background:#fff;padding:1% 1% 10px 1%;width:100%;height:auto;border-radius:5px;border-top:10px solid #C09C6A; }
+.teamcard-titel{color:#424242;font-size: 26px;}
+.teamcard-subtitel{color:#bcbcbc;font-size:20px;margin-bottom:20px;}
+.teamcard-cont{box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);float:left;font-family:StradaOT;background:#fff;padding:1% 1% 1% 1%;margin:0 2% 0 0;width:20%;height:auto;border-radius:5px;border-top:10px solid #C09C6A; }
+.teamcard-cont-mobile{float:left;font-family:StradaOT;background:#fff;min-width:84%;padding:1% 4% 10px 4%;height:auto;border-radius:5px;border-top:10px solid #C09C6A; }
 
-#playerdiv{float:right;position:absolute;right:3%;width:auto;height:auto;background: #fff;padding:10px;font-size:20px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}
+#playerdiv{position:absolute;right:3%;background: #fff;padding:10px;font-size:20px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;z-index: 20!important;}
+#playerdiv ul {z-index: 0!important;}
 #playeravatar{float:right;height:40px;}
 #playeravatar img{height:40px;width:40px;}
-#playertitel{float:left;margin:7px 20px 0 10px;color:#424242;font-family: StradaOT;}
+#playertitel{float:left;margin:0 20px 0 10px;color:#424242;font-family: StradaOT;}
 
-#playerlist-mobile{width:100%;height:100%;float:left;position:relative;}
+#playerlist{width:100%;height:100%;float:left;position:relative;padding:0 0 0 3%;background: #0C2B3A !important;}
+#playerlist-mobile{width:100%;height:100%;float:left;position:relative;margin:4% 4% 0 4%;}
+
+
+#lobby{float:left;position: relative;margin:3% 0 3% 3%;text-align: left;background: #0C2B3A !important;}
+#lobby-cont{background: #0C2B3A !important;width:100%;height:100%;position: absolute;border-top:10px solid #C09C6A;overflow-y:visible!important;overflow-x:hidden!important;}
+
+#lobby-cont-mob{background: #0C2B3A !important;height:100%;width:100%;position: absolute;overflow-y:visible!important;}
 
 #profile-cont{
     float: left;
