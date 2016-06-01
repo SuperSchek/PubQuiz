@@ -55,12 +55,17 @@
                     <div class="teamcard-titel">{{name}}</div>
                     <div class="teamcard-subtitel">{{players}}# spelers</div>
                     <hr>
-                    <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Question Master</div><div class="name crop">{{questionmaster}}</div></div>
+                    <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Question Master</div><div class="name crop">{{questionmaster}}<a class="join" id="joinQM" href="#">Join as QM</a></div></div>
                     <hr>
-                    <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up Master</div><div class="name crop">{{powerupmaster}}</div></div>
+                    <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up Master</div><div class="name crop">{{powerupmaster}}<a class="join" id="joinPM" href="#">Join as QM</a></div></div>
                     <hr>
                 </div>
             {{/each}}
         </div>
     </div>
 </template>
+
+<!--<div>QM: {{questionmaster}} <a class="join" id="joinQM" href="#">Join as QM</a></div>-->
+<!--<div>PM: {{powerupmaster}} <a class="join" id="joinPM" href="#">Join as PM</a></div>-->
+<!--<div>P3: {{playerthree}} <a class="join" id="joinP3" href="#">Join as P3</a></div>-->
+<!--<div>P4: {{playerfour}}  <a class="join" id="joinP4" href="#">Join as P4</a></div>-->
