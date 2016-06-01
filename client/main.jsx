@@ -210,7 +210,7 @@ Template.lobbymobile.events({
         event.preventDefault();
         var name = document.getElementById('name').value;
         var user = Meteor.user().emails[0].address;
-        var visibility = document.getElementById('visible').checked;
+        // var visibility = document.getElementById('visible').checked;
         var el = document.getElementById("role");
         var selectedValue = el.options[el.selectedIndex].value;
         var teamCode = Meteor.user().profile.kamercode; // Gets teamname
@@ -220,7 +220,7 @@ Template.lobbymobile.events({
                 name: name,
                 questionmaster: user,
                 number: counter(),
-                visible: visibility,
+                // visible: visibility,
                 score: 0,
                 position: 0,
                 room: teamCode
@@ -230,7 +230,7 @@ Template.lobbymobile.events({
                 name: name,
                 powerupmaster: user,
                 number: counter(),
-                visible: visibility,
+                // visible: visibility,
                 score: 0,
                 position: 0,
                 room: teamCode
@@ -240,7 +240,7 @@ Template.lobbymobile.events({
                 name: name,
                 playerthree: user,
                 number: counter(),
-                visible: visibility,
+                // visible: visibility,
                 score: 0,
                 position: 0,
                 room: teamCode
@@ -250,7 +250,7 @@ Template.lobbymobile.events({
                 name: name,
                 playerfour: user,
                 number: counter(),
-                visible: visibility,
+                // visible: visibility,
                 score: 0,
                 position: 0,
                 room: teamCode
