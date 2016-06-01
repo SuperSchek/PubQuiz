@@ -1,9 +1,11 @@
 <template name="topbarDesktop">
 {{#if currentUser}}
 <div id="topbar-cont">
-    <div id="starten">
-        <a href="#" id="startquiz">Start Quiz</a>
-    </div>
+    <a href="#" id="startquiz">
+        <div id="starten">
+            Start Quiz
+        </div>
+    </a>
     <div id="playerdiv">
         <nav>
             <a class="dropdown-toggle" href="#" title="Menu">
@@ -16,7 +18,6 @@
             </a>
 
         </nav>
-
     </div>
     <ul class="dropdown desktop">
         <li><a href="/profiel">Mijn profiel</a></li>
