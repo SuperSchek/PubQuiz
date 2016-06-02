@@ -55,7 +55,9 @@ Template.antwoord.helpers({
         }
     },
     'timeLeft': function () {
-        return QuestionsMeta.findOne().timer;
+        if (QuestionsMeta.findOne() != undefined) {
+            return QuestionsMeta.findOne().timer;
+        }
     }
 });
 
@@ -77,7 +79,18 @@ Template.vragen.helpers({
         }
     },
     'timeLeft': function () {
-        return QuestionsMeta.findOne().timer;
+        if (QuestionsMeta.findOne() != undefined) {
+            return QuestionsMeta.findOne().timer;
+        }
+    },
+    'timeChecker': function () {
+        if (QuestionsMeta.findOne() != undefined) {
+            if (QuestionsMeta.findOne().timer >= 1) {
+                return "It's all good";
+            } else {
+                return "Oh mah damn!";
+            }
+        }
     }
 });
 
@@ -86,21 +99,18 @@ function startTimer(duration) {
 
     var timer = duration, minutes, seconds;
     var counter = setInterval(function () {
-        minutes = parseInt(timer / 60, 10)
+        minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        // display.textContent = minutes + ":" + seconds;
+        if (minutes == 1) {
+            seconds = 60;
+        }
 
-        // console.log(minutes + ":" + seconds);
-
-        // console.log(currentQuestionId);
         var metaId = QuestionsMeta.findOne()._id;
         QuestionsMeta.update(metaId, {$set: {"timer": seconds}});
-
-        // console.log(QuestionsMeta.findOne().timer);
 
         if (--timer < 0) {
             clearInterval(counter);
