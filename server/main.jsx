@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+var currentQuestion;
 
 Meteor.startup(() => {
     // code to run on server at startup
@@ -9,8 +10,6 @@ Meteor.startup(() => {
     Teams = new Mongo.Collection("Teams");
     QuestionsMeta = new Mongo.Collection("currentQuestion");
 });
-
-var currentQuestion;
 
 Meteor.methods({
     'get question': function() {
@@ -23,7 +22,6 @@ Meteor.methods({
                 numEnabled++;
             }
         }
-
         var currentQuestionNumber = quizLength - numEnabled + 1;
         if (numEnabled >= 1) {
             for (var j = 0; j < numEnabled; j++) {
@@ -46,7 +44,7 @@ Meteor.methods({
                 }
             }
             QuestionsMeta.remove({});
-            QuestionsMeta.insert({"current": currentQuestion, "currentNumber": currentQuestionNumber, "orderArray": arr});
+            QuestionsMeta.insert({"current": currentQuestion, "currentNumber": currentQuestionNumber, "orderArray": arr, "timer": 0});
             QuizQuestions.update(currentQuestion, {$set: {"enabled": false}});
         } else {
             QuestionsMeta.remove({});

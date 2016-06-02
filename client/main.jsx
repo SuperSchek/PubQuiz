@@ -53,6 +53,9 @@ Template.antwoord.helpers({
             var antwoordNummer = QuestionsMeta.findOne().orderArray[3];
             return QuizQuestions.findOne({"_id": currentQuestionId}).answers[antwoordNummer].answer;
         }
+    },
+    'timeLeft': function () {
+        return QuestionsMeta.findOne().timer;
     }
 });
 
@@ -72,15 +75,44 @@ Template.vragen.helpers({
                 return QuizQuestions.findOne({'_id': currentQuestionId}).question;
             }
         }
+    },
+    'timeLeft': function () {
+        return QuestionsMeta.findOne().timer;
     }
 });
 
+function startTimer(duration) {
+    console.log('timer started');
 
+    var timer = duration, minutes, seconds;
+    var counter = setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        // display.textContent = minutes + ":" + seconds;
+
+        // console.log(minutes + ":" + seconds);
+
+        // console.log(currentQuestionId);
+        var metaId = QuestionsMeta.findOne()._id;
+        QuestionsMeta.update(metaId, {$set: {"timer": minutes + ":" + seconds}});
+
+        console.log(QuestionsMeta.findOne().timer);
+
+        if (--timer < 0) {
+            clearInterval(counter);
+        }
+    }, 1000);
+}
 
 Template.vragen.events({
     'click #leaderboard-title': function(event){
         event.preventDefault();
         Meteor.call('get question');
+        startTimer(60 * 0.5);
     }
 });
 
