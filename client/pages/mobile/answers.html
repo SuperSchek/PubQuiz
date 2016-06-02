@@ -10,24 +10,19 @@
             });
 
             var selectedAnswer;
-            var randomNr;
-            var selectedId;
-            var timeScore;
-            var scored;
-
-            var currentQuestionId = QuestionsMeta.findOne().current;
 
             function onoff(id) {
 
                 if (document.getElementById(id).value != selectedAnswer) {
                     selectedAnswer = document.getElementById(id).value;
-                    selectedId = id;
-                    console.log(selectedId);
+                    var myAns = document.getElementById(id).innerHTML;
+                    var curId = QuestionsMeta.findOne().current;
+                    var correctAns = QuizQuestions.findOne({"_id": curId}).answers[3].answer;
 
-                    if (document.getElementById(id).innerHTML == QuizQuestions.findOne({"_id": "X3aRAdffygdcKyAAg"}).answers[3].answer) {
-                        console.log('goed antwoord');
+                    if (myAns == correctAns) {
+                        console.log('Juist antwoord!');
                     } else {
-                        console.log('fout antwoord');
+                        console.log('Fout antwoord :(');
                     }
 
 //                    timeScore = angular.element(document).find('.progressbar-text').html().substr(0, 2);
