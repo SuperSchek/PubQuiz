@@ -98,9 +98,9 @@ function startTimer(duration) {
 
         // console.log(currentQuestionId);
         var metaId = QuestionsMeta.findOne()._id;
-        QuestionsMeta.update(metaId, {$set: {"timer": minutes + ":" + seconds}});
+        QuestionsMeta.update(metaId, {$set: {"timer": seconds}});
 
-        console.log(QuestionsMeta.findOne().timer);
+        // console.log(QuestionsMeta.findOne().timer);
 
         if (--timer < 0) {
             clearInterval(counter);
@@ -112,7 +112,7 @@ Template.vragen.events({
     'click #leaderboard-title': function(event){
         event.preventDefault();
         Meteor.call('get question');
-        startTimer(60 * 0.5);
+        startTimer(60 * 1);
     }
 });
 
