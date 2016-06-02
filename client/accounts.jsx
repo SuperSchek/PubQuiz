@@ -177,6 +177,11 @@ Template.topbarDesktop.events({
         $(".dropdown").toggle();
     }
 });
+Template.topbarLobby.events({
+    "click .dropdown-toggle":function(event){
+        $(".dropdown").toggle();
+    }
+});
 
 
 Template.logindesktop.helpers({
