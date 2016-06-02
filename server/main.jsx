@@ -25,7 +25,6 @@ Meteor.methods({
         }
 
         var currentQuestionNumber = quizLength - numEnabled + 1;
-
         if (numEnabled >= 1) {
             for (var j = 0; j < numEnabled; j++) {
                 do { randomNum = Math.floor(Math.random() * quizLength); }
@@ -33,9 +32,7 @@ Meteor.methods({
             }
             currentQuestion = QuizQuestions.find().fetch()[randomNum]._id;
 
-
             var arr = [];
-
             while(arr.length < 4){
                 var randomnumber = Math.floor(Math.random() * 4);
                 var found = false;
@@ -48,12 +45,8 @@ Meteor.methods({
                     arr[arr.length] = randomnumber;
                 }
             }
-
-            console.log(arr);
-
             QuestionsMeta.remove({});
             QuestionsMeta.insert({"current": currentQuestion, "currentNumber": currentQuestionNumber, "orderArray": arr});
-
             QuizQuestions.update(currentQuestion, {$set: {"enabled": false}});
         } else {
             QuestionsMeta.remove({});
