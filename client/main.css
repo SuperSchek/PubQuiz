@@ -3,7 +3,7 @@
 @font-face {font-family:StradaOTBold;src: url("fonts/StradaOT-Bold.otf") format("opentype");}
 @font-face {font-family:Cubano;src: url("fonts/Cubano-Regular.otf") format("opentype");}
 @font-face {font-family:AmericanTypewriter-Bold;src: url("fonts/AmericanTypewriter-Bold.ttf") format("truetype");}
-html {width:100%;height: 100%;}
+html {width:100%;height: 100%;overflow-y:visible!important;overflow-x:hidden!important;}
 body{margin:0;font-family: StradaOT, sans-serif, Arial, sans-serif;max-height: 100%;max-width: 100%;height:100%;width:100%;}
 .test{height: 100%;}
 a {text-decoration: none;}
@@ -479,3 +479,4 @@ ul.dropdown li a {
 #playerlist-mobile form select {background:#e9e9e9;font-size:18px;padding:2%;font-family:  StradaOT,sans-serif;border-radius: 5px;border:none;margin:4% 0 0 4%;}
 #voeg-team-toe{color:#313131;box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);float:left;font-family:StradaOT;background:#fff;padding:4%;margin:0 0 4% 0;width:84%;height:auto;border-radius:5px;border-top:10px solid #3299BB;}
 #playerlist-mobile form label {color:#313131;}
+.btn-create-mob:active{background: #e9e9e9;color:#3299BB;}
