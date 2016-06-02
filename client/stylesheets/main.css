@@ -62,7 +62,7 @@ input:focus {
 #image{height:auto;margin: 30px 80px 20px 80px;border-radius: 5px;background: lightgrey;overflow:hidden;}
 
 /*  timer  */
-#time-cont{width:100%;height:35px;background:#DADADA;position:fixed;text-align: left;bottom:0;}
+#time-cont{color:#C09C6A;font-size:40px;width:100%;height:auto;background:rgba(0,0,0,0);position:fixed;text-align: left;left:80px;bottom:4%;font-family: Cubano,sans-serif;}
 
 /*******  TIME BAR  *******/
 .progress {height: 100%;border-radius: 0;}
