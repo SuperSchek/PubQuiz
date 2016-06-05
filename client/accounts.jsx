@@ -35,7 +35,8 @@ Template.register.events({
         Accounts.createUser({
             email: emailVar,
             password: passwordVar,
-            team: ""
+            team: "",
+            score: 0
         }, function(error){
             if(error){
                 console.log(error.reason); // Output error if registration fails
@@ -229,6 +230,7 @@ Template.registerdesktop.events({
                 gebruiker = Meteor.userId();
                 Meteor.users.update(gebruiker, {$set: {"profile.kamernummer": kamernummertje}});
                 Meteor.users.update(gebruiker, {$set: {"profile.kamercode": kamerCodering}});
+                Meteor.users.update(gebruiker, {$set: {"profile.score": 0}});
                 Router.go("lobby"); // User succeeds, naar de lobby
             }
         });
@@ -270,6 +272,7 @@ Template.logindesktop.events({
                 gebruiker = Meteor.userId();
                 Meteor.users.update(gebruiker, {$set: {"profile.kamernummer": kamernummertje}});
                 Meteor.users.update(gebruiker, {$set: {"profile.kamercode": kamerCodering}});
+                Meteor.users.update(gebruiker, {$set: {"profile.score": 0}});
                 Router.go("lobby"); // User succeeds, naar de lobby
             }
         });

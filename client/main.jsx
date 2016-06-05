@@ -58,6 +58,13 @@ Template.antwoord.helpers({
         if (QuestionsMeta.findOne() != undefined) {
             return QuestionsMeta.findOne().timer;
         }
+    },
+    'myScore': function () {
+        if (Meteor.user().profile.score == undefined) {
+            return 0;
+        } else {
+            return Meteor.user().profile.score;
+        }
     }
 });
 
@@ -82,15 +89,6 @@ Template.vragen.helpers({
         if (QuestionsMeta.findOne() != undefined) {
             return QuestionsMeta.findOne().timer;
         }
-    },
-    'timeChecker': function () {
-        if (QuestionsMeta.findOne() != undefined) {
-            if (QuestionsMeta.findOne().timer.toString() != "00") {
-                return "It's all good";
-            } else {
-                return "Oh mah damn!";
-            }
-        }
     }
 });
 
@@ -114,7 +112,6 @@ function startTimer(duration) {
 
         if (--timer < 0) {
             clearInterval(counter);
-
         }
     }, 1000);
 }
@@ -123,7 +120,16 @@ Template.vragen.events({
     'click #leaderboard-title': function(event){
         event.preventDefault();
         Meteor.call('get question');
-        startTimer(60 * 1);
+        startTimer(60 * 0.2);
+    }
+});
+
+Template.answers.events({
+    'click #next-question': function(event){
+        event.preventDefault();
+        Router.go("vragen");
+        Meteor.call('get question');
+        startTimer(60 * 0.2);
     }
 });
 
@@ -203,7 +209,7 @@ Template.roomcode.events({
             kfcx = Channels.findOne({kamercode: codeX}, {fields: {name: 1, kamercode: 1, _id: 0}}); //find statement met als resultaat een object uit de Channels
             Meteor.users.update(gebruiker, {$set: {"profile": kfcx}});  //importeren van de gevonden channelgegevens
             Router.go("lobby");
-            
+
         } else {
             console.log("Room doesn't exist.");
         }

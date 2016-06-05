@@ -16,7 +16,7 @@ input:focus {
 #mobile-cont{width:100%;height:100%;position: absolute;background: #0C2B3A;}
 
 /*  timer  */
-#time-mob-cont{width:100%;height:5%;background:rgba(0,0,0,0.1);position:relative;text-align: left;}
+#time-mob-cont{color:#C09C6A;width:100%;height:5%;background:rgba(0,0,0,0);position:relative;text-align: left; padding: 5% 5% 0 5%; font-family: Cubano, sans-serif;}
 
 /*  question  */
 #question-nr-mob-cont{width:100%;height:10%;position:relative;text-align: left;font-size: 24px;float:left; color:#fff;}
