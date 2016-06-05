@@ -85,7 +85,7 @@ Template.vragen.helpers({
     },
     'timeChecker': function () {
         if (QuestionsMeta.findOne() != undefined) {
-            if (QuestionsMeta.findOne().timer >= 1) {
+            if (QuestionsMeta.findOne().timer.toString() != "00") {
                 return "It's all good";
             } else {
                 return "Oh mah damn!";
@@ -95,7 +95,7 @@ Template.vragen.helpers({
 });
 
 function startTimer(duration) {
-    console.log('timer started');
+    console.log('Timer started at QuizMaster Client!');
 
     var timer = duration, minutes, seconds;
     var counter = setInterval(function () {
@@ -114,6 +114,7 @@ function startTimer(duration) {
 
         if (--timer < 0) {
             clearInterval(counter);
+
         }
     }, 1000);
 }
