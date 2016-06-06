@@ -68,3 +68,7 @@ Router.route('/waitscreen', function () {
     this.layout('ApplicationLayout');
     this.render('waitscreen');
 });
+Router.route('/wachtscherm', function () {
+    this.layout('ApplicationLayout');
+    this.render('wachtscherm');
+});

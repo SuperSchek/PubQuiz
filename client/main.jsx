@@ -17,6 +17,14 @@ Meteor.startup(() => {
     QuestionsMeta = new Mongo.Collection("currentQuestion");
 });
 
+Template.wachtscherm.helpers({
+    'afteller': function () {
+        if (QuestionsMeta.findOne() != undefined) {
+            return QuestionsMeta.findOne().afteller;
+        }
+    }
+});
+
 Template.antwoord.helpers({
     'quizSize': function () {
         return QuizQuestions.find().count();
@@ -129,16 +137,15 @@ Template.vragen.events({
     'click #leaderboard-title': function(event){
         event.preventDefault();
         Meteor.call('get question');
-        startTimer(60 * 1);
+        startTimer(65);
     }
 });
 
 Template.answers.events({
     'click #next-question': function(event){
         event.preventDefault();
-        Router.go("vragen");
-        Meteor.call('get question');
-        startTimer(60 * 1);
+        Router.go("wachtscherm");
+        startTimer(65);
     }
 });
 

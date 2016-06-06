@@ -44,7 +44,7 @@ Meteor.methods({
                 }
             }
             QuestionsMeta.remove({});
-            QuestionsMeta.insert({"current": currentQuestion, "currentNumber": currentQuestionNumber, "orderArray": arr, "timer": 0});
+            QuestionsMeta.insert({"current": currentQuestion, "currentNumber": currentQuestionNumber, "orderArray": arr, "timer": 0, "afteller": 0});
             QuizQuestions.update(currentQuestion, {$set: {"enabled": false}});
         } else {
             QuestionsMeta.remove({});

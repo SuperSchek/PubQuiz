@@ -4,7 +4,7 @@
 
             <!--Leaderboard-->
             <div id="leaderboard-cont">
-                <div id="leaderboard-title" onclick="startIt()">Score:</div>
+                <div id="leaderboard-title">Score:</div>
                 <div id="leaderboard">
                     <div class="teamcard-cont-lobby">
                         <div class="teamcard-titel">{{name}}Test</div>
@@ -33,12 +33,11 @@
     </div>
 
     <script>
-        function startIt() {
-            setInterval(function () {
+        var stringChecker = setInterval(function () {
                 if (QuestionsMeta.findOne().timer.toString() == "00") {
                     Router.go("answers");
+                    clearInterval(stringChecker);
                 }
             }, 1000);
-        }
     </script>
 </template>
