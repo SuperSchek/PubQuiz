@@ -110,8 +110,7 @@ function startTimer(duration) {
         seconds = parseInt(timer % 60, 10);
 
         minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "1" + seconds : seconds;
-        seconds = seconds == 0 ? "Tijd is om" : seconds;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
 
         if (minutes == 1) {
             seconds = 60;
@@ -130,7 +129,7 @@ Template.vragen.events({
     'click #leaderboard-title': function(event){
         event.preventDefault();
         Meteor.call('get question');
-        startTimer(60 * 0.2);
+        startTimer(60 * 1);
     }
 });
 
@@ -139,7 +138,7 @@ Template.answers.events({
         event.preventDefault();
         Router.go("vragen");
         Meteor.call('get question');
-        startTimer(60 * 0.2);
+        startTimer(60 * 1);
     }
 });
 
