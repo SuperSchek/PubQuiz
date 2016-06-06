@@ -85,7 +85,7 @@ Template.vragen.helpers({
     },
     'timeChecker': function () {
         if (QuestionsMeta.findOne() != undefined) {
-            if (QuestionsMeta.findOne().timer >= 1) {
+            if (QuestionsMeta.findOne().timer != "Tijd is om") {
                 return "It's all good";
             } else {
                 return "Oh mah damn!";
@@ -103,7 +103,8 @@ function startTimer(duration) {
         seconds = parseInt(timer % 60, 10);
 
         minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+        seconds = seconds < 10 ? "1" + seconds : seconds;
+        seconds = seconds == 0 ? "Tijd is om" : seconds;
 
         if (minutes == 1) {
             seconds = 60;
