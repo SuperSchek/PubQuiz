@@ -58,6 +58,13 @@ Template.antwoord.helpers({
         if (QuestionsMeta.findOne() != undefined) {
             return QuestionsMeta.findOne().timer;
         }
+    },
+    'myScore': function () {
+        if (Meteor.user().profile.score == undefined) {
+            return 0;
+        } else {
+            return Meteor.user().profile.score;
+        }
     }
 });
 
@@ -95,7 +102,7 @@ Template.vragen.helpers({
 });
 
 function startTimer(duration) {
-    console.log('timer started');
+    console.log('Timer started at QuizMaster Client!');
 
     var timer = duration, minutes, seconds;
     var counter = setInterval(function () {
@@ -123,7 +130,16 @@ Template.vragen.events({
     'click #leaderboard-title': function(event){
         event.preventDefault();
         Meteor.call('get question');
-        startTimer(60 * 1);
+        startTimer(60 * 0.2);
+    }
+});
+
+Template.answers.events({
+    'click #next-question': function(event){
+        event.preventDefault();
+        Router.go("vragen");
+        Meteor.call('get question');
+        startTimer(60 * 0.2);
     }
 });
 
@@ -203,7 +219,7 @@ Template.roomcode.events({
             kfcx = Channels.findOne({kamercode: codeX}, {fields: {name: 1, kamercode: 1, _id: 0}}); //find statement met als resultaat een object uit de Channels
             Meteor.users.update(gebruiker, {$set: {"profile": kfcx}});  //importeren van de gevonden channelgegevens
             Router.go("lobby");
-            
+
         } else {
             console.log("Room doesn't exist.");
         }

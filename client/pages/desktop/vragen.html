@@ -1,13 +1,11 @@
 <template name="vragen">
-    {{timeChecker}}
     <div id="lobby-cont">
-    <div id="desktop-cont">
+        <div id="desktop-cont">
 
-        <!--Leaderboard-->
-        <div id="leaderboard-cont">
-            <div id="leaderboard-title">Score:</div>
-            <div id="leaderboard">
-
+            <!--Leaderboard-->
+            <div id="leaderboard-cont">
+                <div id="leaderboard-title" onclick="startIt()">Score:</div>
+                <div id="leaderboard">
                     <div class="teamcard-cont-lobby">
                         <div class="teamcard-titel">{{name}}Test</div>
 
@@ -18,19 +16,29 @@
                         <hr>
                     </div>
 
+                </div>
+            </div>
+
+            <!--Vraag-->
+            <div id="question-cont"><a href="/winnaar"><div id="question">{{vraag}}</div></a></div>
+            <div id="question-nr-cont"><div id="question-nr">vraag {{questionCount}}/{{quizSize}}</div></div>
+            <!--Images-->
+            <div id="image-cont"><div id="image"></div></div>
+
+            <!--Timebar-->
+            <div id="time-cont">
+                Nog <div style="display: inline-block;" id="timeNumber">{{timeLeft}}</div> seconden!
             </div>
         </div>
-
-        <!--Vraag-->
-        <div id="question-cont"><a href="/winnaar"><div id="question">{{vraag}}</div></a></div>
-        <div id="question-nr-cont"><div id="question-nr">vraag {{questionCount}}/{{quizSize}}</div></div>
-        <!--Images-->
-        <div id="image-cont"><div id="image"></div></div>
-
-        <!--Timebar-->
-        <div id="time-cont">
-            {{timeLeft}}
-        </div>
     </div>
-        </div>
+
+    <script>
+        function startIt() {
+            setInterval(function () {
+                if (QuestionsMeta.findOne().timer.toString() == "00") {
+                    Router.go("answers");
+                }
+            }, 1000);
+        }
+    </script>
 </template>

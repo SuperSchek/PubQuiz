@@ -1,7 +1,7 @@
 <template name="antwoord">
     <div id="mobile-cont">
         <!--Timebar-->
-        <div id="time-mob-cont"><div class="progress" id="progress"></div></div>
+        <div id="time-mob-cont">Nog <div style="display: inline-block;" id="timeNumber">{{timeLeft}}</div> seconden!</div>
         <div id="question-nr-mob-cont"><div id="question-nr-mob">Vraag {{questionCount}}/{{quizSize}}</div></div>
         <script language="javascript">
             $("#mobile-cont #answers-mob-cont[role='group'] button").on('click', function(){
@@ -10,6 +10,8 @@
             });
 
             var selectedAnswer;
+            var timeScore;
+            var scored;
 
             function onoff(id) {
 
@@ -20,31 +22,29 @@
                     var correctAns = QuizQuestions.findOne({"_id": curId}).answers[3].answer;
 
                     if (myAns == correctAns) {
-                        console.log('Juist antwoord!');
-                    } else {
-                        console.log('Fout antwoord :(');
+                        timeScore = document.getElementById('timeNumber').innerHTML;
+                        scored = parseInt(timeScore);
                     }
-
-//                    timeScore = angular.element(document).find('.progressbar-text').html().substr(0, 2);
-//                    scored = parseInt(timeScore);
-//                    angular.element(document).find('#antwoord-juist-punten-mob').html("+" + scored + " punten");
                 }
             }
 
-//            function checkAnswer() {
-//                if (angular.element(document).find('#' + selectedId).html() == quiz[randomNr].answers[3].answer) {
-//                    angular.element(document).find('#vraag-uitslag-mob').addClass('show');
-//                    correct = true;
-//                    printGifSucces();
-//                    playersArray[playerNumber].score += scored;
-//                    socket.emit('this is my new score', playersArray, playerNumber);
-//                } else {
-//                    correct = false;
-//                    printGifLoser();
-//                    angular.element(document).find('#vraag-uitslag-fout-mob').addClass('show');
-//                    socket.emit('this is my new score', playersArray, playerNumber);
-//                }
-//            }
+            var ansCheck = setInterval(function () {
+                if (QuestionsMeta.findOne().timer.toString() == "00") {
+                    if (scored >= 0) {
+                        console.log('GOED! scored: ' + scored);
+                        if(Meteor.user().profile.score != undefined) {
+                            console.log('Oude score: ' + Meteor.user().profile.score);
+                            Meteor.users.update(Meteor.userId(), {$set: {"profile.score": Meteor.user().profile.score + scored}});
+                            console.log('Nieuwe score: ' + Meteor.user().profile.score);
+                        }
+                    } else {
+                        console.log('Dikke woemie! Hartstikke fout!');
+                    }
+                    Router.go("answers");
+                    clearInterval(ansCheck);
+                }
+            }, 1000);
+
         </script>
         <!--Antwoorden-->
         <div id="answers-mob-cont" role="group">
@@ -56,7 +56,7 @@
 
         <!--Status-->
         <div id="status-mob-cont">
-            <div id="points-cont"><div id="points">Je hebt {{timeLeft}} punten</div></div>
+            <div id="points-cont"><div id="points">Je hebt {{myScore}} punten</div></div>
             <div id="position-cont"><div id="position">1e</div></div>
         </div>
     </div>
