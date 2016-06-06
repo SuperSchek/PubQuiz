@@ -32,7 +32,11 @@
                 if (QuestionsMeta.findOne().timer.toString() == "00") {
                     if (scored >= 0) {
                         console.log('GOED! scored: ' + scored);
-                        if(Meteor.user().profile.score != undefined) {
+                        if(Meteor.user().profile.score == undefined) {
+                            console.log('Oude score: ' + Meteor.user().profile.score);
+                            Meteor.users.update(Meteor.userId(), {$set: {"profile.score": scored}});
+                            console.log('Nieuwe score: ' + Meteor.user().profile.score);
+                        } else {
                             console.log('Oude score: ' + Meteor.user().profile.score);
                             Meteor.users.update(Meteor.userId(), {$set: {"profile.score": Meteor.user().profile.score + scored}});
                             console.log('Nieuwe score: ' + Meteor.user().profile.score);
