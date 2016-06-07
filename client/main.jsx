@@ -149,6 +149,12 @@ Template.answers.events({
     }
 });
 
+Template.answers.helpers({
+    'quizAnswer': function () {
+        return QuizQuestions.find().fetch()[0].answers[3].uitleg;
+    }
+});
+
 Template.child.events({
     'click button': function(e, tpl){
         tpl.data.onClick(e);
