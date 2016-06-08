@@ -1,13 +1,13 @@
 <template name="wachtscherm">
     <div style="text-align: center; padding-top: 20%" id="lobby-cont">
-        <h1 style="font-size: 50px;">De Quiz gaat beginnen over</h1>
+        <h1 style="font-size: 50px;">{{startOrNext}}</h1>
         <h1>{{afteller}} seconden!</h1>
     </div>
     <script>
         if (QuestionsMeta.findOne() != undefined || QuestionsMeta.findOne().afteller == 0) {
             var metaId = QuestionsMeta.findOne()._id;
             QuestionsMeta.update(metaId, {$set: {"afteller": 10}});
-            startTimer(9);
+            startTimer(10);
         }
 
         function startTimer(duration) {
@@ -29,7 +29,6 @@
                 if (--timer < 0) {
                     clearInterval(counter);
                     Router.go("vragen");
-                    Meteor.call('get question');
                 }
             }, 1000);
         }
