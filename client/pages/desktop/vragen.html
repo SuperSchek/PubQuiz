@@ -35,7 +35,11 @@
     <script>
         var stringChecker = setInterval(function () {
                 if (QuestionsMeta.findOne().timer.toString() == "00") {
-                    Router.go("answers");
+                    if (QuestionsMeta.findOne().currentNumber == QuizQuestions.find().count()) {
+                        Router.go("winnaar");
+                    } else {
+                        Router.go("answers");
+                    }
                     clearInterval(stringChecker);
                 }
             }, 1000);

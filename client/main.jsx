@@ -22,6 +22,15 @@ Template.wachtscherm.helpers({
         if (QuestionsMeta.findOne() != undefined) {
             return QuestionsMeta.findOne().afteller;
         }
+    },
+    'startOrNext': function () {
+        if (QuestionsMeta.findOne() != undefined) {
+            if (QuestionsMeta.findOne().currentNumber == 1) {
+                return "PubQuiz begint over";
+            } else {
+                return "Volgende vraag over";
+            }
+        }
     }
 });
 
@@ -137,7 +146,7 @@ Template.vragen.events({
     'click #leaderboard-title': function(event){
         event.preventDefault();
         Meteor.call('get question');
-        startTimer(65);
+        startTimer(70);
     }
 });
 
@@ -145,7 +154,8 @@ Template.answers.events({
     'click #next-question': function(event){
         event.preventDefault();
         Router.go("wachtscherm");
-        startTimer(65);
+        Meteor.call('get question');
+        startTimer(70);
     }
 });
 
@@ -427,7 +437,9 @@ Template.lobbydesktop.events({
     'click #startquiz': function(event){
         event.preventDefault();
         console.log("start quiz");
-        Router.go("vragen");
+        Router.go("wachtscherm");
+        Meteor.call('get question');
+        startTimer(70);
     }
 });
 
