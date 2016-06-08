@@ -115,6 +115,13 @@ Template.vragen.helpers({
                 return "Oh mah damn!";
             }
         }
+    },
+    'myScore': function () {
+        if (Meteor.user().profile.score == undefined) {
+            return 0;
+        } else {
+            return Meteor.user().profile.score;
+        }
     }
 });
 
@@ -161,7 +168,10 @@ Template.answers.events({
 
 Template.answers.helpers({
     'quizAnswer': function () {
-        return QuizQuestions.find().fetch()[0].answers[3].uitleg;
+        return QuizQuestions.find().fetch()[1].answers[3].uitleg;
+    },
+    'quizTitel': function () {
+        return QuizQuestions.find().fetch()[1].answers[3].answer;
     }
 });
 
