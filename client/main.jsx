@@ -168,10 +168,16 @@ Template.answers.events({
 
 Template.answers.helpers({
     'quizAnswer': function () {
-        return QuizQuestions.find().fetch()[1].answers[3].uitleg;
+        if (QuestionsMeta.findOne() != undefined) {
+            var currentQuestionId = QuestionsMeta.findOne().current;
+            return QuizQuestions.findOne({'_id': currentQuestionId}).answers[3].uitleg;
+        }
     },
     'quizTitel': function () {
-        return QuizQuestions.find().fetch()[1].answers[3].answer;
+        if (QuestionsMeta.findOne() != undefined) {
+            var currentQuestionId = QuestionsMeta.findOne().current;
+            return QuizQuestions.findOne({'_id': currentQuestionId}).answers[3].answer;
+        }
     }
 });
 
