@@ -1,13 +1,22 @@
 <template name="answers">
     <div id="antwoord-uitleg" class="animateIn">
+        <div id="antwoord-btn"><div id="btn-volgendeVraag"><button id="next-question" class="btn-volgendeVraag hvr-fade">Volgende vraag</button></div></div>
+
         <div id="antwoord-container">
             <div id="antwoord-juist">Dit is het juiste antwoord:</div>
             <h1><div id="antwoord-titel">{{quizTitel}}</div></h1><br>
             <div id="antwoord-text"><h2>{{quizAnswer}}</h2></div>
         </div>
 
-        <div id="antwoord-btn"><div id="btn-volgendeVraag"><button id="next-question" class="btn-volgendeVraag hvr-fade">Volgende vraag</button></div></div>
         <!--<div id="end-question"><div id="btn-volgendeVraag"><button class="btn-volgendeVraag hvr-fade">Eindresultaat</button></div></div>-->
     </div>
+</template>
 
+<template name="answersmobile">
+    <div id="antwoord-uitleg" class="animateIn">
+        <div id="antwoord-container">
+            <div id="antwoord-juist">GOED</div>
+        </div>
+        <!--<div id="end-question"><div id="btn-volgendeVraag"><button class="btn-volgendeVraag hvr-fade">Eindresultaat</button></div></div>-->
+    </div>
 </template>

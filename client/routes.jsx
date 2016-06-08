@@ -37,9 +37,20 @@ Router.route('/questionbumper', function () {
 
 Router.route('/answers', function () {
     this.layout('ApplicationLayout');
-    this.render('answers');
+    if (isMobile == false) {
+        this.render('answers');
+    } else {
+        this.render('answersmobile');
+    }
 });
-
+Router.route('/answerswrong', function () {
+    this.layout('ApplicationLayout');
+    this.render('answerswrong');
+});
+Router.route('/answersmobile', function () {
+    this.layout('ApplicationLayout');
+    this.render('answersmobile');
+});
 Router.route('/winnaar', function () {
     this.layout('ApplicationLayout');
     this.render('winnaar');

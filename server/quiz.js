@@ -216,7 +216,7 @@ var quizArray = [
                 rendered: false
             },
             {
-                answer: "Earth, Wind & Fire",
+                answer: "Earth Wind and Fire",
                 uitleg: 'Earth, Wind & Fire is een Amerikaanse band die soul, funk, jazz- en discomuziek maakt – en ook verschillende muziekstijlen combineert – met prominente rollen voor percussie, blazers, kalimba, bas en zang. De band was vooral in de jaren zeventig populair.',
                 punten: true,
                 rendered: false
