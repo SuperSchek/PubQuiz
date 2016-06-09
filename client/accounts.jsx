@@ -64,7 +64,8 @@ Template.login.events({
         Meteor.loginWithFacebook({}, function (err) {
             if (err) {
                 throw new Meteor.Error("Facebook login failed");
-            } else{
+            } else {
+                Router.go("roomcode"); // User succeeds
             }
         });
     }

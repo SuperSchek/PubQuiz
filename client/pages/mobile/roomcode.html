@@ -6,13 +6,31 @@
         <div id="roomcode">
             <form id="formroomcode">
                 <div id="inputrow">
-                    <input id="code1" class="code" maxlength="1" />
-                    <input id="code2" class="code" maxlength="1" />
-                    <input id="code3" class="code" maxlength="1" />
-                    <input id="code4" class="code" maxlength="1" />
+                    <input id="code1" class="code" maxlength="1" type="number"/>
+                    <input id="code2" class="code" maxlength="1" type="number"/>
+                    <input id="code3" class="code" maxlength="1" type="number"/>
+                    <input id="code4" class="code" maxlength="1" type="number"/>
                 </div>
-                <button style="margin-top: 10%" type="submit" class="btn-login-mob">Join!</button>
+                <input style="margin-top: 10%" type="submit" class="btn-login-mob">Join!</input>
             </form>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $('#code1').keyup(function() {
+            if(this.value.length == $(this).attr('maxlength')) {
+                $('#code2').focus();
+            }
+        });
+        $('#code2').keyup(function() {
+            if(this.value.length == $(this).attr('maxlength')) {
+                $('#code3').focus();
+            }
+        });
+        $('#code3').keyup(function() {
+            if(this.value.length == $(this).attr('maxlength')) {
+                $('#code4').focus();
+            }
+        });
+    </script>
 </template>
