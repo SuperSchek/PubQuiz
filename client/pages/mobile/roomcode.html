@@ -1,0 +1,18 @@
+<template name="roomcode">
+    <div id="mobile-cont">
+        {{#if currentUser}}
+            {{> topbarMobile}}
+        {{/if}}
+        <div id="roomcode">
+            <form id="formroomcode">
+                <div id="inputrow">
+                    <input id="code1" class="code" maxlength="1" />
+                    <input id="code2" class="code" maxlength="1" />
+                    <input id="code3" class="code" maxlength="1" />
+                    <input id="code4" class="code" maxlength="1" />
+                </div>
+                <button style="margin-top: 10%" type="submit" class="btn-login-mob">Join!</button>
+            </form>
+        </div>
+    </div>
+</template>

@@ -10,6 +10,8 @@
                     </div>
                     {{#if currentUser}}
                         {{> dashboard }}
+
+                        <div id="btn-createLobby"><button id="next-question" class="btn-volgendeVraag hvr-fade">Create lobby</button></div>
                     {{else}}
                         {{> registerdesktop}}
                         {{> logindesktop}}

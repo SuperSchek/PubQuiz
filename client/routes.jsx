@@ -83,3 +83,8 @@ Router.route('/wachtscherm', function () {
     this.layout('ApplicationLayout');
     this.render('wachtscherm');
 });
+
+Router.route('/roomcode',function () {
+    this.layout('ApplicationLayout');
+    this.render('roomcode');
+});

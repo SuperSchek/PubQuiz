@@ -41,7 +41,7 @@ Template.register.events({
             if(error){
                 console.log(error.reason); // Output error if registration fails
             } else {
-                Router.go("lobby"); // User succeeds
+                Router.go("roomcode"); // User succeeds
             }
         });
     }
@@ -56,6 +56,7 @@ Template.login.events({
             if (error) {
                 console.log(error.reason);
             } else {
+                Router.go("roomcode"); // User succeeds
             }
         });
     },
@@ -87,6 +88,10 @@ Template.startscreen.events({
                 throw new Meteor.Error("Facebook login failed");
             }
         });
+    },
+    'click #btn-createLobby': function () {
+        event.preventDefault();
+        createRoom();
     }
 });
 
@@ -204,34 +209,7 @@ Template.registerdesktop.events({
                 console.log(error.reason); // Output error if registration fails
             } else {
                 //Create room
-                kamerNumber();
-                kamerCode();
-                Channels.insert({
-                    _id: "1234567890",
-                    kamernummer: kamernummertje,
-                    kamercode: kamerCodering
-                    //POWERUPS VOOR DE USERS
-                    //powerUp1: 1,
-                    //powerUp2: 1,
-                    //powerUp3: 1
-                });
-
-                //doc is een copy van het object welke zojuist insert() is
-                doc = Channels.findOne({_id: "1234567890"});
-                //doc._id is het nieuwe _id veld (een object mag alleen op _id gewijzigd worden)
-                doc._id = String(kamerCodering);
-                //deze kloon inserten we in de Channels DB/collection
-                Channels.insert(doc);
-                //met deze kloon erin (met ons eigen _id veld, namelijk kamercode) kan het origineel verwijdert worden
-                Channels.remove({_id: "1234567890"});
-
-                //gebruiker is eigen ID van de host en deze krijgt ook de waardens van kamernummer en code mee. Op deze manier is een join gefaked
-                //en kan de kamer aan deze gebruiker gekoppeld worden doormiddel van het kamernummer (_id).
-                gebruiker = Meteor.userId();
-                Meteor.users.update(gebruiker, {$set: {"profile.kamernummer": kamernummertje}});
-                Meteor.users.update(gebruiker, {$set: {"profile.kamercode": kamerCodering}});
-                Meteor.users.update(gebruiker, {$set: {"profile.score": 0}});
-                Router.go("lobby"); // User succeeds, naar de lobby
+                createRoom();
             }
         });
     }
@@ -246,39 +224,43 @@ Template.logindesktop.events({
                 console.log(error.reason);
             } else {
                 //Create room
-                kamerNumber();
-                kamerCode();
-                Channels.insert({
-                    _id: "1234567890",
-                    kamernummer: kamernummertje,
-                    kamercode: kamerCodering,
-                    //POWERUPS VOOR DE USERS
-                    //powerUp1: 1,
-                    //powerUp2: 1,
-                    //powerUp3: 1
-                });
-
-                //doc is een copy van het object welke zojuist insert() is
-                doc = Channels.findOne({_id: "1234567890"});
-                //doc._id is het nieuwe _id veld (een object mag alleen op _id gewijzigd worden)
-                doc._id = String(kamerCodering);
-                //deze kloon inserten we in de Channels DB/collection
-                Channels.insert(doc);
-                //met deze kloon erin (met ons eigen _id veld, namelijk kamercode) kan het origineel verwijdert worden
-                Channels.remove({_id: "1234567890"});
-
-                //gebruiker is eigen ID van de host en deze krijgt ook de waardens van kamernummer en code mee. Op deze manier is een join gefaked
-                //en kan de kamer aan deze gebruiker gekoppeld worden doormiddel van het kamernummer (_id).
-                gebruiker = Meteor.userId();
-                Meteor.users.update(gebruiker, {$set: {"profile.kamernummer": kamernummertje}});
-                Meteor.users.update(gebruiker, {$set: {"profile.kamercode": kamerCodering}});
-                Meteor.users.update(gebruiker, {$set: {"profile.score": 0}});
-                Router.go("lobby"); // User succeeds, naar de lobby
+                createRoom();
             }
         });
     }
 });
 
+function createRoom() {
+    //Create room
+    kamerNumber();
+    kamerCode();
+    Channels.insert({
+        _id: "1234567890",
+        kamernummer: kamernummertje,
+        kamercode: kamerCodering,
+        //POWERUPS VOOR DE USERS
+        //powerUp1: 1,
+        //powerUp2: 1,
+        //powerUp3: 1
+    });
+
+    //doc is een copy van het object welke zojuist insert() is
+    doc = Channels.findOne({_id: "1234567890"});
+    //doc._id is het nieuwe _id veld (een object mag alleen op _id gewijzigd worden)
+    doc._id = String(kamerCodering);
+    //deze kloon inserten we in de Channels DB/collection
+    Channels.insert(doc);
+    //met deze kloon erin (met ons eigen _id veld, namelijk kamercode) kan het origineel verwijdert worden
+    Channels.remove({_id: "1234567890"});
+
+    //gebruiker is eigen ID van de host en deze krijgt ook de waardens van kamernummer en code mee. Op deze manier is een join gefaked
+    //en kan de kamer aan deze gebruiker gekoppeld worden doormiddel van het kamernummer (_id).
+    gebruiker = Meteor.userId();
+    Meteor.users.update(gebruiker, {$set: {"profile.kamernummer": kamernummertje}});
+    Meteor.users.update(gebruiker, {$set: {"profile.kamercode": kamerCodering}});
+    Meteor.users.update(gebruiker, {$set: {"profile.score": 0}});
+    Router.go("lobby"); // User succeeds, naar de lobby
+}
 
 // Error Handling
 

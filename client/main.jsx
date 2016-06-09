@@ -15,23 +15,6 @@ Meteor.startup(() => {
     QuestionsMeta = new Mongo.Collection("currentQuestion");
 });
 
-Template.wachtscherm.helpers({
-    'afteller': function () {
-        if (QuestionsMeta.findOne() != undefined) {
-            return QuestionsMeta.findOne().afteller;
-        }
-    },
-    'startOrNext': function () {
-        if (QuestionsMeta.findOne() != undefined) {
-            if (QuestionsMeta.findOne().currentNumber == 1) {
-                return "PubQuiz begint over";
-            } else {
-                return "Volgende vraag over";
-            }
-        }
-    }
-});
-
 Template.antwoord.helpers({
     'quizSize': function () {
         return QuizQuestions.find().count();
@@ -472,6 +455,40 @@ Template.lobbydesktop.events({
         Router.go("wachtscherm");
         Meteor.call('get question');
         startTimer(70);
+    }
+});
+
+Template.wachtscherm.helpers({
+    'afteller': function () {
+        if (QuestionsMeta.findOne() != undefined) {
+            return QuestionsMeta.findOne().afteller;
+        }
+    },
+    'startOrNext': function () {
+        if (QuestionsMeta.findOne() != undefined) {
+            if (QuestionsMeta.findOne().currentNumber == 1) {
+                return "PubQuiz begint over";
+            } else {
+                return "Volgende vraag over";
+            }
+        }
+    }
+});
+
+Template.waitscreen.helpers({
+    'afteller': function () {
+        if (QuestionsMeta.findOne() != undefined) {
+            return QuestionsMeta.findOne().afteller + " seconden"
+        }
+    },
+    'waitStatus': function () {
+        if (QuestionsMeta.findOne() != undefined) {
+            if (QuestionsMeta.findOne().currentNumber == 1) {
+                return "PubQuiz begint over";
+            } else {
+                return "Volgende vraag over";
+            }
+        }
     }
 });
 
