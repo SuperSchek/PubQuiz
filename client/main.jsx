@@ -244,18 +244,13 @@ Template.roomcode.events({
         findCodeX = Channels.find({kamercode: codeX}).count();
 
         if (findCodeX >= 1){
-            console.log("Room exist.");
-
             gebruiker = Meteor.userId(); //het id van de gebruiker die is ingelogd
             kfcx = Channels.findOne({kamercode: codeX}, {fields: {name: 1, kamercode: 1, _id: 0}}); //find statement met als resultaat een object uit de Channels
             Meteor.users.update(gebruiker, {$set: {"profile": kfcx}});  //importeren van de gevonden channelgegevens
             Router.go("lobby");
-
         } else {
-            console.log("Room doesn't exist.");
+            document.getElementById('errorMsg').innerHTML = "<h2 style='text-align: center; color: #FFFFFF; font-size: 15px; margin-top: -16%;'>Kamer niet gevonden! <br>Probeer het opnieuws</h2>";
         }
-
-
 
         Meteor.users.update(
             { _id: this._id },
@@ -286,6 +281,15 @@ Template.lobbymobile.helpers({
         if(Meteor.user() != undefined) {
             ppp = Meteor.user().profile.kamercode;
             return Teams.find({room: ppp}).count();
+        }
+    },
+    'memberCount': function () {
+        if (this.powerupmaster != "" && this.questionmaster != "") {
+            return "2";
+        } else if (this.powerupmaster != ""  || this.questionmaster != "") {
+            return "1";
+        } else {
+            return "0";
         }
     }
 });
@@ -445,16 +449,26 @@ Template.lobbydesktop.helpers({
             ppp = Meteor.user().profile.kamercode;
             return Teams.find({room: ppp}).count();
         }
+    },
+    'memberCount': function () {
+        if (this.powerupmaster != "" && this.questionmaster != "") {
+            return "2";
+        } else if (this.powerupmaster != ""  || this.questionmaster != "") {
+            return "1";
+        } else {
+            return "0";
+        }
     }
 });
 
 Template.lobbydesktop.events({
     'click #startquiz': function(event){
         event.preventDefault();
+        Meteor.call('reset quiz');
         console.log("start quiz");
         Router.go("wachtscherm");
         Meteor.call('get question');
-        startTimer(70);
+        startTimer(40);
     }
 });
 

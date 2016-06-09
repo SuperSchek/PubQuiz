@@ -10,4 +10,13 @@
             {{waitStatus}} {{afteller}}
         </div>
     </div>
+
+    <script>
+        var routeCheckerWaitScreen = setInterval(function () {
+            if (QuestionsMeta.findOne().afteller == "00") {
+                Router.go("antwoord");
+                clearInterval(routeCheckerWaitScreen);
+            }
+        }, 100);
+    </script>
 </template>

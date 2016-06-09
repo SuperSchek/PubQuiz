@@ -347,8 +347,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {back
     display: inline-block;
 }
 
-
-#roomcode {background:#fff;width:94%;height:200px;border-radius:5px;border-top:10px solid #C09C6A; margin: 40% auto;}
+#roomcode {background:#fff;width:94%;height:200px;border-radius:5px;border-top:10px solid #C09C6A; margin: 20% auto;}
 
 #roomcode form {
     padding:30px 5%;

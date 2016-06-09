@@ -3,6 +3,10 @@
         {{#if currentUser}}
             {{> topbarMobile}}
         {{/if}}
+
+        <h2 style="text-align: center; color: #FFFFFF; font-size: 30px; margin-top: 15%;">Voer de kamercode in</h2>
+        <h2 style="text-align: center; color: #FFFFFF; font-size: 15px;">Deze staat op het grote scherm</h2>
+
         <div id="roomcode">
             <form id="formroomcode">
                 <div id="inputrow">
@@ -14,6 +18,8 @@
                 <button style="margin-top: 10%" type="submit" class="btn-login-mob">Join!</button>
             </form>
         </div>
+
+        <div id="errorMsg"></div>
     </div>
 
     <script type="text/javascript">
