@@ -26,7 +26,7 @@ var quizArray = [
                 rendered: false
             }
         ],
-        picture: "<img src='../images/willem.png' width='100%' height='100%' />",
+        picture: "willem.png",
         enabled:true
     },
     {
@@ -49,12 +49,12 @@ var quizArray = [
             },
             {
                 answer: "Jupiter",
-                uitleg: '<img src="../images/zonnestelsel.png" width="100%"/>',
+                uitleg: 'zonnestelsel.png',
                 punten: true,
                 rendered: false
             }
         ],
-        picture: "<img src='../images/stars.png' width='100%'/>",
+        picture: "stars.png",
         enabled:true
     },
     {
@@ -82,7 +82,7 @@ var quizArray = [
                 rendered: false
             }
         ],
-        picture: "<img src='../images/stadium.png' width='100%'/>",
+        picture: "stadium.png",
         enabled:true
     },
     {
@@ -110,7 +110,7 @@ var quizArray = [
                 rendered: false
             }
         ],
-        picture: "<img src='../images/basketball.png' width='100%'/>",
+        picture: "basketball.png",
         enabled:true
     },
     {
@@ -138,7 +138,7 @@ var quizArray = [
                 rendered: false
             }
         ],
-        picture: "<img src='../images/filosoof.png' width='100%'/>",
+        picture: "filosoof.png",
         enabled:true
     },
     {
@@ -166,7 +166,7 @@ var quizArray = [
                 rendered: false
             }
         ],
-        picture: "<img src='../images/land.png' width='100%'/>",
+        picture: "land.png",
         enabled:true
     },
     {
@@ -189,12 +189,12 @@ var quizArray = [
             },
             {
                 answer: "Avatar",
-                uitleg: '<img src="../images/avatar.png" width="100%"/><br><br>Met $2,787,965,087 is Avatar de best verdienende film ooit.',
+                uitleg: 'Met $2,787,965,087 is Avatar de best verdienende film ooit.',
                 punten: true,
                 rendered: false
             }
         ],
-        picture: "<img src='../images/cinema.png' width='100%'/>",
+        picture: "cinema.png",
         enabled:true
     },
     {
@@ -222,7 +222,7 @@ var quizArray = [
                 rendered: false
             }
         ],
-        picture: "<img src='../images/michael.png' width='100%'/>",
+        picture: "michael.png",
         enabled:true
     },
     {
@@ -250,7 +250,7 @@ var quizArray = [
                 rendered: false
             }
         ],
-        picture: "<img src='../images/logoquiz.png' width='100%'/>",
+        picture: "logoquiz.png",
         enabled:true
     },
     {
@@ -278,7 +278,7 @@ var quizArray = [
                 rendered: false
             }
         ],
-        picture: "<img src='../images/groente.png' width='100%'/>",
+        picture: "groente.png",
         enabled:true
     }
 ];

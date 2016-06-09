@@ -122,6 +122,14 @@ Template.vragen.helpers({
         } else {
             return Meteor.user().profile.score;
         }
+    },
+    'questionImage': function () {
+        if (QuestionsMeta.findOne() != undefined) {
+            var currentQuestionId = QuestionsMeta.findOne().current;
+            if (currentQuestionId != null) {
+                return QuizQuestions.findOne({'_id': currentQuestionId}).picture;
+            }
+        }
     }
 });
 
@@ -153,7 +161,7 @@ Template.vragen.events({
     'click #leaderboard-title': function(event){
         event.preventDefault();
         Meteor.call('get question');
-        startTimer(70);
+        startTimer(40);
     }
 });
 
@@ -162,7 +170,7 @@ Template.answers.events({
         event.preventDefault();
         Router.go("wachtscherm");
         Meteor.call('get question');
-        startTimer(70);
+        startTimer(40);
     }
 });
 

@@ -43,14 +43,12 @@ Router.route('/answers', function () {
         this.render('answersmobile');
     }
 });
-Router.route('/answerswrong', function () {
-    this.layout('ApplicationLayout');
-    this.render('answerswrong');
-});
+
 Router.route('/answersmobile', function () {
     this.layout('ApplicationLayout');
     this.render('answersmobile');
 });
+
 Router.route('/winnaar', function () {
     this.layout('ApplicationLayout');
     this.render('winnaar');
@@ -70,6 +68,7 @@ Router.route('/roomresult', function () {
     this.layout('ApplicationLayout');
     this.render('roomResult');
 });
+
 Router.route('/antwoord', function () {
     this.layout('ApplicationLayout');
     this.render('antwoord');
@@ -79,6 +78,7 @@ Router.route('/waitscreen', function () {
     this.layout('ApplicationLayout');
     this.render('waitscreen');
 });
+
 Router.route('/wachtscherm', function () {
     this.layout('ApplicationLayout');
     this.render('wachtscherm');

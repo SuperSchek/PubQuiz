@@ -1,5 +1,4 @@
 <template name="resultaat">
-
     <div id="scoreoverzicht">
         <div id="btn-score"><a href="/lobby"><button class="btn-eindscherm hvr-fade">Replay!</button></a></div>
         <div id="score-titel" >
@@ -9,20 +8,18 @@
             <div id="kolom-score"></div>
         </div>
     </div>
-
-    <script>
-        function leaderLoadEnd() {
-            sortServer();
-            var p = sortedArrayClient.length;
-            var cards = "";
-            for (i = 0; i < p; i++) {
-                if (i >= 0 && i < 10) {
-                    cards += "<div class='leaderboard-card'>" + sortedArrayClient[i].position + ". " + sortedArrayClient[i].gebruikersnaam + "<div class='leaderboard-card-score'>" + sortedArrayClient[i].score + "</div></div>";
-                }
-            }
-            angular.element(document).find('#kolom-score').html(cards);
-        }
-        leaderLoadEnd();
-    </script>
-
+    <!--<script>-->
+        <!--function leaderLoadEnd() {-->
+            <!--sortServer();-->
+            <!--var p = sortedArrayClient.length;-->
+            <!--var cards = "";-->
+            <!--for (i = 0; i < p; i++) {-->
+                <!--if (i >= 0 && i < 10) {-->
+                    <!--cards += "<div class='leaderboard-card'>" + sortedArrayClient[i].position + ". " + sortedArrayClient[i].gebruikersnaam + "<div class='leaderboard-card-score'>" + sortedArrayClient[i].score + "</div></div>";-->
+                <!--}-->
+            <!--}-->
+            <!--angular.element(document).find('#kolom-score').html(cards);-->
+        <!--}-->
+        <!--leaderLoadEnd();-->
+    <!--</script>-->
 </template>
