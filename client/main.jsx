@@ -2,8 +2,6 @@ import { Meteor } from 'meteor/meteor';
 
 import './main.html';
 
-import {test} from '../db/main.js';
-
 Meteor.subscribe('questions');
 Meteor.subscribe('channels');
 Meteor.subscribe('users');
@@ -168,9 +166,13 @@ Template.vragen.events({
 Template.answers.events({
     'click #next-question': function(event){
         event.preventDefault();
-        Router.go("wachtscherm");
-        Meteor.call('get question');
-        startTimer(40);
+        if (QuestionsMeta.findOne().currentNumber == QuizQuestions.find().count()) {
+            Router.go("winnaar");
+        } else {
+            Router.go("wachtscherm");
+            Meteor.call('get question');
+            startTimer(40);
+        }
     }
 });
 
