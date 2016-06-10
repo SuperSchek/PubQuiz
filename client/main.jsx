@@ -247,15 +247,27 @@ Template.roomcode.events({
         code4 = document.getElementById('code4').value;
         codeX = code1 + code2 + code3 + code4;
         codeX = parseInt(codeX);
+        codeXString = String(codeX);
         console.log(codeX);
-        findCodeX = Channels.find({kamercode: codeX}).count();
+        findCodeX = Channels.find({roomLock: codeX}).count();
 
         if (findCodeX >= 1){
             console.log("Room exist.");
 
             gebruiker = Meteor.userId(); //het id van de gebruiker die is ingelogd
-            kfcx = Channels.findOne({kamercode: codeX}, {fields: {name: 1, kamercode: 1, _id: 0}}); //find statement met als resultaat een object uit de Channels
-            Meteor.users.update(gebruiker, {$set: {"profile": kfcx}});  //importeren van de gevonden channelgegevens
+            varRoomLock = Channels.find({"_id": codeXString}).fetch()[0].roomLock;
+            varRoomNumber = Channels.find({"_id": codeXString}).fetch()[0].roomNumber;
+            Meteor.users.update(gebruiker,
+                {
+                    $set: {
+                        "profile": {
+                            "roomLock": varRoomLock,
+                            "roomNumber": varRoomNumber,
+                            "teamName": ""
+                        }
+                    }
+                }
+            );  //importeren van de gevonden channelgegevens
             Router.go("lobby");
 
         } else {
@@ -310,49 +322,72 @@ Template.lobbymobile.events({
         // var visibility = document.getElementById('visible').checked;
         var el = document.getElementById("role");
         var selectedValue = el.options[el.selectedIndex].value;
-        var teamCode = Meteor.user().profile.kamercode; // Gets teamname
+        var teamCode = Meteor.user().profile.roomLock; // Gets teamname
+        var roomLock = Meteor.user().profile.roomLock;
         console.log(teamCode);
         if (selectedValue == "Questionmaster") {
-            Teams.insert({
-                name: name,
-                questionmaster: user,
-                number: counter(),
-                // visible: visibility,
-                score: 0,
-                position: 0,
-                room: teamCode
-            });
-        } else if (selectedValue == "Powerupmaster") {
-            Teams.insert({
-                name: name,
-                powerupmaster: user,
-                number: counter(),
-                // visible: visibility,
-                score: 0,
-                position: 0,
-                room: teamCode
-            });
-        } else if (selectedValue == "Player Three") {
-            Teams.insert({
-                name: name,
-                playerthree: user,
-                number: counter(),
-                // visible: visibility,
-                score: 0,
-                position: 0,
-                room: teamCode
-            });
-        } else if (selectedValue == "Player Four") {
-            Teams.insert({
-                name: name,
-                playerfour: user,
-                number: counter(),
-                // visible: visibility,
-                score: 0,
-                position: 0,
-                room: teamCode
-            });
+        Meteor.users.update({"_id": Meteor.userId()},
+            {
+                $set: {
+                    "profile": {
+                        "roomLock": roomLock,
+                        "teamName": name,
+                        "powerup1": false,
+                        "powerup2": false,
+                        "teamRole": el.options[el.selectedIndex].value
+                    }
+                }
+        });
+        } else {
+            Meteor.users.update({"_id": Meteor.userId()},
+                {
+                    $set: {
+                        "profile": {
+                            "roomLock": roomLock,
+                            "teamName": name,
+                            "powerup1": true,
+                            "powerup2": true,
+                            "teamRole": el.options[el.selectedIndex].value
+                        }
+                    }
+                });
         }
+
+            var key = 'teams.'+ name + '.teamName';                     // Zet de nesteling voor de naam van het object teams: {TEAMNAAM: {teamname}}
+            var obj = {};                                               // Object {}
+            obj[key] = name;                                            // Object waarde is de teamnaam
+            var myRoomLock = String(Meteor.user().profile.roomLock);    // Mijn roomlock code, en dus _id van kamer
+
+            Channels.update({_id: myRoomLock}, {$set: obj });           // Alles in de collectie room zetten
+            
+            
+            // Vanaf hier bestaad het object, en we kennen de teamnaam (objectnaam) omdat deze ook bij de user zelf gestored is.
+            
+            var myTeamName = name;                                      // teamName in variable opslaan zodat we een pad naar het juiste team kunnen maken en updaten
+            var rankQuery = {};                                         // leeg object voor de rank-query
+            var pointsQuery = {};                                       // Leeg object voor points-query
+            var qmQuery = {};                                           // Leeg object voor Question Master query
+            var pmQuery = {};                                           // Leeg object voor powerup master query
+
+
+            rankQuery["teams." + myTeamName + ".rank"] = 0;             // rank = 0 om te beginnen
+            pointsQuery["teams." + myTeamName + ".points"] = 0;         // Met 0 punten beginnen, wel zo eerlijk
+            if (selectedValue == "Questionmaster") {
+                qmQuery["teams." + myTeamName + ".Questionmaster"] = user;  // In dit geval de QM
+                pmQuery["teams." + myTeamName + ".Powerupnmaster"] = "";    // Powerup master is nog onbekend
+            } else {
+                qmQuery["teams." + myTeamName + ".Questionmaster"] = "";  // In dit geval de QM
+                pmQuery["teams." + myTeamName + ".Powerupnmaster"] = user;
+            }
+
+            Channels.update({_id: myRoomLock}, {$set: rankQuery});      // Channelsarray laat zich vullen
+            Channels.update({_id: myRoomLock}, {$set: pointsQuery});    // Vullleenn
+            Channels.update({_id: myRoomLock}, {$set: qmQuery});        // En nog voller
+            Channels.update({_id: myRoomLock}, {$set: pmQuery});        // Mondje loopt bijna over, bah bah
+
+
+       //} else if (selectedValue == "Powerupmaster") {
+
     },
     'click #joinQM': function() {
         event.preventDefault();
@@ -392,44 +427,7 @@ Template.lobbymobile.events({
             Teams.update({_id: this._id}, {$set: {playerfour: ""}});
         }
         Teams.update({_id: this._id}, {$set: {powerupmaster: user}}) // add user to the team
-    },
-    'click #joinP3': function() {
-        event.preventDefault();
-        var user = Meteor.user().emails[0].address; // Gets user data
-        var teamName = JSON.stringify(Teams.findOne({_id: this._id}, {fields: {name: 1, _id: 0}})).slice(9,-2); // Gets teamname
-        Meteor.users.update(Meteor.userId(), {$set: {"profile.team": teamName }}); // add teamname to user data
-        var teamNaam = Meteor.users.findOne(Meteor.userId()).profile.team;
-        var i = Teams.find({name: teamNaam}).fetch()[0].number;
-        if (Teams.find({}).fetch()[i-1].questionmaster == user){
-            Teams.update({_id: this._id}, {$set: {questionmaster: ""}});
-        }
-        if (Teams.find({}).fetch()[i-1].powerupmaster == user){
-            Teams.update({_id: this._id}, {$set: {powerupmaster: ""}});
-        }
-        if (Teams.find({}).fetch()[i-1].playerfour == user){
-            Teams.update({_id: this._id}, {$set: {playerfour: ""}});
-        }
-        Teams.update({_id: this._id}, {$set: {playerthree: user}}) // add user to the team
-    },
-    'click #joinP4': function() {
-        event.preventDefault();
-        var user = Meteor.user().emails[0].address; // Gets user data
-        var teamName = JSON.stringify(Teams.findOne({_id: this._id}, {fields: {name: 1, _id: 0}})).slice(9,-2); // Gets teamname
-        Meteor.users.update(Meteor.userId(), {$set: {"profile.team": teamName }}); // add teamname to user data
-        var teamNaam = Meteor.users.findOne(Meteor.userId()).profile.team;
-        var i = Teams.find({name: teamNaam}).fetch()[0].number;
-        if (Teams.find({}).fetch()[i-1].questionmaster == user){
-            Teams.update({_id: this._id}, {$set: {questionmaster: ""}});
-        }
-        if (Teams.find({}).fetch()[i-1].powerupmaster == user){
-            Teams.update({_id: this._id}, {$set: {powerupmaster: ""}});
-        }
-        if (Teams.find({}).fetch()[i-1].playerthree == user){
-            Teams.update({_id: this._id}, {$set: {playerthree: ""}});
-        }
-        Teams.update({_id: this._id}, {$set: {playerfour: user}}) // add user to the team
     }
-
     });
 
 
@@ -437,19 +435,19 @@ Template.lobbymobile.events({
 Template.lobbydesktop.helpers({
     roomcode: function() {
         if(Meteor.user() != undefined) {
-            return Meteor.user().profile.kamercode;
+            return Meteor.user().profile.roomLock;
         }
     },
     team: function () {
         if(Meteor.user() != undefined) {
-            ppp = Meteor.user().profile.kamercode;
+            ppp = Meteor.user().profile.roomLock;
             return Teams.find({room: ppp});
 
         }
     },
     TeamsCount: function () {
         if(Meteor.user() != undefined) {
-            ppp = Meteor.user().profile.kamercode;
+            ppp = Meteor.user().profile.roomLock;
             return Teams.find({room: ppp}).count();
         }
     }
