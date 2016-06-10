@@ -2,7 +2,6 @@
     <div id="vraag-intro-mob">
         {{#if currentUser}}
             {{> topbarMobile}}
-        {{else}}
         {{/if}}
         <div class="filter-intro" ></div>
         <style>#vraag-intro-mob{background:url('/gifs/cookiemonster.gif')no-repeat right;background-size: cover;background-position-x:-420px;}</style> 
@@ -13,10 +12,14 @@
 
     <script>
         var routeCheckerWaitScreen = setInterval(function () {
-            if (QuestionsMeta.findOne().afteller == "00") {
-                Router.go("antwoord");
-                clearInterval(routeCheckerWaitScreen);
+            if (QuestionsMeta.findOne().afteller == "01") {
+                setTimeout(autoRoute(), 1000);
             }
         }, 100);
+
+        function autoRoute() {
+            Router.go("antwoord");
+            clearInterval(routeCheckerWaitScreen);
+        }
     </script>
 </template>

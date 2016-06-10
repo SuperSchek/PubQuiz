@@ -1,0 +1,39 @@
+<template name="answer-goed">
+    <div id="antwoord-uitleg">
+        <div id="antwoord-container">
+            <div id="antwoord-juist">GOED</div>
+        </div>
+    </div>
+
+    <script>
+        if (QuestionsMeta.findOne() != undefined) {
+            var curNr = QuestionsMeta.findOne().currentNumber;
+        }
+        var qNrChecker = setInterval(function () {
+            if (QuestionsMeta.findOne().currentNumber != curNr) {
+                Router.go("waitscreen");
+                clearInterval(qNrChecker);
+            }
+        }, 250);
+    </script>
+</template>
+
+<template name="answer-fout">
+    <div id="antwoord-uitleg">
+        <div id="antwoord-container">
+            <div id="antwoord-juist">FOUT</div>
+        </div>
+    </div>
+
+    <script>
+        if (QuestionsMeta.findOne() != undefined) {
+            var curNr = QuestionsMeta.findOne().currentNumber;
+        }
+        var qNrChecker = setInterval(function () {
+            if (QuestionsMeta.findOne().currentNumber != curNr) {
+                Router.go("waitscreen");
+                clearInterval(qNrChecker);
+            }
+        }, 250);
+    </script>
+</template>

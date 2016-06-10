@@ -1,5 +1,8 @@
 <template name="antwoord">
     <div id="mobile-cont">
+        {{#if currentUser}}
+            {{> topbarMobile}}
+        {{/if}}
         <!--Timebar-->
         <div id="time-mob-cont">Nog <div style="display: inline-block;" id="timeNumber">{{timeLeft}}</div> seconden!</div>
         <div id="question-nr-mob-cont"><div id="question-nr-mob">Vraag {{questionCount}}/{{quizSize}}</div></div>
@@ -40,10 +43,10 @@
                             Meteor.users.update(Meteor.userId(), {$set: {"profile.score": Meteor.user().profile.score + scored}});
                             console.log('Nieuwe score: ' + Meteor.user().profile.score);
                         }
+                        Router.go("answer-goed");
                     } else {
-                        console.log('Dikke woemie! Hartstikke fout!');
+                        Router.go("answer-fout");
                     }
-                    Router.go("answers");
                     clearInterval(ansCheck);
                 }
             }, 1000);

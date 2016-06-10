@@ -44,9 +44,14 @@ Router.route('/answers', function () {
     }
 });
 
-Router.route('/answersmobile', function () {
+Router.route('/answer-goed', function () {
     this.layout('ApplicationLayout');
-    this.render('answersmobile');
+    this.render('answer-goed');
+});
+
+Router.route('/answer-fout', function () {
+    this.layout('ApplicationLayout');
+    this.render('answer-fout');
 });
 
 Router.route('/winnaar', function () {
@@ -84,7 +89,12 @@ Router.route('/wachtscherm', function () {
     this.render('wachtscherm');
 });
 
-Router.route('/roomcode',function () {
+Router.route('/roomcode', function () {
     this.layout('ApplicationLayout');
     this.render('roomcode');
+});
+
+Router.route('/powerupmaster', function () {
+    this.layout('ApplicationLayout');
+    this.render('powerupview');
 });
