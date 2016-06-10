@@ -356,6 +356,11 @@ Meteor.publish('channels', function() {
 Meteor.publish('teams', function() {
     return Teams.find();
 });
-Meteor.publish('currentQuestion', function() {
-    return QuestionsMeta.find();
-});
+
+// Meteor.publish('currentQuestion', function() {
+//     return QuestionsMeta.find();
+//
+//     // create rooms collection
+//     new Mongo.Collection('Channels');
+//
+// });
