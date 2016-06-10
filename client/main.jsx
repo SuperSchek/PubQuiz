@@ -4,11 +4,15 @@ import './main.html';
 
 import {test} from '../db/main.js';
 
+<<<<<<< HEAD
 Meteor.subscribe('questions');
 Meteor.subscribe('channels');
 Meteor.subscribe('users');
 Meteor.subscribe('teams');
 Meteor.subscribe('currentQuestion');
+=======
+var kamerNummer = 0;
+>>>>>>> 60b18fcb82a9639a4c27c6748fe094b2adbcd0dd
 
 Meteor.startup(() => {
     QuizQuestions = new Mongo.Collection("quiz");
@@ -211,6 +215,7 @@ Template.parentreg.helpers({
     }
 });
 
+<<<<<<< HEAD
 Template.roomcode.onRendered(function() {
     // console.log("LALA");
     // $('input').bind('this', function() {
@@ -462,6 +467,12 @@ Template.lobbydesktop.events({
         startTimer(70);
     }
 });
+=======
+//Rooms creating
+Channels = new Mongo.Collection("Channels");
+
+
+>>>>>>> 60b18fcb82a9639a4c27c6748fe094b2adbcd0dd
 
 // // /*
 // // Code to change*/

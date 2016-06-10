@@ -191,6 +191,30 @@ Template.logindesktop.helpers({
     }
 });
 
+
+//Create kamerNumber
+function kamerNumber (){
+    kamerNumber = Channels.find().count() + 1;
+    return kamerNumber;
+
+};
+
+//Create kamerCode
+function kamerCode() {
+
+    var kamerGetal = kamerGetal = Math.floor(Math.random() * 9000) + 1000;
+    var getalVinden = Channels.find({code: kamerGetal}).count();
+
+     while(getalVinden >= 1) {
+         kamerGetal = Math.floor(Math.random() * 9000) + 1000;
+     };
+
+
+    kamerCode = kamerGetal;
+
+    return kamerCode;
+};
+
 Template.registerdesktop.events({
     'submit form': function(event) {
         event.preventDefault();
@@ -204,6 +228,7 @@ Template.registerdesktop.events({
                 console.log(error.reason); // Output error if registration fails
             } else {
                 //Create room
+<<<<<<< HEAD
                 kamerNumber();
                 kamerCode();
                 Channels.insert({
@@ -521,10 +546,23 @@ Template.registerdesktop.events({
                 }}});
 
                 Router.go("lobby"); // User succeeds, naar de lobby
+=======
+                Channels.insert({
+                    name: kamerNumber(),
+                    code: kamerCode()
+                });
+
+                Router.go("lobby"); // User succeeds
+>>>>>>> 60b18fcb82a9639a4c27c6748fe094b2adbcd0dd
             }
         });
     }
 });
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 60b18fcb82a9639a4c27c6748fe094b2adbcd0dd
 Template.logindesktop.events({
     'submit form': function(event){
         event.preventDefault();
@@ -535,6 +573,7 @@ Template.logindesktop.events({
                 console.log(error.reason);
             } else {
                 //Create room
+<<<<<<< HEAD
                 kamerNumber();
                 kamerCode();
                 Channels.insert({
@@ -851,6 +890,14 @@ Template.logindesktop.events({
                     "roomNumber": kamernummertje
                 }}});
                 Router.go("lobby"); // User succeeds, naar de lobby
+=======
+                Channels.insert({
+                    name: kamerNumber(),
+                    code: kamerCode()
+                });
+
+                Router.go("lobby"); // User succeeds
+>>>>>>> 60b18fcb82a9639a4c27c6748fe094b2adbcd0dd
             }
         });
     }

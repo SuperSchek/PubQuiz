@@ -6,6 +6,7 @@ Meteor.startup(() => {
     Accounts.config({
         forbidClientAccountCreation : false
     });
+<<<<<<< HEAD
     Channels = new Mongo.Collection("Channels");
     Teams = new Mongo.Collection("Teams");
     QuestionsMeta = new Mongo.Collection("currentQuestion");
@@ -68,4 +69,10 @@ Meteor.publish('teams', function() {
 });
 Meteor.publish('currentQuestion', function() {
     return QuestionsMeta.find();
+=======
+
+    // create rooms collection
+    new Mongo.Collection('Channels');
+
+>>>>>>> 60b18fcb82a9639a4c27c6748fe094b2adbcd0dd
 });
