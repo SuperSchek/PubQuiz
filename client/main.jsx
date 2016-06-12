@@ -284,12 +284,6 @@ Template.lobbymobile.helpers({
 
         }
     },
-    TeamsCount: function () {
-        if(Meteor.user() != undefined) {
-            ppp = Meteor.user().profile.kamercode;
-            return Teams.find({room: ppp}).count();
-        }
-    },
     'memberCount': function () {
         if (this.powerupmaster != "" && this.questionmaster != "") {
             return "2";
@@ -336,26 +330,6 @@ Template.lobbymobile.events({
                 position: 0,
                 room: teamCode
             });
-        } else if (selectedValue == "Player Three") {
-            Teams.insert({
-                name: name,
-                playerthree: user,
-                number: counter(),
-                // visible: visibility,
-                score: 0,
-                position: 0,
-                room: teamCode
-            });
-        } else if (selectedValue == "Player Four") {
-            Teams.insert({
-                name: name,
-                playerfour: user,
-                number: counter(),
-                // visible: visibility,
-                score: 0,
-                position: 0,
-                room: teamCode
-            });
         }
     },
     'click #joinQM': function() {
@@ -371,15 +345,6 @@ Template.lobbymobile.events({
         if (Teams.find({}).fetch()[i-1].powerupmaster == user){
             Teams.update({_id: this._id}, {$set: {powerupmaster: ""}});
         };
-
-        if (Teams.find({}).fetch()[i-1].playerthree == user){
-            Teams.update({_id: this._id}, {$set: {playerthree: ""}});
-        };
-
-        if (Teams.find({}).fetch()[i-1].playerfour == user){
-            Teams.update({_id: this._id}, {$set: {playerfour: ""}});
-        };
-
         Teams.update({_id: this._id}, {$set: {questionmaster: user}}); // add user to the team
     },
     'click #joinPM': function() {
@@ -391,12 +356,6 @@ Template.lobbymobile.events({
         var i = Teams.find({name: teamNaam}).fetch()[0].number;
         if (Teams.find({}).fetch()[i - 1].questionmaster == user) {
             Teams.update({_id: this._id}, {$set: {questionmaster: ""}});
-        }
-        if (Teams.find({}).fetch()[i - 1].playerthree == user) {
-            Teams.update({_id: this._id}, {$set: {playerthree: ""}});
-        }
-        if (Teams.find({}).fetch()[i - 1].playerfour == user) {
-            Teams.update({_id: this._id}, {$set: {playerfour: ""}});
         }
         Teams.update({_id: this._id}, {$set: {powerupmaster: user}}) // add user to the team
     }
@@ -478,28 +437,3 @@ Template.waitscreen.helpers({
         }
     }
 });
-
-// // /*
-// // Code to change*/
-// //
-// //
-// var emptyslots = 0;
-// var currentPlayers;
-//
-// if(powerupmaster == ""){
-//     emptyslots += 1
-// }
-//
-// if(questionmaster == ""){
-//     emptyslots += 1
-// }
-//
-// if(playerthree == ""){
-//     emptyslots += 1
-// }
-//
-// if(playerfour == ""){
-//     emptyslots += 1
-// }
-//
-// currentPlayers = 4 - emptyslots;

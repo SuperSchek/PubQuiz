@@ -2,283 +2,283 @@
 // Questions can be retrieved with QuizQuestions.fetchOne()[Number_in_array];
 var quizArray = [
     {
-        question: "Wie wordt koning/koningin op het moment dat Willem-Alexander komt te overlijden?",
+        question: "Wat zijn de twee hoofdmappen van Meteor?",
         answers: [
             {
-                answer: "Prinses Amalia",
+                answer: "frontend, backend",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Iemand anders",
+                answer: "mongo, client",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Prins Constantijn",
+                answer: "server, mongo",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Koningin Maxima",
-                uitleg: 'Als prinses Amalia door erfopvolging koningin wordt en zij is nog geen achttien jaar, dan wordt haar moeder, koningin Máxima, benoemd tot regent van het koninkrijk. Dat heeft de Rijksvoorlichtingsdienst in 2013 bepaald.',
+                answer: "client, server",
+                uitleg: '',
                 punten: true,
                 rendered: false
             }
         ],
-        picture: "willem.png",
+        picture: "",
         enabled:true
     },
     {
-        question: "Wat is de vijfde planeet in ons zonnestelsel gemeten vanaf de zon?",
+        question: "Hoe zorg je ervoor dat een variabel globaal is?",
         answers: [
             {
-                answer: "Venus",
+                answer: "var Name = 'John';",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Mars",
+                answer: "var(global) Name = 'John';",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Saturnus",
+                answer: "var.global(Name = 'John');",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Jupiter",
-                uitleg: 'zonnestelsel.png',
+                answer: "Name = 'John';",
+                uitleg: '',
                 punten: true,
                 rendered: false
             }
         ],
-        picture: "stars.png",
+        picture: "",
         enabled:true
     },
     {
-        question: "Welke club speelt er in onderstaand stadion?",
+        question: "Hoe voeg je in Meteor iets in de database toe?",
         answers: [
             {
-                answer: "Vfl Wolfsburg",
+                answer: "Database.add({veld: 'test'});",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Olympique Marseille",
+                answer: "Database.add(veld: 'test');",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "PSV",
+                answer: "Database.insert(veld: 'test');",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Seattle Sounders FC",
-                uitleg: 'CenturyLink Field (vroeger Seahawks Stadium en Qwest Field) is een multifunctioneel stadion, waarin 67.000 zitplaatsen zijn, dit kan worden uitgebreid naar 72.000 bij speciale evenementen. Het stadion wordt gebruikt door twee sportteams uit de stad Seattle. Seattle Sounders FC dat uitkomt in de Major League Soccer en Seattle Seahawks dat speelt in de NFL.',
+                answer: "Database.insert({veld: 'test'});",
+                uitleg: '',
                 punten: true,
                 rendered: false
             }
         ],
-        picture: "stadium.png",
+        picture: "",
         enabled:true
     },
     {
-        question: "Wie is deze basketballer?",
+        question: "Hoe zorg je ervoor dat een clickevent niet de pagina refresht?",
         answers: [
             {
-                answer: "Shaquille O'Neal",
+                answer: "event.noRefresh();",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Stephen Curry",
+                answer: "click.noRefresh();",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Lebron James",
+                answer: "click.preventDefault();",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Kobe Bryant",
-                uitleg: 'Kobe Bean Bryant (Philadelphia (Pennsylvania), 23 augustus 1978) is een Amerikaans voormalig basketballer. Hij speelde zijn hele twintigjarige loopbaan bij de Los Angeles Lakers, waarmee hij vijf keer kampioen werd van de National Basketball Association (NBA).',
+                answer: "event.preventDefault();",
+                uitleg: '',
                 punten: true,
                 rendered: false
             }
         ],
-        picture: "basketball.png",
+        picture: "",
         enabled:true
     },
     {
-        question: "Wie is deze filosoof?",
+        question: "Wat is functie van routes?",
         answers: [
             {
-                answer: "Hadrianus",
+                answer: "Data ophalen",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Aristoteles",
+                answer: "Data versturen",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Plato",
+                answer: "Data realtime heen en weer sturen",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Socrates",
-                uitleg: 'Hij wordt beschouwd als een van de stichters van de westerse filosofie, al liet hij zelf geen geschriften na. Hij is bekend geworden door de verslagen van zijn studenten, met name die van Plato en Xenophon, en door de toneelstukken van zijn tijdgenoot, Aristophanes.',
+                answer: "Linking tussen pagina’s",
+                uitleg: '',
                 punten: true,
                 rendered: false
             }
         ],
-        picture: "filosoof.png",
+        picture: "",
         enabled:true
     },
     {
-        question: "Welk land is aangegeven op de kaart?",
+        question: "Hoe maak je een database aan?",
         answers: [
             {
-                answer: "Colombia",
+                answer: "Database = new Mongo.database(‘database’);",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Ecuador",
+                answer: "Database = create Mongo.database(‘database’);",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Paraguay",
+                answer: "Database = create Mongo.collection(‘database’);",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Bolivia",
-                uitleg: 'Bolivia, volledig de Plurinationale Staat Bolivia (Spaans: Estado Plurinacional de Bolivia) is een republiek in Zuid-Amerika die grenst aan Peru, Brazilië, Paraguay, Argentinië en Chili.',
+                answer: "Database = new Mongo.collection(‘database’);",
+                uitleg: '',
                 punten: true,
                 rendered: false
             }
         ],
-        picture: "land.png",
+        picture: "",
         enabled:true
     },
     {
-        question: "Welk film is de best verdienende film ooit?",
+        question: "Hoe noem je de drie belangrijke commando’s om data te manipuleren?",
         answers: [
             {
-                answer: "The Avengers",
+                answer: "add, delete, change",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Gone with the wind",
+                answer: "insert, delete, update",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Titanic",
+                answer: "add, remove, change",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Avatar",
-                uitleg: 'Met $2,787,965,087 is Avatar de best verdienende film ooit.',
+                answer: "insert, remove, update",
+                uitleg: '',
                 punten: true,
                 rendered: false
             }
         ],
-        picture: "cinema.png",
+        picture: "",
         enabled:true
     },
     {
-        question: "Welk nummer is NIET van Michael Jackson?",
+        question: "Hoe maak je een template in HTML aan?",
         answers: [
             {
-                answer: "Bad",
+                answer: "<template id='template'></template>",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Black or White",
+                answer: "<script type='template' name='template'></script>",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Speed Demon",
+                answer: "<script type='template' id='template'></script>",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Earth Wind and Fire",
-                uitleg: 'Earth, Wind & Fire is een Amerikaanse band die soul, funk, jazz- en discomuziek maakt – en ook verschillende muziekstijlen combineert – met prominente rollen voor percussie, blazers, kalimba, bas en zang. De band was vooral in de jaren zeventig populair.',
+                answer: "<template name='template'></template>",
+                uitleg: '',
                 punten: true,
                 rendered: false
             }
         ],
-        picture: "michael.png",
+        picture: "",
         enabled:true
     },
     {
-        question: "Van welk automerk is dit het logo?",
+        question: "Hoe kunnen we voor elk database object een template inladen?",
         answers: [
             {
-                answer: "Chevrolet",
+                answer: "{{#for object}} {{> template}} {{/for}}",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Buick",
+                answer: "{{#while object}} {{> template}} {{/while}}",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Rolls Royce",
+                answer: "{{#for each object}} {{show: template}} {{/for}}",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Cadillac",
-                uitleg: "Cadillac is een Amerikaans merk van luxeauto's. Sinds 1909 behoort het merk tot het General Motors-concern. Cadillacs worden wereldwijd verkocht. De belangrijkste afzetgebieden zijn de Verenigde Staten, Canada en China. <br><br>Cadillac is het oudste Amerikaanse automerk na Buick, en ook wereldwijd is het een van de oudste. Cadillac staat bekend om zijn innovatie, hoge kwaliteit en veel luxe. In België en Nederland zijn respectievelijk zes en vier dealers actief.",
+                answer: "{{#each object}} {{> template}} {{/each}}",
+                uitleg: "",
                 punten: true,
                 rendered: false
             }
         ],
-        picture: "logoquiz.png",
+        picture: "",
         enabled:true
     },
     {
-        question: "Welke vergeten groente is dit?",
+        question: "Vul de lege plekken in?",
         answers: [
             {
-                answer: "Witte raapjes",
+                answer: "click, click, }, })",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Suikerwortel",
+                answer: "submit, event, ), })",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Wortel",
+                answer: "submit, click, ), })",
                 punten: false,
                 rendered: false
             },
             {
-                answer: "Pastinaak",
-                uitleg: 'De pastinaak is een circa 20 cm lang wortelgewas met een zoete anijsachtige smaak en een crème-witte kleur. Door de lengte van de penwortel is de groente niet geschikt voor teelt op kleigronden. De pastinaak wordt doorgaans in de tweede helft van april gezaaid.',
+                answer: "click, event, }, })",
+                uitleg: '',
                 punten: true,
                 rendered: false
             }
         ],
-        picture: "groente.png",
+        picture: "imgQuiz.png",
         enabled:true
     }
 ];
