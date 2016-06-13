@@ -145,13 +145,6 @@ function startTimer(duration) {
     }, 1000);
 }
 
-Template.vragen.events({
-    'click #leaderboard-title': function(event){
-        event.preventDefault();
-        Meteor.call('get question');
-        startTimer(40);
-    }
-});
 
 Template.answers.events({
     'click #next-question': function(event){
