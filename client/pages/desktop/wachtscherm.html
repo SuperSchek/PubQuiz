@@ -1,7 +1,9 @@
 <template name="wachtscherm">
-    <div style="text-align: center; padding-top: 20%" id="lobby-cont">
-        <h1 style="font-size: 50px;">{{startOrNext}}</h1>
-        <h1 style="color:#C09C6A;">{{afteller}} seconden!</h1>
+    <div style="text-align: center;" id="wacht-cont">
+        <div id="wachten">
+            <h1 style="font-size: 50px;">{{startOrNext}}</h1>
+            <h1 style="color:#C09C6A;">{{afteller}} seconden!</h1>
+        </div>
     </div>
     <script>
         if (QuestionsMeta.findOne() != undefined || QuestionsMeta.findOne().afteller == 0) {
