@@ -1,42 +1,46 @@
 <template name="lobbymobile">
-    <div id="lobby-cont-mob">
-        {{> topbarLobby}}
-
-        <div id="playerlist-mobile">
-            <div id="voeg-team-toe">
-                <form id="createTeam" style="color: white">
-                    <input id="name" placeholder="Team naam">
-                    <label for="role">Meedoen als:</label>
-                    <select name="role" id="role">
-                        <option id="questionmaster" value="Questionmaster"> Questionmaster</option>
-                        <option id="powerupmaster" value="Powerupmaster"> Powerupmaster</option>
-                    </select>
-                    <button class="btn-create-mob" type="submit">Voeg toe</button>
-                    <script>
-                        $(document).ready(function(){
-                            $('.btn-create-mob').prop('disabled',true);
-                            $('#name').keyup(function(){
-                                $('.btn-create-mob').prop('disabled', this.value == "" ? true : false);
-                            })
-                        });
-                    </script>
-                </form>
+        <div id="vraag-intro-mob">
+            <div class="filter-intro" ></div>
+            <style>#vraag-intro-mob{background:url('/gifs/cookiemonster.gif')no-repeat right;background-size: cover;background-position-x:-420px;}</style> 
+            <div id="intro-text-mob">
+                Wacht tot de Quizmaster de quiz heeft gestart.
             </div>
-            {{#each team}}
-                <div class="teamcard-cont-mobile">
-                    <div class="teamcard-titel">{{name}}</div>
-                    <div class="teamcard-subtitel">
-                    {{memberCount}}/2 rollen vervuld
-                    </div>
-                    <hr>
-                    <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Question Master</div><div class="name crop">{{questionmaster}}<a class="join" id="joinQM" href="#">Join as QM</a></div></div>
-                    <hr>
-                    <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up Master</div><div class="name crop">{{powerupmaster}}<a class="join" id="joinPM" href="#">Join as QM</a></div></div>
-                    <hr>
-                </div>
-            {{/each}}
         </div>
-    </div>
+
+        <!--<div id="playerlist-mobile">-->
+            <!--<div id="voeg-team-toe">-->
+                <!--<form id="createTeam" style="color: white">-->
+                    <!--<input id="name" placeholder="Team naam">-->
+                    <!--<label for="role">Meedoen als:</label>-->
+                    <!--<select name="role" id="role">-->
+                        <!--<option id="questionmaster" value="Questionmaster"> Questionmaster</option>-->
+                        <!--<option id="powerupmaster" value="Powerupmaster"> Powerupmaster</option>-->
+                    <!--</select>-->
+                    <!--<button class="btn-create-mob" type="submit">Voeg toe</button>-->
+                    <!--<script>-->
+                        <!--$(document).ready(function(){-->
+                            <!--$('.btn-create-mob').prop('disabled',true);-->
+                            <!--$('#name').keyup(function(){-->
+                                <!--$('.btn-create-mob').prop('disabled', this.value == "" ? true : false);-->
+                            <!--})-->
+                        <!--});-->
+                    <!--</script>-->
+                <!--</form>-->
+            <!--</div>-->
+            <!--{{#each team}}-->
+                <!--<div class="teamcard-cont-mobile">-->
+                    <!--<div class="teamcard-titel">{{name}}</div>-->
+                    <!--<div class="teamcard-subtitel">-->
+                    <!--{{memberCount}}/2 rollen vervuld-->
+                    <!--</div>-->
+                    <!--<hr>-->
+                    <!--<div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Question Master</div><div class="name crop">{{questionmaster}}<a class="join" id="joinQM" href="#">Join as QM</a></div></div>-->
+                    <!--<hr>-->
+                    <!--<div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up Master</div><div class="name crop">{{powerupmaster}}<a class="join" id="joinPM" href="#">Join as QM</a></div></div>-->
+                    <!--<hr>-->
+                <!--</div>-->
+            <!--{{/each}}-->
+        <!--</div>-->
 
     <script>
         var routeCheckerLobby = setInterval(function () {

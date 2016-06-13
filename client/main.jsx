@@ -377,6 +377,9 @@ Template.lobbydesktop.helpers({
 
         }
     },
+    user: function() {
+        return Meteor.users.find().fetch();
+    },
     TeamsCount: function () {
         if(Meteor.user() != undefined) {
             ppp = Meteor.user().profile.kamercode;
