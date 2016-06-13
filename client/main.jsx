@@ -8,6 +8,8 @@ Meteor.subscribe('users');
 Meteor.subscribe('teams');
 Meteor.subscribe('currentQuestion');
 
+var kamerNummer = 0;
+
 Meteor.startup(() => {
     QuizQuestions = new Mongo.Collection("quiz");
     Channels = new Mongo.Collection("Channels");
@@ -69,8 +71,8 @@ Template.antwoord.helpers({
 Template.vragen.helpers({
     team: function () {
         if(Meteor.user() != undefined) {
-            ppp = Meteor.user().profile.kamercode;
-            return Teams.find({room: ppp});
+            ppp = Meteor.user().profile.roomLock;
+            return Teams.find({roomLock: ppp});
 
         }
     },
@@ -247,13 +249,25 @@ Template.roomcode.events({
         code4 = document.getElementById('code4').value;
         codeX = code1 + code2 + code3 + code4;
         codeX = parseInt(codeX);
+        codeXString = String(codeX);
         console.log(codeX);
-        findCodeX = Channels.find({kamercode: codeX}).count();
+        findCodeX = Channels.find({roomLock: codeX}).count();
 
         if (findCodeX >= 1){
             gebruiker = Meteor.userId(); //het id van de gebruiker die is ingelogd
-            kfcx = Channels.findOne({kamercode: codeX}, {fields: {name: 1, kamercode: 1, _id: 0}}); //find statement met als resultaat een object uit de Channels
-            Meteor.users.update(gebruiker, {$set: {"profile": kfcx}});  //importeren van de gevonden channelgegevens
+            varRoomLock = Channels.find({"_id": codeXString}).fetch()[0].roomLock;
+            varRoomNumber = Channels.find({"_id": codeXString}).fetch()[0].roomNumber;
+            Meteor.users.update(gebruiker,
+                {
+                    $set: {
+                        "profile": {
+                            "roomLock": varRoomLock,
+                            "roomNumber": varRoomNumber,
+                            "teamName": ""
+                        }
+                    }
+                }
+            );  //importeren van de gevonden channelgegevens
             Router.go("lobby");
         } else {
             document.getElementById('errorMsg').innerHTML = "<h2 style='text-align: center; color: #FFFFFF; font-size: 15px; margin-top: -16%;'>Kamer niet gevonden! <br>Probeer het opnieuws</h2>";
@@ -279,9 +293,15 @@ ppp = parseInt;
 Template.lobbymobile.helpers({
     team: function () {
         if(Meteor.user() != undefined) {
-            ppp = Meteor.user().profile.kamercode;
-            return Teams.find({room: ppp});
+            ppp = Meteor.user().profile.roomLock;
+            return Channels.find({roomLock: ppp});
 
+        }
+    },
+    TeamsCount: function () {
+        if(Meteor.user() != undefined) {
+            ppp = Meteor.user().profile.roomLock;
+            return Channels.find({roomLock: ppp}).count();
         }
     },
     'memberCount': function () {
@@ -308,7 +328,8 @@ Template.lobbymobile.events({
         // var visibility = document.getElementById('visible').checked;
         var el = document.getElementById("role");
         var selectedValue = el.options[el.selectedIndex].value;
-        var teamCode = Meteor.user().profile.kamercode; // Gets teamname
+        var teamCode = Meteor.user().profile.roomLock; // Gets teamname
+        var roomLock = Meteor.user().profile.roomLock;
         console.log(teamCode);
         if (selectedValue == "Questionmaster") {
             Teams.insert({
@@ -330,7 +351,74 @@ Template.lobbymobile.events({
                 position: 0,
                 room: teamCode
             });
+
+            Meteor.users.update({"_id": Meteor.userId()},
+                {
+                    $set: {
+                        "profile": {
+                            "roomLock": roomLock,
+                            "teamName": name,
+                            "powerup1": false,
+                            "powerup2": false,
+                            "teamRole": el.options[el.selectedIndex].value
+                        }
+                    }
+                });
+
+        } else {
+            Meteor.users.update({"_id": Meteor.userId()},
+                {
+                    $set: {
+                        "profile": {
+                            "roomLock": roomLock,
+                            "teamName": name,
+                            "powerup1": true,
+                            "powerup2": true,
+                            "teamRole": el.options[el.selectedIndex].value
+                        }
+                    }
+                });
         }
+
+            var key = 'teams.'+ name + '.teamName';                     // Zet de nesteling voor de naam van het object teams: {TEAMNAAM: {teamname}}
+            var obj = {};                                               // Object {}
+            obj[key] = name;                                            // Object waarde is de teamnaam
+            var myRoomLock = String(Meteor.user().profile.roomLock);    // Mijn roomlock code, en dus _id van kamer
+
+            Channels.update({_id: myRoomLock}, {$set: obj });           // Alles in de collectie room zetten
+            
+            
+            // Vanaf hier bestaad het object, en we kennen de teamnaam (objectnaam) omdat deze ook bij de user zelf gestored is.
+            
+            var myTeamName = name;                                      // teamName in variable opslaan zodat we een pad naar het juiste team kunnen maken en updaten
+            var rankQuery = {};                                         // leeg object voor de rank-query
+            var pointsQuery = {};                                       // Leeg object voor points-query
+            var qmQuery = {};                                           // Leeg object voor Question Master query
+            var pmQuery = {};                                           // Leeg object voor powerup master query
+
+
+            rankQuery["teams." + myTeamName + ".rank"] = 0;             // rank = 0 om te beginnen
+            pointsQuery["teams." + myTeamName + ".points"] = 0;         // Met 0 punten beginnen, wel zo eerlijk
+            if (selectedValue == "Questionmaster") {
+                qmQuery["teams." + myTeamName + ".Questionmaster"] = user;  // In dit geval de QM
+                pmQuery["teams." + myTeamName + ".Powerupnmaster"] = "";    // Powerup master is nog onbekend
+            } else {
+                qmQuery["teams." + myTeamName + ".Questionmaster"] = "";  // In dit geval de QM
+                pmQuery["teams." + myTeamName + ".Powerupnmaster"] = user;
+            }
+
+            Channels.update({_id: myRoomLock}, {$set: rankQuery});      // Channelsarray laat zich vullen
+            Channels.update({_id: myRoomLock}, {$set: pointsQuery});    // Vullleenn
+            Channels.update({_id: myRoomLock}, {$set: qmQuery});        // En nog voller
+            Channels.update({_id: myRoomLock}, {$set: pmQuery});        // Mondje loopt bijna over, bah bah
+
+
+        var plusOne =  JSON.stringify(Channels.find({_id: myRoomLock}, {fields: {numberOfTeams: 1}})); // Haalt het huidige aantal teams uit de de channel met matchende roomlock zet het in en string
+        plusOne = plusOne.substr(17, plusOne.length-1); // haalt laatste character weg ---}--- Nu is het nog een getal
+        plusOne = parseInt(plusOne); //Zet de string om in een cijfer zodat we hem kunnen optellen
+        plusOne = plusOne + 1; //En er is een nieuw team bij gekomen, + 1
+        Channels.update({_id: myRoomLock}, {$set: {numberOfTeams: plusOne}}); // Nieuwe getal toevoegen zodat het uitgelezen kan worden.
+
     },
     'click #joinQM': function() {
         event.preventDefault();
@@ -344,7 +432,8 @@ Template.lobbymobile.events({
 
         if (Teams.find({}).fetch()[i-1].powerupmaster == user){
             Teams.update({_id: this._id}, {$set: {powerupmaster: ""}});
-        };
+        }
+
         Teams.update({_id: this._id}, {$set: {questionmaster: user}}); // add user to the team
     },
     'click #joinPM': function() {
@@ -357,30 +446,34 @@ Template.lobbymobile.events({
         if (Teams.find({}).fetch()[i - 1].questionmaster == user) {
             Teams.update({_id: this._id}, {$set: {questionmaster: ""}});
         }
-        Teams.update({_id: this._id}, {$set: {powerupmaster: user}}) // add user to the team
+        Teams.update({_id: this._id}, {$set: {powerupmaster: user}}); // add user to the team
     }
-
-    });
-
+});
 
 
 Template.lobbydesktop.helpers({
     roomcode: function() {
         if(Meteor.user() != undefined) {
-            return Meteor.user().profile.kamercode;
+            return Meteor.user().profile.roomLock;
         }
     },
     team: function () {
         if(Meteor.user() != undefined) {
-            ppp = Meteor.user().profile.kamercode;
-            return Teams.find({room: ppp});
+            ppp = Meteor.user().profile.roomLock;
+            return Channels.find({_id: ppp});
+            //return Teams.find({roomLock: ppp});
 
         }
     },
     TeamsCount: function () {
         if(Meteor.user() != undefined) {
-            ppp = Meteor.user().profile.kamercode;
-            return Teams.find({room: ppp}).count();
+            if (Channels !== undefined) {
+                var stringRoomLock = Meteor.user().profile.roomLock;
+                var gnot1 = JSON.stringify(Channels.findOne({_id: stringRoomLock}, {fields: {_id: 1}})); ///// HIER
+                var gnot2 = gnot1.substr(17, gnot1.length - 1);                                          ////  GEEFT MONGO
+                var gnot = parseInt(gnot2);                                                             //// EEN ERROR OP IN DE CONSOLE LOG.. EEN COUNT WAS TE OMSLACTIG DAAROM WOU IK HET VIA VARIABELEN DOENT
+                return gnot;
+            }
         }
     },
     'memberCount': function () {
