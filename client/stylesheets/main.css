@@ -71,13 +71,18 @@ input:focus {
 
 /******** DESKTOP STYLES ********/
 #start-screen {background: url('/bar3.jpg');background-size:cover;color: #fff;position:absolute;width: 100%;height: 100%;margin:0 auto;}
-#start-screen button {margin-top: 20px; transition: ease-in-out 0.2s}
+#start-screen button {margin-top: 20px; transition: ease-in-out 0.2s;width:100%;}
 #start-screen button:hover {cursor: hand;}
 #start-screen-mob {background: #0C2B3A;background-size:cover;color: #FFF;text-align: center;position:absolute;width: 100%;height: 100%;margin:0 auto;}
 #start-screen-mob button {margin-top: 30px; transition: ease-in-out 0.2s}
 #start-container{width:100%;height:100%;float:left; position: absolute;margin:0 auto;z-index: 2;}
-#btn-createLobby{z-index: 200; position: fixed; height: auto; width: auto; right: 10%; float: right;}
 html button:focus {outline:none;}
+.btn-createLobby{line-height:80px;padding:0 30px;font-family: Cubano,sans-serif;background-color: #C09C6A;border: none;color: #e9e9e9;text-align: center;text-decoration: none;display: block;font-size: 28px;border-radius: 5px;float:left;position:relative;}
+#btn-createLobby button:hover{background: #e9e9e9;color:#C09C6A;}
+#btn-createLobby button {width:100%;}
+#start-screen a {color:#e9e9e9;}
+#start-screen a:hover {color:#C09C6A;}
+
 
 h1{font-family: Cubano, sans-serif;color:#e9e9e9; font-size: 70px;line-height: 70px;font-weight: normal;margin:0;}
 h2{font-family: Cubano, sans-serif;color:#0C2B3A; font-size: 20px;margin:0 0 0 0;line-height: 40px;font-weight:normal;text-align:left;}
@@ -250,7 +255,7 @@ h4{font-family: Cubano, sans-serif;color:#C09C6A; font-size: 100px;padding:0 0 2
 ::-webkit-input-placeholder {color: #d0d0d0;padding:0 0 5px 0;}
 
 #reg-form {padding:2% 5%;}
-#register-module {background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #3299BB;position:relative;float:left;}
+#register-module {box-shadow: 0 5px 20px 0 rgba(0,0,0,0.5);background:#fff;width:100%;height:auto;border-radius:5px;border-top:10px solid #3299BB;position:relative;float:left;}
 #register-module form input{background:rgba(0,0,0,0);width:100%;border-style: none;}
 #register-module form input{padding: 7% 0;width:100%;font-family: StradaOT,sans-serif;font-weight:normal;border-bottom: 2pt solid #E9E9E9;color: #424242;text-align: left;text-decoration: none;display: block;font-size: 20px;float:left;position:relative;}
 #register-module button:active{background: #fff;color: #3299BB;}
@@ -378,7 +383,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {back
 
 nav {
     position: relative;
-    z-index: 0;
+    z-index: 400;
 
 }
 .dropdown-toggle {
@@ -403,7 +408,7 @@ ul.dropdown {
     min-width: 12em;
     padding: 0;
     border-radius: 0 0 .2em .2em;
-    z-index: 1!important;
+    z-index: 400!important;
     right: 0;
     top: 60px;
 }

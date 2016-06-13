@@ -211,6 +211,21 @@ Template.parentreg.helpers({
     }
 });
 
+Template.desktoplogin.events({
+    'click button': function(e, tpl){
+        tpl.data.onClick(e);
+    }
+});
+
+Template.desktoplogin.helpers({
+    doSomeAction(){
+        return function(){
+            document.getElementById('login-module').className = "hidden";
+            document.getElementById('register-module').className = "show"
+        }
+    }
+});
+
 Template.roomcode.onRendered(function() {
     // console.log("LALA");
     // $('input').bind('this', function() {
