@@ -43,13 +43,43 @@
                             Meteor.users.update(Meteor.userId(), {$set: {"profile.score": Meteor.user().profile.score + scored}});
                             console.log('Nieuwe score: ' + Meteor.user().profile.score);
                         }
+                        calcNewPos();
                         Router.go("answer-goed");
                     } else {
+                        calcNewPos();
                         Router.go("answer-fout");
                     }
                     clearInterval(ansCheck);
                 }
             }, 1000);
+
+            function calcNewPos() {
+                var Arr = [];
+                for (var u = 0; u < Meteor.users.find().count(); u++) {
+                    Arr.push(Meteor.users.find().fetch()[u]);
+                }
+                Arr.sort(function (a, b) {
+                    return b.profile.score-a.profile.score
+                });
+
+                function findWithAttr(array, attr, value) {
+                    for(var i = 0; i < array.length; i += 1) {
+                        if(array[i][attr] === value) {
+                            return i;
+                        }
+                    }
+                }
+
+                if(Meteor.user().profile.myPos == undefined) {
+                    console.log('Oude positie: ' + Meteor.user().profile.myPos);
+                    Meteor.users.update(Meteor.userId(), {$set: {"profile.myPos": findWithAttr(Arr, '_id', Meteor.userId()) + 1 }});
+                    console.log('Nieuwe positie: ' + Meteor.user().profile.myPos);
+                } else {
+                    console.log('Oude positie: ' + Meteor.user().profile.myPos);
+                    Meteor.users.update(Meteor.userId(), {$set: {"profile.myPos": findWithAttr(Arr, '_id', Meteor.userId()) + 1 }});
+                    console.log('Nieuwe positie: ' + Meteor.user().profile.myPos);
+                }
+            }
 
         </script>
         <!--Antwoorden-->

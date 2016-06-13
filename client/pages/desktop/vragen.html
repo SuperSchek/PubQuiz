@@ -4,12 +4,12 @@
 
             <!--Leaderboard-->
             <div id="leaderboard-cont">
-                <div id="leaderboard-title">Score:</div>
+                <script>var position = 1</script>
+                <div id="leaderboard-title">Leaderboard:</div>
                 <div id="leaderboard">
-                    {{#each team}}
+                    {{#each sortedPlayers}}
                         <div class="teamcard-cont-lobby">
-                            <!--{{name}}-->
-                            {{rank}}<div class="teamcard-titel-lobby">{{name}}</div><div class="score">{{myScore}}</div>
+                            {{profile.myPos}}<div class="teamcard-titel-lobby">{{emails.[0].address}}</div><div class="score">{{profile.score}}</div>
                         </div>
                     {{/each}}
                 </div>

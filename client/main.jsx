@@ -118,6 +118,11 @@ Template.vragen.helpers({
                 return QuizQuestions.findOne({'_id': currentQuestionId}).picture;
             }
         }
+    },
+    sortedPlayers: function () {
+        return Meteor.users.find({}, {
+            sort: { "profile.score": -1 }
+        }).fetch();
     }
 });
 

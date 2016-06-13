@@ -32,11 +32,12 @@ Template.register.events({
         event.preventDefault();
         var emailVar = event.target.email.value;
         var passwordVar = event.target.password.value;
-        Accounts.createUser({
+            Accounts.createUser({
             email: emailVar,
             password: passwordVar,
             team: "",
-            score: 0
+            score: 0,
+            myPos: 0
         }, function(error){
             if(error){
                 console.log(error.reason); // Output error if registration fails
