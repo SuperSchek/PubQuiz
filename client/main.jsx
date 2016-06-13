@@ -71,8 +71,8 @@ Template.antwoord.helpers({
 Template.vragen.helpers({
     team: function () {
         if(Meteor.user() != undefined) {
-            ppp = Meteor.user().profile.kamercode;
-            return Teams.find({room: ppp});
+            ppp = Meteor.user().profile.roomLock;
+            return Teams.find({roomLock: ppp});
 
         }
     },
@@ -293,16 +293,16 @@ ppp = parseInt;
 Template.lobbymobile.helpers({
     team: function () {
         if(Meteor.user() != undefined) {
-            ppp = Meteor.user().profile.kamercode;
-            return Teams.find({room: ppp});
+            ppp = Meteor.user().profile.roomLock;
+            return Channels.find({roomLock: ppp});
 
         }
     },
     TeamsCount: function () {
         if(Meteor.user() != undefined) {
-            ppp = Meteor.user().profile.kamercode;
-            return Teams.find({room: ppp}).count();
-        }
+            ppp = Meteor.user().profile.roomLock;
+            return Channels.find({roomLock: ppp}).count();
+        }g
     },
     'memberCount': function () {
         if (this.powerupmaster != "" && this.questionmaster != "") {
@@ -392,7 +392,12 @@ Template.lobbymobile.events({
             Channels.update({_id: myRoomLock}, {$set: pmQuery});        // Mondje loopt bijna over, bah bah
 
 
-       //} else if (selectedValue == "Powerupmaster") {
+        var plusOne =  JSON.stringify(Channels.find({_id: myRoomLock}, {fields: {numberOfTeams: 1}})); // Haalt het huidige aantal teams uit de de channel met matchende roomlock zet het in en string
+        plusOne = plusOne.substr(17, plusOne.length-1); // haalt laatste character weg ---}--- Nu is het nog een getal
+        plusOne = parseInt(plusOne); //Zet de string om in een cijfer zodat we hem kunnen optellen
+        plusOne = plusOne + 1; //En er is een nieuw team bij gekomen, + 1
+        Channels.update({_id: myRoomLock}, {$set: {numberOfTeams: plusOne}}); // Nieuwe getal toevoegen zodat het uitgelezen kan worden.
+
 
     },
     'click #joinQM': function() {
@@ -408,14 +413,7 @@ Template.lobbymobile.events({
         if (Teams.find({}).fetch()[i-1].powerupmaster == user){
             Teams.update({_id: this._id}, {$set: {powerupmaster: ""}});
         };
-
-        if (Teams.find({}).fetch()[i-1].playerthree == user){
-            Teams.update({_id: this._id}, {$set: {playerthree: ""}});
-        };
-
-        if (Teams.find({}).fetch()[i-1].playerfour == user){
-            Teams.update({_id: this._id}, {$set: {playerfour: ""}});
-        };
+        
 
         Teams.update({_id: this._id}, {$set: {questionmaster: user}}); // add user to the team
     },
@@ -440,7 +438,6 @@ Template.lobbymobile.events({
     });
 
 
-
 Template.lobbydesktop.helpers({
     roomcode: function() {
         if(Meteor.user() != undefined) {
@@ -450,14 +447,20 @@ Template.lobbydesktop.helpers({
     team: function () {
         if(Meteor.user() != undefined) {
             ppp = Meteor.user().profile.roomLock;
-            return Teams.find({room: ppp});
+            return Channels.find({_id: ppp});
+            //return Teams.find({roomLock: ppp});
 
         }
     },
     TeamsCount: function () {
         if(Meteor.user() != undefined) {
-            ppp = Meteor.user().profile.roomLock;
-            return Teams.find({room: ppp}).count();
+            if (Channels !== undefined) {
+                var stringRoomLock = Meteor.user().profile.roomLock;
+                var gnot1 = JSON.stringify(Channels.findOne({_id: stringRoomLock}, {fields: {_id: 1}})); ///// HIER
+                var gnot2 = gnot1.substr(17, gnot1.length - 1);                                          ////  GEEFT MONGO
+                var gnot = parseInt(gnot2);                                                             //// EEN ERROR OP IN DE CONSOLE LOG.. EEN COUNT WAS TE OMSLACTIG DAAROM WOU IK HET VIA VARIABELEN DOENT
+                return gnot;
+            }
         }
     },
     'memberCount': function () {

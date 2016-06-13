@@ -1,6 +1,9 @@
 var kamernummertje = 0;
 var kamerCodering = 0;
 var gebruiker;
+
+
+
 //Create kamerNumber
 
 // device detection and set isMobile accordingly.
@@ -9,7 +12,13 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     isMobile = true;
 
 function kamerNumber() {
-    kamernummertje = Channels.find().count() + 1;
+    var kammernummertijdelijk = Channels.find().count() + 1;
+    var kamernummerVinden = Channels.find({roomNumber: kammernummertijdelijk}).count();
+    while (kamernummerVinden >= 1) {
+        kammernummertijdelijk = kammernummertijdelijk - 1;
+        kamernummerVinden = Channels.find({roomNumber: kammernummertijdelijk}).count();
+    }
+    kamernummertje = kammernummertijdelijk;
     return kamernummertje;
 }
 
@@ -17,7 +26,7 @@ function kamerNumber() {
 function kamerCode() {
 
     var kamerGetal  = Math.floor(Math.random() * 9000) + 1000;
-    var getalVinden = Channels.find({code: kamerGetal}).count();
+    var getalVinden = Channels.find({roomLock: kamerGetal}).count();
 
     while(getalVinden >= 1) {
         kamerGetal = Math.floor(Math.random() * 9000) + 1000;
@@ -152,7 +161,7 @@ Template.logout.events({
         event.preventDefault();
         console.log(isMobile);
         if(isMobile == false){
-            rcdi = Meteor.user().profile.kamercode;
+            rcdi = Meteor.user().profile.roomLock;
             console.log(rcdi);
             rcdistring = String(rcdi);
             Channels.remove({_id: rcdistring});
@@ -196,29 +205,6 @@ Template.logindesktop.helpers({
         return Session.get('errorMessage');
     }
 });
-
-
-//Create kamerNumber
-function kamerNumber (){
-    kamerNumber = Channels.find().count() + 1;
-    return kamerNumber;
-};
-
-//Create kamerCode
-function kamerCode() {
-
-    var kamerGetal = kamerGetal = Math.floor(Math.random() * 9000) + 1000;
-    var getalVinden = Channels.find({code: kamerGetal}).count();
-
-     while(getalVinden >= 1) {
-         kamerGetal = Math.floor(Math.random() * 9000) + 1000;
-     };
-
-
-    kamerCode = kamerGetal;
-
-    return kamerCode;
-};
 
 Template.registerdesktop.events({
     'submit form': function(event) {
@@ -270,6 +256,7 @@ function createRoom() {
             "timer"        : 0,
             "afteller"     : 0
         },
+        "numberOfTeams"    : 0,
         "teams" : {},
         "questions":  {
             "vraag 1": {
@@ -571,13 +558,17 @@ function createRoom() {
         "roomLock": kamerCodering,
         "roomNumber": kamernummertje
     }}});
+    function getNumberOfTeams() {
+        var gnot = JSON.stringify(Channels.findOne({_id: String(Meteor.user().profile.roomLock)}, {fields: {numberOfTeams: 1, _id: 0}}));
+        gnot = gnot.substr(17);
+        gnot = gnot.substr(0, gnot.length-1);
+        gnot = parseInt(gnot);
+        gnot = parseInt(gnot);
+    };
+    getNumberOfTeams();
+
 
     Router.go("lobby"); // User succeeds, naar de lobby
-
-    Channels.insert({
-        name: kamernummertje,
-        code: kamerCodering
-    });
 }
 
 
