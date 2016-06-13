@@ -1,9 +1,8 @@
 <template name="answer-goed">
-    <div id="antwoord-uitleg">
+    <style>body{background:#65B88A}</style>
         <div id="antwoord-container">
-            <div id="antwoord-juist">GOED</div>
+            <div id="antwoord-goed"><img src="good.svg"> <div>Lekker bezig!</div></div>
         </div>
-    </div>
 
     <script>
         if (QuestionsMeta.findOne() != undefined) {
@@ -19,10 +18,11 @@
 </template>
 
 <template name="answer-fout">
-    <div id="antwoord-uitleg">
+    <!--<style>body{background:#65B88A}</style>-->
+    <style>body{background:#E84C3F}</style>
         <div id="antwoord-container">
-            <div id="antwoord-juist">FOUT</div>
-        </div>
+            <div id="antwoord-fout"><img src="wrong.svg"> <div>Jammer joh!</div>
+            </div>
     </div>
 
     <script>

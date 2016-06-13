@@ -118,7 +118,26 @@ hr{border:0;border-top:1px solid #e9e9e9;box-shadow: none;margin:10px 0;}
 
 #antwoord-uitleg{z-index:100;position:absolute;margin:0 auto;height: 100%;width:100%;background: #C09C6A;border-top:10px solid #0C2B3A;font-family:Cubano, sans-serif;}
 #antwoord-container{float:left;position: relative;margin:2% 0 0 2%;text-align: left;padding:25px;}
-#antwoord-juist{color:#0C2B3A;font-size: 30px;padding:0 0 30px 0;}
+#antwoord-fout{color:#fff;font-size: 30px;padding:0 0 30px 0;background:#E84C3F;float:left;}
+#antwoord-fout > div{
+    float: left;
+    line-height: 90px;
+    padding-left: 20px;
+}
+
+#antwoord-fout > img{
+    float: left;
+}
+#antwoord-goed{color:#fff;font-size: 30px;padding:0 0 30px 0;background:#65B88A;float:left;}
+#antwoord-goed > div{
+    float: left;
+    line-height: 90px;
+    padding-left: 20px;
+}
+#antwoord-goed > img{
+    float: left;
+}
+#antwoord-desktop{color:#0C2B3A;font-size: 30px;padding:0 0 30px 0;}
 #antwoord-titel{position:relative;}
 #antwoord-text{position:relative;color:#0C2B3A;font-size: 30px;line-height: 40px;padding-right:2%;width:50%;margin-top: 20px;}
 #antwoord-btn{margin:0 0 0 2%;width:40%;float:left;position: relative;}
