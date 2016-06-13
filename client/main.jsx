@@ -150,13 +150,6 @@ function startTimer(duration) {
     }, 1000);
 }
 
-Template.vragen.events({
-    'click #leaderboard-title': function(event){
-        event.preventDefault();
-        Meteor.call('get question');
-        startTimer(40);
-    }
-});
 
 Template.answers.events({
     'click #next-question': function(event){
@@ -212,6 +205,21 @@ Template.parentreg.helpers({
         return function(){
             document.getElementById('login-module').className = "show";
             document.getElementById('register-module').className = "hidden"
+        }
+    }
+});
+
+Template.desktoplogin.events({
+    'click button': function(e, tpl){
+        tpl.data.onClick(e);
+    }
+});
+
+Template.desktoplogin.helpers({
+    doSomeAction(){
+        return function(){
+            document.getElementById('login-module').className = "hidden";
+            document.getElementById('register-module').className = "show"
         }
     }
 });
@@ -381,6 +389,9 @@ Template.lobbydesktop.helpers({
             return Teams.find({room: ppp});
 
         }
+    },
+    user: function() {
+        return Meteor.users.find().fetch();
     },
     TeamsCount: function () {
         if(Meteor.user() != undefined) {
