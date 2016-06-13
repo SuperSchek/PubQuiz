@@ -10,12 +10,16 @@
                         <img src="logomob.png"/>
                     </div>
                 </div>
-                {{> login}}
-                {{> register}}
-                {{#if errorMessage}}
-                    <div class="alert">
-                        <span>{{errorMessage}}</span>
-                    </div>
+                {{#if currentUser}}
+                    {{> dashboard}}
+                {{else}}
+                    {{> login}}
+                    {{> register}}
+                    {{#if errorMessage}}
+                        <div class="alert">
+                            <span>{{errorMessage}}</span>
+                        </div>
+                    {{/if}}
                 {{/if}}
             </div>
         </div>
@@ -27,11 +31,11 @@
 </template>
 
 <template name="facebooklogin">
-    <a href="#" id="facebook-login"><img src="/fb-login.png" /> login </a> <span> of</span>
+    <a href="#" id="facebook-login" style="color:#424242!important;"><img src="/fb-login.png" /> login </a> <span> of</span>
 </template>
 
 <template name="child">
-    <button class="btn-reg"> of registreer</button>
+    <button class="btn-reg" style="width:auto!important;"> of registreer</button>
 </template>
 
 <template name="parentreg">
