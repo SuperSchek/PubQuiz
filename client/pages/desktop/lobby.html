@@ -1,7 +1,7 @@
 <template name="lobbydesktop">
     <div id="lobby-cont">
         <div id="lobby" >
-            <h1>Aanwezige teams ({{TeamsCount}})</h1>
+            <h1>Aanwezige spelers</h1>
             <h2 style="color: #e9e9e9;">Toegangscode: {{roomcode}}</h2>
         </div>
 
@@ -9,29 +9,33 @@
         <!--<div id="btn-start-game"><a href="/questionbumper"><button class="btn-start-agame hvr-fade">Start Quiz!</button></a></div>-->
 
         <div id="playerlist">
-            {{#each team}}
-                <div class="teamcard-cont">
-                    <div class="teamcard-titel">{{name}}</div>
-                    <div class="teamcard-subtitel">
-                        {{memberCount}}/2 rollen vervuld
-                    </div>
-
-                    <!--<div>QM: {{questionmaster}} </div>-->
-                    <!--<div>PM: {{powerupmaster}} </div>-->
-                    <!--<div>P3: {{playerthree}} </div>-->
-                    <!--<div>P4: {{playerfour}}  </div>-->
-                    <!--<div>Score: {{score}}</div>-->
-                    <!--<div>Number: {{number}}</div>-->
-                    <!--<div>Visible: {{visible}}</div>-->
-                    <!--<div>Position: {{position}}</div>-->
-                    <!--<div>Roomcode: {{room}}</div>-->
-                    <hr>
-                    <div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Question Master</div><div class="name crop">{{questionmaster}}</div></div>
-                    <hr>
-                    <div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up Master</div><div class="name crop">{{powerupmaster}}</div></div>
-                    <hr>
-                </div>
+            {{#each user}}
+                <div class="playerCard">{{emails.[0].address}}</div>
             {{/each}}
+
+            <!--{{#each team}}-->
+                <!--<div class="teamcard-cont">-->
+                    <!--<div class="teamcard-titel">{{name}}</div>-->
+                    <!--<div class="teamcard-subtitel">-->
+                        <!--{{memberCount}}/2 rollen vervuld-->
+                    <!--</div>-->
+
+                    <!--&lt;!&ndash;<div>QM: {{questionmaster}} </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div>PM: {{powerupmaster}} </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div>P3: {{playerthree}} </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div>P4: {{playerfour}}  </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div>Score: {{score}}</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div>Number: {{number}}</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div>Visible: {{visible}}</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div>Position: {{position}}</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div>Roomcode: {{room}}</div>&ndash;&gt;-->
+                    <!--<hr>-->
+                    <!--<div class="questionmaster"><img src="/questions.png" class="clip" height="50px" width="50px"/><div class="role">Question Master</div><div class="name crop">{{questionmaster}}</div></div>-->
+                    <!--<hr>-->
+                    <!--<div class="questionmaster"><img src="/powerup.png" class="clip" height="50px" width="50px"/><div class="role">Power-Up Master</div><div class="name crop">{{powerupmaster}}</div></div>-->
+                    <!--<hr>-->
+                <!--</div>-->
+            <!--{{/each}}-->
         </div>
     </div>
 </template>
